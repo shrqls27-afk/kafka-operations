@@ -1,12 +1,12 @@
 # __consumer_offsets RF=1 → RF=3
 
-Apache Kafka **3.9.1**, Linux 직접 설치, KRaft broker 3개를 대상으로 합니다. 운영 producer/consumer를 계획적으로 중지하지 않고 내부 토픽의 기존 replica를 보존한 채 replica 2개를 추가합니다. 회사 접근/적용은 수행하지 않습니다.
+Apache Kafka **3.9.1**, Linux 직접 설치, KRaft broker 3개를 대상으로 합니다. 운영 producer/consumer를 계획적으로 중지하지 않고 내부 토픽의 기존 replica를 보존한 채 replica 2개를 추가합니다. 운영 환경 접근/적용은 수행하지 않습니다.
 
 간편 실행은 **[.sh 하나로 실행](docs/ONE-SCRIPT.md)**을 참고하세요. 기본 Kafka 경로는 `~/kafka/current`입니다.
 
-회사용 [offsets-rf3.sh](offsets-rf3.sh)의 별도 **[실제 전체 실행 검증](docs/STANDALONE-VALIDATION.md)**에는 변경 직전 NO와 정상 완료 후 --resume 결과도 포함돼 있습니다.
+운영용 [offsets-rf3.sh](offsets-rf3.sh)의 별도 **[실제 전체 실행 검증](docs/STANDALONE-VALIDATION.md)**에는 변경 직전 NO와 정상 완료 후 --resume 결과도 포함돼 있습니다.
 
-회사 적용은 **[단계별 실행 절차](docs/COMPANY-PROCEDURE.md)**부터 읽으세요. 상세 판단 기준은 [RUNBOOK](docs/RUNBOOK.md)에 있습니다. 실제 측정 결과는 [RESULTS](docs/RESULTS.md), 근거는 [SOURCES](docs/SOURCES.md)에 있습니다.
+운영 환경 적용은 **[단계별 실행 절차](docs/COMPANY-PROCEDURE.md)**부터 읽으세요. 상세 판단 기준은 [RUNBOOK](docs/RUNBOOK.md)에 있습니다. 실제 측정 결과는 [RESULTS](docs/RESULTS.md), 근거는 [SOURCES](docs/SOURCES.md)에 있습니다.
 
 ## 디렉터리
 
@@ -15,7 +15,7 @@ Apache Kafka **3.9.1**, Linux 직접 설치, KRaft broker 3개를 대상으로 �
 - `scripts/java.sh`, `tests/OffsetsLab.java`: Kafka 3.9.1 Java Admin/producer/consumer 검증
 - `tests/test_plan.py`: 잘못된 계획/변경된 클러스터 거부 테스트
 - `scripts/summarize.py`: 원본 이벤트에서 익명화된 수치와 파티션별 결과 추출
-- `scripts/verify_standalone.py`, `scripts/summarize_standalone.py`: 단일 .sh의 NAS 격리 실험과 요약(회사에서 실행 금지)
+- `scripts/verify_standalone.py`, `scripts/summarize_standalone.py`: 단일 .sh의 NAS 격리 실험과 요약(운영 환경에서 실행 금지)
 - `evidence/`: 작은 JSON 요약, assignment, 파일 해시. `runtime/`, `build/`는 Git 제외
 
 ## 전제와 재현
@@ -45,4 +45,4 @@ baseline 45초 → 조회/계획/dry-run → 온라인 재할당(1MiB/s throttle
 
 `events.jsonl`은 메시지 ID별 전송 시도/성공/실패, 소비 offset/간격, 커밋 결과/위치/시간, 2초 간격 lag 및 offsets 전체 snapshot, rebalance와 재접속 위치를 기록합니다. 실제 작업 시각은 ISO UTC, 시간 간격은 monotonic clock입니다. lag는 최신 offset과 group committed offset의 차이이며 호출 시점이 다르므로 순간값입니다.
 
-전송 중 lag를 누락으로 판정하지 않습니다. 전송 스레드 종료 뒤 ack된 ID 집합이 소비 집합에 모두 포함되는지 drain에서 판단하며, ack 없는 소비는 별도 표시합니다. 재시도 후 producer 오류는 전송 여부가 불확실할 수 있습니다. drain은 성공 ack 집합을 기준으로 하므로 전송 오류가 있으면 그 ID를 별도로 조사해야 합니다. 실제 비즈니스 처리/DB 트랜잭션/회사의 client 설정을 대체하는 검증이 아닙니다.
+전송 중 lag를 누락으로 판정하지 않습니다. 전송 스레드 종료 뒤 ack된 ID 집합이 소비 집합에 모두 포함되는지 drain에서 판단하며, ack 없는 소비는 별도 표시합니다. 재시도 후 producer 오류는 전송 여부가 불확실할 수 있습니다. drain은 성공 ack 집합을 기준으로 하므로 전송 오류가 있으면 그 ID를 별도로 조사해야 합니다. 실제 비즈니스 처리/DB 트랜잭션/운영 환경의 client 설정을 대체하는 검증이 아닙니다.

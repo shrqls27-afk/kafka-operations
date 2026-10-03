@@ -1,10 +1,10 @@
-# 회사 작업 절차: __consumer_offsets RF 1 → 3
+# 운영 환경 작업 절차: __consumer_offsets RF 1 → 3
 
 **간편 실행:** `~/kafka/current` 설치 환경은 [단일 .sh 실행 안내](ONE-SCRIPT.md)를 사용하세요. 아래는 세부 수동 절차입니다.
 
 대상: **Red Hat/Linux, Apache Kafka 3.9.1, KRaft, 물리 서버 3대에 broker 각 1개**.
 목적: 실행 중인 producer/consumer와 broker를 계획적으로 중지하지 않고 기존 offsets replica에 2개를 추가합니다.
-정확한 토픽명은 `__consumer_offsets`입니다. 이 문서는 회사 적용용이며 회사 서버에서 직접 실행·검증한 기록은 아닙니다.
+정확한 토픽명은 `__consumer_offsets`입니다. 이 문서는 운영 환경 적용용이며 운영 서버에서 직접 실행·검증한 기록은 아닙니다.
 
 > 아래 번호 순서로 **한 단계씩** 실행하고 통과 조건을 확인합니다. 전체 문서를 한 번에 붙여 실행하지 마세요.
 > NAS 검증은 성공했지만 운영의 오류·지연 0건을 보장하지 않습니다. coordinator 이동이나 복제 부하로 commit 지연/재시도가 생길 수 있습니다.
@@ -12,13 +12,13 @@
 ## 0. 작업 범위와 준비물
 
 - 명령은 Kafka 관리자 권한이 있는 **서버 1대의 Bash 터미널**에서만 실행합니다. 3대에서 같은 재할당을 반복 실행하지 않습니다.
-- 회사 bootstrap 주소, 실제 broker ID 3개, Kafka/JDK 경로, 필요 시 기존 TLS/SASL client.properties를 준비합니다.
+- 운영 환경 bootstrap 주소, 실제 broker ID 3개, Kafka/JDK 경로, 필요 시 기존 TLS/SASL client.properties를 준비합니다.
 - JDK 17 전체(`javac` 포함), Python 3.8 이상, Kafka 3.9.1 배포본이 필요합니다. Python 추가 패키지나 인터넷 접속은 필요 없습니다.
-- GitHub 저장소 전체를 ZIP으로 내려받아 회사 반입 절차에 따라 복사합니다. `scripts/`와 `tests/`도 함께 옮깁니다. helper가 Kafka 배포본의 Java 라이브러리로 컴파일합니다.
-- **회사 서버에서는 `scripts/lab.py`를 실행하지 않습니다.** 운영 offsets 토픽 삭제/재생성, 파티션 수 변경, offset reset, 강제 leader election, broker 재시작을 이 작업에 포함하지 않습니다.
-- 작업 담당자·변경 시간·관측 시간과 중단 기준(허용 lag, commit 지연/오류, disk/network 부하)을 사전에 정합니다. 이 값은 회사의 평소 지표와 SLA로 정합니다.
+- GitHub 저장소 전체를 ZIP으로 내려받아 운영 환경 반입 절차에 따라 복사합니다. `scripts/`와 `tests/`도 함께 옮깁니다. helper가 Kafka 배포본의 Java 라이브러리로 컴파일합니다.
+- **운영 서버에서는 `scripts/lab.py`를 실행하지 않습니다.** 운영 offsets 토픽 삭제/재생성, 파티션 수 변경, offset reset, 강제 leader election, broker 재시작을 이 작업에 포함하지 않습니다.
+- 작업 담당자·변경 시간·관측 시간과 중단 기준(허용 lag, commit 지연/오류, disk/network 부하)을 사전에 정합니다. 이 값은 운영 환경의 평소 지표와 SLA로 정합니다.
 
-## 1. 회사 환경 입력 — 클러스터 변경 없음
+## 1. 운영 환경 입력 — 클러스터 변경 없음
 
 압축을 푼 `consumer-offsets-rf1-to-rf3` 폴더로 이동합니다. 아래 경로 예시는 반드시 실제 경로로 바꿉니다.
 `KAFKA_HOME`은 **bin과 libs가 들어 있는 설치 최상위 폴더**입니다. server.properties가 들어 있는 폴더가 아닙니다.
@@ -53,7 +53,7 @@ printf '작업 증거 경로: %s\n' "$WORK_DIR"
 
 **통과 조건:** Java/javac 17, Python 3.8+, Kafka 3.9.1. bootstrap에는 controller 전용 포트를 사용하지 않습니다.
 같은 터미널에서 이후 단계를 수행합니다. 터미널이 끊기면 실제 변수값과 기존 WORK_DIR/PLAN_DIR를 복원하고 현재 진행 상태부터 확인합니다.
-인증 파일과 회사 주소가 포함된 원본 출력은 사내 보관하며 GitHub에 올리지 않습니다.
+인증 파일과 운영 환경 주소가 포함된 원본 출력은 사내 보관하며 GitHub에 올리지 않습니다.
 
 ## 2. 사전 점검 — 하나라도 비정상이면 실행 보류
 

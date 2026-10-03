@@ -12,7 +12,7 @@ with zipfile.ZipFile(buf, 'w', compression=zipfile.ZIP_DEFLATED) as z:
         z.writestr(info, (root/name).read_bytes())
 payload = base64.b64encode(buf.getvalue()).decode()
 head = '''#!/usr/bin/env bash
-# 단일 파일 회사용 실행기. 원본: scripts/company.py 등. 외부 다운로드 없음.
+# 단일 파일 운영용 실행기. 원본: scripts/company.py 등. 외부 다운로드 없음.
 set -euo pipefail
 command -v python3 >/dev/null || { echo 'Python 3.8 이상이 필요합니다.' >&2; exit 1; }
 exec python3 -c '

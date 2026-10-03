@@ -1,6 +1,6 @@
-# 회사 적용 시작 문서: Linux / Red Hat, Kafka 3.9.1 KRaft
+# 운영 환경 적용 시작 문서: Linux / Red Hat, Kafka 3.9.1 KRaft
 
-범위: 물리 서버 3대의 실제 broker ID를 조회하여 **기존 `__consumer_offsets`의 모든 파티션 RF=1을 RF=3으로 확대**합니다. producer/consumer는 재할당 구간에 계획적으로 중지하지 않습니다. 원격 회사 적용은 수행하지 않았습니다. 변경 창과 담당자, 보류 기준은 회사에서 승인한 값을 사용하세요.
+범위: 물리 서버 3대의 실제 broker ID를 조회하여 **기존 `__consumer_offsets`의 모든 파티션 RF=1을 RF=3으로 확대**합니다. producer/consumer는 재할당 구간에 계획적으로 중지하지 않습니다. 원격 운영 환경 적용은 수행하지 않았습니다. 변경 창과 담당자, 보류 기준은 운영 환경에서 승인한 값을 사용하세요.
 
 ## 사전점검과 보류 조건
 
@@ -8,13 +8,13 @@
 - 정확한 내부 토픽 이름은 `__consumer_offsets`입니다. 파티션 수를 바꾸거나 토픽을 삭제/재생성하지 않습니다. 원래 RF=1인 파티션의 유일한 replica와 leader, ISR가 정상이어야 합니다.
 - 이미 진행 중인 모든 재할당, 기존 throttle/quota, offline/under-replicated partitions가 있으면 보류합니다. 이 도구는 기존 throttle이 있으면 별도 조정을 요구하며 실행을 거부합니다.
 - broker별 offsets log 크기(승인된 OS 경로 또는 kafka-log-dirs), disk 사용량/IO latency, 네트워크, heap/GC, replication fetcher lag를 측정합니다. 합계 데이터가 RF=1 때의 대략 3배가 되므로 각 broker별 추가 복제와 임시 공간/compaction 여유를 계산합니다. 단순 토픽 합계만으로 공간을 판단하지 않습니다.
-- 그룹 목록과 committed offset, lag, commit 오류/지연, rebalance 빈도, 애플리케이션 처리 간격 및 producer retry/error 기준을 수집합니다. 시작 전 baseline과 비교할 허용값/관측 기간을 확정합니다. 회사 부하/데이터 크기를 모르는 상태에서 NAS의 수치를 그대로 허용값으로 쓰지 않습니다.
-- TLS/SASL/ACL 인증 파일은 별도 보호 경로에 두고 최소 권한을 부여합니다. Admin 조회와 토픽 ALTER, throttle 변경을 위한 cluster/broker config 권한을 확인합니다. 비밀 값이나 인증 파일을 Git 또는 공유 evidence로 복사하지 않습니다. 출력에 포함된 host/client-id도 회사 외 공유 전에 익명화합니다.
+- 그룹 목록과 committed offset, lag, commit 오류/지연, rebalance 빈도, 애플리케이션 처리 간격 및 producer retry/error 기준을 수집합니다. 시작 전 baseline과 비교할 허용값/관측 기간을 확정합니다. 운영 환경 부하/데이터 크기를 모르는 상태에서 NAS의 수치를 그대로 허용값으로 쓰지 않습니다.
+- TLS/SASL/ACL 인증 파일은 별도 보호 경로에 두고 최소 권한을 부여합니다. Admin 조회와 토픽 ALTER, throttle 변경을 위한 cluster/broker config 권한을 확인합니다. 비밀 값이나 인증 파일을 Git 또는 공유 evidence로 복사하지 않습니다. 출력에 포함된 host/client-id도 운영 환경 외 공유 전에 익명화합니다.
 - resource 여유 부족, 원본 ISR 이탈/leader 부재, 클러스터 ID/assignment 변화, 동시 변경, lag 증가/commit SLA 초과/복제 진전 없음이면 다음 단계를 보류합니다. 자동 반복 재실행/원본 RF=1 복구는 하지 않습니다.
 
 ## 환경과 조회 명령
 
-JDK 17, Python 3.8+, Bash, Kafka 3.9.1 배포본을 준비합니다. 인증은 운영용 `--command-config` 경로를 입력받습니다. PLAINTEXT 격리 실험은 `-`를 사용하며 회사에 강제하지 않습니다.
+JDK 17, Python 3.8+, Bash, Kafka 3.9.1 배포본을 준비합니다. 인증은 운영용 `--command-config` 경로를 입력받습니다. PLAINTEXT 격리 실험은 `-`를 사용하며 운영 환경에 강제하지 않습니다.
 
 ```bash
 cd consumer-offsets-rf1-to-rf3
@@ -24,7 +24,7 @@ export KAFKA_HEAP_OPTS='-Xms64m -Xmx256m'
 read -r -p '대상 bootstrap servers: ' BOOTSTRAP
 read -r -p '인증 properties 절대경로 (-는 인증 없음): ' AUTH_CONFIG
 read -r -p '새 계획/증거 디렉터리: ' PLAN_DIR
-# 예시 변수는 실제 회사 주소/비밀 값이 아니다.
+# 예시 변수는 실제 운영 환경 주소/비밀 값이 아니다.
 "$KAFKA_HOME/bin/kafka-broker-api-versions.sh" --bootstrap-server "$BOOTSTRAP" --command-config "$AUTH_CONFIG"
 "$KAFKA_HOME/bin/kafka-metadata-quorum.sh" --bootstrap-server "$BOOTSTRAP" --command-config "$AUTH_CONFIG" describe --status
 "$KAFKA_HOME/bin/kafka-reassign-partitions.sh" --bootstrap-server "$BOOTSTRAP" --command-config "$AUTH_CONFIG" --list
@@ -32,7 +32,7 @@ read -r -p '새 계획/증거 디렉터리: ' PLAN_DIR
 "$KAFKA_HOME/bin/kafka-consumer-groups.sh" --bootstrap-server "$BOOTSTRAP" --command-config "$AUTH_CONFIG" --all-groups --describe
 ```
 
-인증 없는 경우 위 직접 CLI 예시에서는 `--command-config "$AUTH_CONFIG"` 두 인자를 생략합니다. Python wrapper는 `-`를 자동 처리합니다. systemd 서비스명과 log 경로는 회사 설치에 맞게 확인하며 스크립트는 서비스를 자동 재시작하지 않습니다.
+인증 없는 경우 위 직접 CLI 예시에서는 `--command-config "$AUTH_CONFIG"` 두 인자를 생략합니다. Python wrapper는 `-`를 자동 처리합니다. systemd 서비스명과 log 경로는 운영 환경 설치에 맞게 확인하며 스크립트는 서비스를 자동 재시작하지 않습니다.
 
 ## 조회 → 계획 검토 → 실행
 
@@ -87,4 +87,4 @@ python3 scripts/reassign.py snapshot --bootstrap "$BOOTSTRAP" --command-config "
 
 ## 예상 영향과 한계
 
-추가 복제로 disk/network/heap와 controller 부하가 늘 수 있습니다. 기존 preferred replica를 보존해도 leader/coordinator 이동, metadata/offset 로딩 및 client 재탐색/재시도로 일시 commit 지연, timeout과 rebalance가 생길 수 있습니다. 계획적 애플리케이션 중지 없음과 오류/지연 한 번도 없음은 다른 기준입니다. 회사의 client 버전, retry/timeout/max.poll.interval, 부하, 장애영역과 토픽 크기를 확인한 변경 창이 필요합니다. 물리 3대의 장애 내성은 NAS 한 대 안의 3개 JVM으로 증명할 수 없습니다.
+추가 복제로 disk/network/heap와 controller 부하가 늘 수 있습니다. 기존 preferred replica를 보존해도 leader/coordinator 이동, metadata/offset 로딩 및 client 재탐색/재시도로 일시 commit 지연, timeout과 rebalance가 생길 수 있습니다. 계획적 애플리케이션 중지 없음과 오류/지연 한 번도 없음은 다른 기준입니다. 운영 환경의 client 버전, retry/timeout/max.poll.interval, 부하, 장애영역과 토픽 크기를 확인한 변경 창이 필요합니다. 물리 3대의 장애 내성은 NAS 한 대 안의 3개 JVM으로 증명할 수 없습니다.

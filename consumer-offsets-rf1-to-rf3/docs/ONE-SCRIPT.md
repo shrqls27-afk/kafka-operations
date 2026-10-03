@@ -1,6 +1,6 @@
-# 회사에서는 .sh 하나로 실행
+# 운영 환경에서는 .sh 하나로 실행
 
-GitHub에서 **[offsets-rf3.sh](../offsets-rf3.sh)**의 Raw 파일을 다운로드해 회사 서버로 반입합니다.
+GitHub에서 **[offsets-rf3.sh](../offsets-rf3.sh)**의 Raw 파일을 다운로드해 운영 서버로 반입합니다.
 이 파일 하나만 있으면 됩니다. 실행 시 필요한 도구 소스를 자체적으로 풀며 인터넷에 접속하거나 패키지를 설치하지 않습니다.
 
 Kafka 설치 경로는 **`~/kafka/current`**로 고정했습니다. Kafka 설치 계정으로 서버 한 대에서 실행하세요.
@@ -16,7 +16,7 @@ bash offsets-rf3.sh
 2. 기존 client.properties 경로 — TLS/SASL 인증이 없다면 Enter(`-`). 비밀번호를 직접 입력하지 않습니다.
 3. 관측할 consumer group.id — 없으면 Enter. 중요 그룹의 업무 지표는 별도 관측합니다.
 4. 표시된 cluster ID·broker·파티션별 계획과 서버 자원을 확인하고 `YES`.
-5. 회사에서 정한 복제 속도(bytes/sec)를 입력하고 실제 변경에 `YES`.
+5. 운영 환경에서 정한 복제 속도(bytes/sec)를 입력하고 실제 변경에 `YES`.
 6. RF3/ISR3 완료 후 업무 지표와 다른 throttle 작업이 없는지 확인하고 해제에 `YES`.
 
 **자동 수행:** 도구 버전 확인 → broker/quorum/불건전 파티션 조회 → 원본/목표 JSON 생성 → dry-run →
@@ -47,10 +47,10 @@ bash offsets-rf3.sh --resume ~/kafka-rf3-work/run-실제작업번호
 - 서버 3대의 disk/network 여유, quorum 건전성, 업무 commit 지연/lag, 변경 창은 사람이 확인합니다.
 - 스크립트는 모든 중요 그룹의 업무 정상 여부를 자동 판정하지 않습니다. 대표 group 조회만 제공합니다.
 - 같은 계정의 중복 실행은 막지만 다른 서버·계정의 동시 재할당/throttle 변경은 막을 수 없습니다.
-- `1048576`은 1MiB/s 단위 예시이며 운영 권장값이 아닙니다. 회사 부하에 맞게 입력합니다.
+- `1048576`은 1MiB/s 단위 예시이며 운영 권장값이 아닙니다. 운영 환경 부하에 맞게 입력합니다.
 - RF3이 이미 적용됐거나 혼합 RF이면 새 계획 생성을 거부합니다. RF를 낮추지 않습니다.
-- NAS 실험 성공이 회사의 오류·지연 없는 무중단을 보장하지 않습니다.
-- 상세 판단과 수동 대응: [회사 상세 절차](COMPANY-PROCEDURE.md), [RUNBOOK](RUNBOOK.md).
+- NAS 실험 성공이 운영 환경의 오류·지연 없는 무중단을 보장하지 않습니다.
+- 상세 판단과 수동 대응: [운영 환경 상세 절차](COMPANY-PROCEDURE.md), [RUNBOOK](RUNBOOK.md).
 
 ## 소스와 검증
 
@@ -67,4 +67,4 @@ python3 -m unittest discover -s tests -v
 실행 흐름 모의 테스트와 별도로 **단일 .sh 전체 실행, 변경 직전 NO, 정상 완료 후 --resume을 NAS 격리 클러스터에서 실제 검증**했습니다.
 대상 파일 SHA256, 이번 실행의 지표와 미검증 범위는 [단일 파일 실제 검증](STANDALONE-VALIDATION.md)에 있습니다.
 진행 중 단절/재개와 TLS/SASL은 이번 실제 실험에서 검증하지 않았습니다. 불명확한 요청 결과의 재실행 방지·해시 변경 차단은 모의 테스트 범위입니다.
-기존 재할당 helper의 기록은 [RESULTS](RESULTS.md)에 따로 보존했습니다. 어떤 NAS 실험도 회사 운영 적용 결과나 무중단 보장은 아닙니다.
+기존 재할당 helper의 기록은 [RESULTS](RESULTS.md)에 따로 보존했습니다. 어떤 NAS 실험도 운영 환경 운영 적용 결과나 무중단 보장은 아닙니다.

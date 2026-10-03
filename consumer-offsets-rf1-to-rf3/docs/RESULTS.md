@@ -1,8 +1,8 @@
 # 실제 NAS 실험 결과
 
-이 문서는 이전 helper 실험입니다. **회사용 단일 offsets-rf3.sh의 별도 실제 전체 실행 결과**는 [STANDALONE-VALIDATION](STANDALONE-VALIDATION.md)을 보세요.
+이 문서는 이전 helper 실험입니다. **운영용 단일 offsets-rf3.sh의 별도 실제 전체 실행 결과**는 [STANDALONE-VALIDATION](STANDALONE-VALIDATION.md)을 보세요.
 
-실행일: **2026-10-03 (Asia/Seoul)**. Apache Kafka 3.9.1, Temurin JDK 17.0.20.1, Synology Linux 직접 설치. Docker 사용 없음. 회사 서버에는 접근/적용하지 않았습니다.
+실행일: **2026-10-03 (Asia/Seoul)**. Apache Kafka 3.9.1, Temurin JDK 17.0.20.1, Synology Linux 직접 설치. Docker 사용 없음. 운영 서버에는 접근/적용하지 않았습니다.
 
 ## 실행 환경과 범위
 
@@ -42,7 +42,7 @@ raw 이벤트의 전송 시도 ID·성공 ack ID·소비 ID 집합과 길이를 
 
 측정된 group lag의 reassignment 최대값은 1차 2, 2차 1이었고 after 최대는 모두 0이었습니다. 초기 committed offset 미생성 시 lag -1은 정상 유효값과 분리했습니다. initial group 배정과 별도 재접속/close의 rebalance는 기록됐으며 재할당 phase에서는 assign/revoke callback이 없었습니다. 2초 간격 snapshot에서 leader 변화가 발견되지 않았지만 짧은 전환이나 내부 client retry가 없었다고 증명하지는 못합니다.
 
-초기 sample timeout은 Admin 모니터링 future의 5초 timeout으로, offsets/그룹 생성 및 조회 준비 구간에 있었습니다. 앱의 send/commit 실패로 집계하지 않았고 별도 오류로 공개합니다. 내부 retry 전체 횟수나 회사 애플리케이션의 비즈니스 트랜잭션 시간은 측정하지 않았습니다.
+초기 sample timeout은 Admin 모니터링 future의 5초 timeout으로, offsets/그룹 생성 및 조회 준비 구간에 있었습니다. 앱의 send/commit 실패로 집계하지 않았고 별도 오류로 공개합니다. 내부 retry 전체 횟수나 운영 환경 애플리케이션의 비즈니스 트랜잭션 시간은 측정하지 않았습니다.
 
 ## 재할당과 설정 확인
 
@@ -54,12 +54,12 @@ raw 이벤트의 전송 시도 ID·성공 ack ID·소비 ID 집합과 길이를 
 
 1차 검증 완료 후 순차 SIGTERM에서 마지막 combined 노드가 과반수 상실로 controlled shutdown을 대기했습니다. 소유 PID/명령을 확인한 상태에서 **테스트 노드 102/103만** 다시 기동하여 quorum을 복구했고 마지막 노드 종료를 확인했습니다. 복구 기동한 테스트 노드는 controlled.shutdown.enable=false로 최종 SIGTERM 종료했습니다. 원래 측정 결과는 보존했고 이 종료 단계의 leader 이동은 연속 workload 측정 결과와 구분했습니다.
 
-재현 스크립트는 실험 전용 combined 클러스터에 controlled.shutdown.enable=false를 명시해 전체 종료 대기를 피하도록 보완했습니다. 이는 workload 종료 후 OS SIGTERM으로 flush/정리를 수행하며 강제 kill이 아닙니다. 회사 운영 설정의 권장 변경이 아닙니다. 이 보완을 실제 검증하기 위해 2차를 실행했고 모든 broker가 SIGTERM 종료(exit 143), workload는 정상 종료(exit 0)했습니다. 최종 /proc와 포트 확인에서 테스트 프로세스/리스너가 모두 사라졌습니다. 1차 지연 시점 shutdown.json의 null은 당시 상태 그대로 보존하고 최종 복구 결과는 별도 `cleanup-recovery.json`에 기록했습니다.
+재현 스크립트는 실험 전용 combined 클러스터에 controlled.shutdown.enable=false를 명시해 전체 종료 대기를 피하도록 보완했습니다. 이는 workload 종료 후 OS SIGTERM으로 flush/정리를 수행하며 강제 kill이 아닙니다. 운영 환경 운영 설정의 권장 변경이 아닙니다. 이 보완을 실제 검증하기 위해 2차를 실행했고 모든 broker가 SIGTERM 종료(exit 143), workload는 정상 종료(exit 0)했습니다. 최종 /proc와 포트 확인에서 테스트 프로세스/리스너가 모두 사라졌습니다. 1차 지연 시점 shutdown.json의 null은 당시 상태 그대로 보존하고 최종 복구 결과는 별도 `cleanup-recovery.json`에 기록했습니다.
 
 기존 Kafka/UI/Codex/Telegram의 처음 확인한 PID가 최종에도 동일하게 살아 있었고 기존 offsets 50개 파티션 RF=3·ISR=3을 **조회만** 해서 확인했습니다. 기존 topic RF 감소, 서비스 재시작, rm, 광범위 pkill은 수행하지 않았습니다. 데이터와 원본 로그는 NAS runtime에 보존했습니다.
 
 ## 한계와 미실행 항목
 
-회사 환경 접근, 운영 적용, 물리 서버/네트워크 장애 및 각 broker 강제 장애 실험은 수행하지 않았습니다. RF 확대의 온라인 절차와 정상 종료 검증이 목적이고, 한 NAS 안의 combined 3개 노드는 물리 3대의 장애영역을 재현하지 못하므로 장애 내성/지연 보장 주장을 추가하지 않았습니다. 처리 부하는 단일 group/consumer와 약 20건/초, offsets 데이터 크기도 작습니다. 많은 그룹·대용량 compacted offsets·장시간 트래픽·회사 인증/ACL·client 설정·실제 disk/network 특성은 추가 검토 대상입니다.
+운영 환경 접근, 운영 적용, 물리 서버/네트워크 장애 및 각 broker 강제 장애 실험은 수행하지 않았습니다. RF 확대의 온라인 절차와 정상 종료 검증이 목적이고, 한 NAS 안의 combined 3개 노드는 물리 3대의 장애영역을 재현하지 못하므로 장애 내성/지연 보장 주장을 추가하지 않았습니다. 처리 부하는 단일 group/consumer와 약 20건/초, offsets 데이터 크기도 작습니다. 많은 그룹·대용량 compacted offsets·장시간 트래픽·운영 환경 인증/ACL·client 설정·실제 disk/network 특성은 추가 검토 대상입니다.
 
-이번 관측에서 **재할당 구간의 계획적 producer/consumer 중지는 없었으나 지연은 있었습니다**. 성공 API 호출 안의 재시도는 숨겨질 수 있습니다. 짧은 실험을 회사의 오류/지연 없는 무중단 보장으로 사용하지 마세요. 적용 판단과 보류 조건은 [RUNBOOK](RUNBOOK.md)을 따릅니다.
+이번 관측에서 **재할당 구간의 계획적 producer/consumer 중지는 없었으나 지연은 있었습니다**. 성공 API 호출 안의 재시도는 숨겨질 수 있습니다. 짧은 실험을 운영 환경의 오류/지연 없는 무중단 보장으로 사용하지 마세요. 적용 판단과 보류 조건은 [RUNBOOK](RUNBOOK.md)을 따릅니다.
