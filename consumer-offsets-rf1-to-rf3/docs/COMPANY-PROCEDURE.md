@@ -1,5 +1,7 @@
 # 회사 작업 절차: __consumer_offsets RF 1 → 3
 
+**간편 실행:** `~/kafka/current` 설치 환경은 [단일 .sh 실행 안내](ONE-SCRIPT.md)를 사용하세요. 아래는 세부 수동 절차입니다.
+
 대상: **Red Hat/Linux, Apache Kafka 3.9.1, KRaft, 물리 서버 3대에 broker 각 1개**.
 목적: 실행 중인 producer/consumer와 broker를 계획적으로 중지하지 않고 기존 offsets replica에 2개를 추가합니다.
 정확한 토픽명은 `__consumer_offsets`입니다. 이 문서는 회사 적용용이며 회사 서버에서 직접 실행·검증한 기록은 아닙니다.
@@ -24,7 +26,7 @@
 ```bash
 cd /반입경로/kafka-operations/consumer-offsets-rf1-to-rf3
 export JAVA_HOME=/실제/JDK17/경로
-export KAFKA_HOME=/실제/kafka_2.13-3.9.1
+export KAFKA_HOME="$HOME/kafka/current"
 export PATH="$JAVA_HOME/bin:$PATH"
 # 이 터미널에서 실행하는 관리 CLI의 힙이며 기존 broker JVM에는 영향을 주지 않습니다.
 export KAFKA_HEAP_OPTS='-Xms64m -Xmx256m'

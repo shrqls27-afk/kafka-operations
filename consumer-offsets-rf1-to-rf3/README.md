@@ -2,6 +2,8 @@
 
 Apache Kafka **3.9.1**, Linux 직접 설치, KRaft broker 3개를 대상으로 합니다. 운영 producer/consumer를 계획적으로 중지하지 않고 내부 토픽의 기존 replica를 보존한 채 replica 2개를 추가합니다. 회사 접근/적용은 수행하지 않습니다.
 
+간편 실행은 **[.sh 하나로 실행](docs/ONE-SCRIPT.md)**을 참고하세요. 기본 Kafka 경로는 `~/kafka/current`입니다.
+
 회사 적용은 **[단계별 실행 절차](docs/COMPANY-PROCEDURE.md)**부터 읽으세요. 상세 판단 기준은 [RUNBOOK](docs/RUNBOOK.md)에 있습니다. 실제 측정 결과는 [RESULTS](docs/RESULTS.md), 근거는 [SOURCES](docs/SOURCES.md)에 있습니다.
 
 ## 디렉터리
