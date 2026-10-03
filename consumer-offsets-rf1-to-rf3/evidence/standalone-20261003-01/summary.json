@@ -1,0 +1,609 @@
+{
+  "acked": 4769,
+  "consumed_unique": 4769,
+  "duplicates": 0,
+  "missing_after_drain": [],
+  "consumed_without_ack": [],
+  "send_errors": 0,
+  "commit_errors": 0,
+  "resume_markers": 20,
+  "old_replay": 0,
+  "resume_committed": 4769,
+  "script_sha256": "3a4433458075a07cc0eeb13410430aeb39e40f32f388df1f3d674f20f640ce3c",
+  "cluster_id": "QfcVvP02R3CvS6DxNy7xPw",
+  "inputs": {
+    "bootstrap": "127.0.0.1:43001,127.0.0.1:43002,127.0.0.1:43003",
+    "auth": "-",
+    "group": "rf-lab-stable-group",
+    "throttle": 1048576
+  },
+  "decline_before_execute_unchanged": true,
+  "full_launcher_exit_code": 0,
+  "done_resume_exit_code": 0,
+  "done_resume_no_new_execute_logs": true,
+  "offsets_partitions_rf3_isr3": 50,
+  "original_replica_first_preserved": true,
+  "throttle_configs_original_equal": true,
+  "no_reassignments": true,
+  "standalone_directory_only_script": true,
+  "tls_sasl_tested": false,
+  "interrupted_inflight_resume_tested": false,
+  "first_event_utc": "2026-10-03T12:50:43.039991729Z",
+  "last_event_utc": "2026-10-03T12:55:31.991900868Z",
+  "elapsed_ms": 289985,
+  "event_errors": {
+    "sample_error": 2
+  },
+  "phases": {
+    "after": {
+      "first_ms": 257712,
+      "last_ms": 287694,
+      "events": {
+        "send_attempt": 553,
+        "consume": 553,
+        "send_ok": 553,
+        "commit_ok": 553,
+        "lag": 15,
+        "offsets_snapshot": 15
+      },
+      "send_duration_ms": {
+        "count": 553,
+        "p95": 5,
+        "max": 15
+      },
+      "commit_duration_ms": {
+        "count": 553,
+        "p95": 4,
+        "max": 16
+      },
+      "consume_interval_ms": {
+        "count": 553,
+        "p95": 56,
+        "max": 65
+      },
+      "lag": {
+        "count": 15,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "baseline": {
+      "first_ms": 1041,
+      "last_ms": 33283,
+      "events": {
+        "send_attempt": 429,
+        "send_ok": 429,
+        "sample_error": 2,
+        "lag": 10,
+        "offsets_snapshot": 10,
+        "rebalance_assigned": 1,
+        "consume": 429,
+        "commit_ok": 243
+      },
+      "send_duration_ms": {
+        "count": 429,
+        "p95": 26,
+        "max": 3724
+      },
+      "commit_duration_ms": {
+        "count": 243,
+        "p95": 8,
+        "max": 89
+      },
+      "consume_interval_ms": {
+        "count": 429,
+        "p95": 77,
+        "max": 203
+      },
+      "lag": {
+        "count": 8,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "decline-before-execute": {
+      "first_ms": 33329,
+      "last_ms": 101552,
+      "events": {
+        "send_attempt": 1122,
+        "send_ok": 1122,
+        "consume": 1122,
+        "commit_ok": 1122,
+        "lag": 34,
+        "offsets_snapshot": 34
+      },
+      "send_duration_ms": {
+        "count": 1122,
+        "p95": 16,
+        "max": 95
+      },
+      "commit_duration_ms": {
+        "count": 1122,
+        "p95": 6,
+        "max": 35
+      },
+      "consume_interval_ms": {
+        "count": 1122,
+        "p95": 68,
+        "max": 152
+      },
+      "lag": {
+        "count": 34,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "done-resume": {
+      "first_ms": 234982,
+      "last_ms": 257668,
+      "events": {
+        "commit_ok": 402,
+        "send_attempt": 401,
+        "send_ok": 401,
+        "consume": 401,
+        "lag": 12,
+        "offsets_snapshot": 12
+      },
+      "send_duration_ms": {
+        "count": 401,
+        "p95": 9,
+        "max": 29
+      },
+      "commit_duration_ms": {
+        "count": 402,
+        "p95": 7,
+        "max": 29
+      },
+      "consume_interval_ms": {
+        "count": 401,
+        "p95": 60,
+        "max": 78
+      },
+      "lag": {
+        "count": 12,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "drain-and-reconnect": {
+      "first_ms": 287740,
+      "last_ms": 289985,
+      "events": {
+        "send_finished": 1,
+        "drain_complete": 1,
+        "rebalance_revoked": 2,
+        "reconnect_begin": 1,
+        "resume_send_ok": 20,
+        "rebalance_assigned": 1,
+        "resume_first": 1,
+        "resume_consume": 20,
+        "reconnect_result": 1
+      },
+      "send_duration_ms": {
+        "count": 0,
+        "p95": null,
+        "max": null
+      },
+      "commit_duration_ms": {
+        "count": 0,
+        "p95": null,
+        "max": null
+      },
+      "consume_interval_ms": {
+        "count": 0,
+        "p95": null,
+        "max": null
+      },
+      "lag": {
+        "count": 0,
+        "p95": null,
+        "max": null
+      }
+    },
+    "standalone-migration": {
+      "first_ms": 101600,
+      "last_ms": 234976,
+      "events": {
+        "send_attempt": 2264,
+        "send_ok": 2264,
+        "consume": 2264,
+        "commit_ok": 2263,
+        "lag": 65,
+        "offsets_snapshot": 65
+      },
+      "send_duration_ms": {
+        "count": 2264,
+        "p95": 12,
+        "max": 1142
+      },
+      "commit_duration_ms": {
+        "count": 2263,
+        "p95": 9,
+        "max": 68
+      },
+      "consume_interval_ms": {
+        "count": 2264,
+        "p95": 63,
+        "max": 1194
+      },
+      "lag": {
+        "count": 65,
+        "p95": 0,
+        "max": 0
+      }
+    }
+  },
+  "stages": [
+    {
+      "stage": "format-201",
+      "start_utc": "2026-10-03T12:50:07.953536+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "format-202",
+      "start_utc": "2026-10-03T12:50:11.689787+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "format-203",
+      "start_utc": "2026-10-03T12:50:16.082305+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "create-data-topic",
+      "start_utc": "2026-10-03T12:50:31.841723+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "independent-before",
+      "start_utc": "2026-10-03T12:51:06.584682+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "standalone-no-gate-1",
+      "start_utc": "2026-10-03T12:52:00.376930+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "standalone-no-gate-2",
+      "start_utc": "2026-10-03T12:52:08.097506+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "standalone-no",
+      "start_utc": "2026-10-03T12:51:15.299426+00:00",
+      "exit_code": 1,
+      "confirmations": 2
+    },
+    {
+      "stage": "independent-after-no",
+      "start_utc": "2026-10-03T12:52:16.006803+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "standalone-yes-gate-1",
+      "start_utc": "2026-10-03T12:53:05.908149+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "standalone-yes-gate-2",
+      "start_utc": "2026-10-03T12:53:13.663813+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "standalone-yes-gate-3",
+      "start_utc": "2026-10-03T12:53:50.573806+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "standalone-yes",
+      "start_utc": "2026-10-03T12:52:23.567775+00:00",
+      "exit_code": 0,
+      "confirmations": 3
+    },
+    {
+      "stage": "independent-after",
+      "start_utc": "2026-10-03T12:54:20.697196+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "independent-topics",
+      "start_utc": "2026-10-03T12:54:29.057270+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "independent-list",
+      "start_utc": "2026-10-03T12:54:33.047640+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "standalone-resume",
+      "start_utc": "2026-10-03T12:54:36.992093+00:00",
+      "exit_code": 0,
+      "confirmations": 0
+    },
+    {
+      "stage": "independent-after-resume",
+      "start_utc": "2026-10-03T12:54:52.159732+00:00",
+      "exit_code": 0
+    },
+    {
+      "stage": "final-group",
+      "start_utc": "2026-10-03T12:55:32.265897+00:00",
+      "exit_code": 0
+    }
+  ],
+  "before_configs": {
+    "ConfigResource(type=BROKER, name='201')": {
+      "offsets.topic.replication.factor": {
+        "value": "1",
+        "source": "STATIC_BROKER_CONFIG"
+      }
+    },
+    "ConfigResource(type=BROKER, name='202')": {
+      "offsets.topic.replication.factor": {
+        "value": "1",
+        "source": "STATIC_BROKER_CONFIG"
+      }
+    },
+    "ConfigResource(type=BROKER, name='203')": {
+      "offsets.topic.replication.factor": {
+        "value": "1",
+        "source": "STATIC_BROKER_CONFIG"
+      }
+    },
+    "ConfigResource(type=TOPIC, name='__consumer_offsets')": {
+      "follower.replication.throttled.replicas": {
+        "value": "",
+        "source": "DEFAULT_CONFIG"
+      },
+      "leader.replication.throttled.replicas": {
+        "value": "",
+        "source": "DEFAULT_CONFIG"
+      }
+    }
+  },
+  "after_configs": {
+    "ConfigResource(type=BROKER, name='201')": {
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=BROKER, name='202')": {
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=BROKER, name='203')": {
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=TOPIC, name='__consumer_offsets')": {
+      "follower.replication.throttled.replicas": {
+        "source": "DEFAULT_CONFIG",
+        "value": ""
+      },
+      "leader.replication.throttled.replicas": {
+        "source": "DEFAULT_CONFIG",
+        "value": ""
+      }
+    }
+  },
+  "throttled_configs": {
+    "ConfigResource(type=BROKER, name='201')": {
+      "follower.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "leader.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=BROKER, name='202')": {
+      "follower.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "leader.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=BROKER, name='203')": {
+      "follower.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "leader.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=TOPIC, name='__consumer_offsets')": {
+      "follower.replication.throttled.replicas": {
+        "source": "DYNAMIC_TOPIC_CONFIG",
+        "value": "0:202,0:203,10:201,10:202,11:202,11:203,12:201,12:202,13:202,13:203,14:201,14:203,15:201,15:202,16:201,16:203,17:202,17:203,18:201,18:202,19:202,19:203,1:201,1:203,20:201,20:203,21:201,21:203,22:201,22:202,23:202,23:203,24:202,24:203,25:201,25:202,26:201,26:203,27:201,27:203,28:201,28:202,29:202,29:203,2:201,2:202,30:201,30:202,31:202,31:203,32:201,32:203,33:201,33:203,34:202,34:203,35:201,35:202,36:201,36:203,37:202,37:203,38:201,38:202,39:202,39:203,3:202,3:203,40:201,40:202,41:201,41:203,42:202,42:203,43:201,43:202,44:201,44:203,45:201,45:202,46:202,46:203,47:201,47:203,48:202,48:203,49:201,49:203,4:201,4:203,5:201,5:202,6:201,6:203,7:202,7:203,8:201,8:202,9:201,9:203"
+      },
+      "leader.replication.throttled.replicas": {
+        "source": "DYNAMIC_TOPIC_CONFIG",
+        "value": "0:201,10:203,11:201,12:203,13:201,14:202,15:203,16:202,17:201,18:203,19:201,1:202,20:202,21:202,22:203,23:201,24:201,25:203,26:202,27:202,28:203,29:201,2:203,30:203,31:201,32:202,33:202,34:201,35:203,36:202,37:201,38:203,39:201,3:201,40:203,41:202,42:201,43:203,44:202,45:203,46:201,47:202,48:201,49:202,4:202,5:203,6:202,7:201,8:203,9:202"
+      }
+    }
+  },
+  "preflight": {
+    "time_utc": "2026-10-03T12:50:05.352828+00:00",
+    "memory_kb": {
+      "MemAvailable": 4140476,
+      "SwapFree": 6763232
+    },
+    "free_disk_bytes": 2357486583808,
+    "ports": [
+      43001,
+      43002,
+      43003,
+      43004,
+      43005,
+      43006
+    ],
+    "script_sha256": "3a4433458075a07cc0eeb13410430aeb39e40f32f388df1f3d674f20f640ce3c",
+    "services": {
+      "Kafka-1": 28149,
+      "Kafka-2": 28150,
+      "Kafka-3": 28151,
+      "UI": 31776,
+      "Codex": 6071,
+      "Telegram": 6599
+    },
+    "python": "3.8.12"
+  },
+  "shutdown": [
+    {
+      "pid": 28361,
+      "role": "launcher",
+      "exit_code": 0
+    },
+    {
+      "pid": 22487,
+      "role": "launcher",
+      "exit_code": 0
+    },
+    {
+      "pid": 19033,
+      "role": "launcher",
+      "exit_code": 1
+    },
+    {
+      "pid": 18727,
+      "role": "workload",
+      "exit_code": 0
+    },
+    {
+      "pid": 17682,
+      "role": "broker",
+      "verified_command_contains": "node-203.properties",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 17682,
+      "role": "broker",
+      "exit_code": 143
+    },
+    {
+      "pid": 16799,
+      "role": "broker",
+      "verified_command_contains": "node-202.properties",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 16799,
+      "role": "broker",
+      "exit_code": 143
+    },
+    {
+      "pid": 15950,
+      "role": "broker",
+      "verified_command_contains": "node-201.properties",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 15950,
+      "role": "broker",
+      "exit_code": 143
+    }
+  ],
+  "service_preservation": {
+    "time_utc": "2026-10-03T12:55:49.389248+00:00",
+    "same_pid_and_command": {
+      "Kafka-1": 28149,
+      "Kafka-2": 28150,
+      "Kafka-3": 28151,
+      "UI": 31776,
+      "Codex": 6071,
+      "Telegram": 6599
+    },
+    "test_ports_closed": true,
+    "all_owned_test_processes_exited": true
+  },
+  "completed_work_state_phase": "done",
+  "actual_execute_log_count": 1,
+  "helper_cli_exit_codes": [
+    {
+      "stage": "kafka-broker-api-versions.sh",
+      "exit_code": 0
+    },
+    {
+      "stage": "kafka-metadata-quorum.sh",
+      "exit_code": 0
+    },
+    {
+      "stage": "kafka-metadata-quorum.sh",
+      "exit_code": 0
+    },
+    {
+      "stage": "kafka-topics.sh",
+      "exit_code": 0
+    },
+    {
+      "stage": "kafka-topics.sh",
+      "exit_code": 0
+    },
+    {
+      "stage": "kafka-consumer-groups.sh",
+      "exit_code": 0
+    },
+    {
+      "stage": "plan",
+      "exit_code": 0
+    },
+    {
+      "stage": "execute",
+      "exit_code": 0
+    },
+    {
+      "stage": "execute",
+      "exit_code": 0
+    },
+    {
+      "stage": "snapshot",
+      "exit_code": 0
+    },
+    {
+      "stage": "kafka-consumer-groups.sh",
+      "exit_code": 0
+    },
+    {
+      "stage": "verify",
+      "exit_code": 0
+    },
+    {
+      "stage": "snapshot",
+      "exit_code": 0
+    },
+    {
+      "stage": "snapshot",
+      "exit_code": 0
+    },
+    {
+      "stage": "kafka-consumer-groups.sh",
+      "exit_code": 0
+    }
+  ],
+  "helper_cli_exit_code_basis": "company.run stops on every nonzero result; full execution and done resume exited 0"
+}

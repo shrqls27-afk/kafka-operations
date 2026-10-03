@@ -1,0 +1,21 @@
+{
+  "verified_at_utc": "2026-10-03T13:00:51.559209+00:00",
+  "source_commit": "a1c1cd7776354c3a71a9a3c6d5cea759f5b83a2a",
+  "script_sha256": "3a4433458075a07cc0eeb13410430aeb39e40f32f388df1f3d674f20f640ce3c",
+  "embedded_source_sha256": {
+    "scripts/company.py": "f5aa44157b21fdfd11238c9eb1e8d50f97fe11fa60026da15cf2372f52eba94b",
+    "scripts/reassign.py": "b8cd6abf5c8c07e9b16f06e325f1ee26c8a7294ac7baf462e5763059f6b2d485",
+    "scripts/java.sh": "7e17c0bc4160ce4590f08275ba43bddee9acf1bd8b5db46fa9ebdd23d12be1d3",
+    "tests/OffsetsLab.java": "d7e5d2043e6ca092d687ce410945d544e1cffd3c5f493f95f78ec216ed155f21"
+  },
+  "source_and_embedded_bytes_equal": true,
+  "rebuild_sha256_unchanged": true,
+  "unit_tests_passed": 15,
+  "bash_syntax_passed": true,
+  "raw_evidence_hashes_rechecked": true,
+  "existing_service_pid_discovery_checked": true,
+  "test_ports_closed": true,
+  "kafka_version": "3.9.1",
+  "jdk_version": "17.0.20.1",
+  "python_version": "3.8.12"
+}

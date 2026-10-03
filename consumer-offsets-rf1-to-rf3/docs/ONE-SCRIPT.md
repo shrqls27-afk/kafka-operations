@@ -64,5 +64,7 @@ bash -n offsets-rf3.sh
 python3 -m unittest discover -s tests -v
 ```
 
-실행 흐름 테스트는 모의 Kafka 응답으로 성공·변경 전 거부·불명확한 요청 결과의 재실행 방지·해시 변경 차단을 검증합니다.
-기존 재할당 helper의 NAS 실제 검증 기록은 [RESULTS](RESULTS.md)에 있으며 회사 실행기의 운영 적용 결과는 아닙니다.
+실행 흐름 모의 테스트와 별도로 **단일 .sh 전체 실행, 변경 직전 NO, 정상 완료 후 --resume을 NAS 격리 클러스터에서 실제 검증**했습니다.
+대상 파일 SHA256, 이번 실행의 지표와 미검증 범위는 [단일 파일 실제 검증](STANDALONE-VALIDATION.md)에 있습니다.
+진행 중 단절/재개와 TLS/SASL은 이번 실제 실험에서 검증하지 않았습니다. 불명확한 요청 결과의 재실행 방지·해시 변경 차단은 모의 테스트 범위입니다.
+기존 재할당 helper의 기록은 [RESULTS](RESULTS.md)에 따로 보존했습니다. 어떤 NAS 실험도 회사 운영 적용 결과나 무중단 보장은 아닙니다.

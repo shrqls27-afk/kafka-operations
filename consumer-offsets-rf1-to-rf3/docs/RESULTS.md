@@ -1,5 +1,7 @@
 # 실제 NAS 실험 결과
 
+이 문서는 이전 helper 실험입니다. **회사용 단일 offsets-rf3.sh의 별도 실제 전체 실행 결과**는 [STANDALONE-VALIDATION](STANDALONE-VALIDATION.md)을 보세요.
+
 실행일: **2026-10-03 (Asia/Seoul)**. Apache Kafka 3.9.1, Temurin JDK 17.0.20.1, Synology Linux 직접 설치. Docker 사용 없음. 회사 서버에는 접근/적용하지 않았습니다.
 
 ## 실행 환경과 범위
