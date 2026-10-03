@@ -1,0 +1,328 @@
+{
+  "acked": 2503,
+  "consumed_unique": 2503,
+  "duplicates": 0,
+  "missing_after_drain": [],
+  "consumed_without_ack": [],
+  "send_errors": 0,
+  "commit_errors": 0,
+  "resume_markers": 20,
+  "old_replay": 0,
+  "resume_committed": 2503,
+  "version": "Apache Kafka 3.9.1 / JDK 17",
+  "first_event_utc": "2026-10-03T07:34:33.152213155Z",
+  "last_event_utc": "2026-10-03T07:37:12.889768141Z",
+  "elapsed_ms": 160895,
+  "phases": {
+    "after": {
+      "first_ms": 113529,
+      "last_ms": 158503,
+      "events": {
+        "send_attempt": 811,
+        "send_ok": 811,
+        "consume": 811,
+        "commit_ok": 811,
+        "lag": 22,
+        "offsets_snapshot": 22
+      },
+      "send_duration_ms": {
+        "count": 811,
+        "p95": 8,
+        "max": 29
+      },
+      "commit_duration_ms": {
+        "count": 811,
+        "p95": 8,
+        "max": 136
+      },
+      "consume_interval_ms": {
+        "count": 811,
+        "p95": 58,
+        "max": 138
+      },
+      "lag": {
+        "count": 22,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "baseline": {
+      "first_ms": 1175,
+      "last_ms": 57134,
+      "events": {
+        "send_attempt": 834,
+        "send_ok": 834,
+        "sample_error": 2,
+        "lag": 21,
+        "offsets_snapshot": 21,
+        "rebalance_assigned": 1,
+        "consume": 834,
+        "commit_ok": 624
+      },
+      "send_duration_ms": {
+        "count": 834,
+        "p95": 23,
+        "max": 2562
+      },
+      "commit_duration_ms": {
+        "count": 624,
+        "p95": 8,
+        "max": 77
+      },
+      "consume_interval_ms": {
+        "count": 834,
+        "p95": 71,
+        "max": 133
+      },
+      "lag": {
+        "count": 19,
+        "p95": 0,
+        "max": 0
+      }
+    },
+    "drain-and-reconnect": {
+      "first_ms": 158547,
+      "last_ms": 160895,
+      "events": {
+        "send_finished": 1,
+        "drain_complete": 1,
+        "rebalance_revoked": 2,
+        "reconnect_begin": 1,
+        "resume_send_ok": 20,
+        "rebalance_assigned": 1,
+        "resume_first": 1,
+        "resume_consume": 20,
+        "reconnect_result": 1
+      },
+      "send_duration_ms": {
+        "count": 0,
+        "p95": null,
+        "max": null
+      },
+      "commit_duration_ms": {
+        "count": 0,
+        "p95": null,
+        "max": null
+      },
+      "consume_interval_ms": {
+        "count": 0,
+        "p95": null,
+        "max": null
+      },
+      "lag": {
+        "count": 0,
+        "p95": null,
+        "max": null
+      }
+    },
+    "reassignment": {
+      "first_ms": 57181,
+      "last_ms": 113485,
+      "events": {
+        "send_attempt": 858,
+        "consume": 858,
+        "send_ok": 858,
+        "commit_ok": 846,
+        "lag": 28,
+        "offsets_snapshot": 28
+      },
+      "send_duration_ms": {
+        "count": 858,
+        "p95": 23,
+        "max": 1662
+      },
+      "commit_duration_ms": {
+        "count": 846,
+        "p95": 19,
+        "max": 140
+      },
+      "consume_interval_ms": {
+        "count": 858,
+        "p95": 77,
+        "max": 1708
+      },
+      "lag": {
+        "count": 28,
+        "p95": 0,
+        "max": 2
+      }
+    }
+  },
+  "errors": {
+    "sample_error": 2
+  },
+  "resume_first": [
+    {
+      "offset": 2503,
+      "expected": 2503,
+      "elapsed_ms": 160362
+    }
+  ],
+  "snapshot_count": 71,
+  "sampled_leader_changes": [],
+  "broker_configs_before": {
+    "ConfigResource(type=BROKER, name='101')": {
+      "offsets.topic.replication.factor": {
+        "value": "1",
+        "source": "STATIC_BROKER_CONFIG"
+      }
+    },
+    "ConfigResource(type=BROKER, name='102')": {
+      "offsets.topic.replication.factor": {
+        "value": "1",
+        "source": "STATIC_BROKER_CONFIG"
+      }
+    },
+    "ConfigResource(type=BROKER, name='103')": {
+      "offsets.topic.replication.factor": {
+        "value": "1",
+        "source": "STATIC_BROKER_CONFIG"
+      }
+    },
+    "ConfigResource(type=TOPIC, name='__consumer_offsets')": {
+      "follower.replication.throttled.replicas": {
+        "value": "",
+        "source": "DEFAULT_CONFIG"
+      },
+      "leader.replication.throttled.replicas": {
+        "value": "",
+        "source": "DEFAULT_CONFIG"
+      }
+    }
+  },
+  "broker_configs_after": {
+    "ConfigResource(type=BROKER, name='101')": {
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=BROKER, name='102')": {
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=BROKER, name='103')": {
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=TOPIC, name='__consumer_offsets')": {
+      "follower.replication.throttled.replicas": {
+        "source": "DEFAULT_CONFIG",
+        "value": ""
+      },
+      "leader.replication.throttled.replicas": {
+        "source": "DEFAULT_CONFIG",
+        "value": ""
+      }
+    }
+  },
+  "throttle_snapshot_configs": {
+    "ConfigResource(type=BROKER, name='101')": {
+      "follower.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "leader.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=BROKER, name='102')": {
+      "follower.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "leader.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=BROKER, name='103')": {
+      "follower.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "leader.replication.throttled.rate": {
+        "source": "DYNAMIC_BROKER_CONFIG",
+        "value": "1048576"
+      },
+      "offsets.topic.replication.factor": {
+        "source": "STATIC_BROKER_CONFIG",
+        "value": "1"
+      }
+    },
+    "ConfigResource(type=TOPIC, name='__consumer_offsets')": {
+      "follower.replication.throttled.replicas": {
+        "source": "DYNAMIC_TOPIC_CONFIG",
+        "value": "0:101,0:102,10:102,10:103,11:101,11:102,12:101,12:102,13:102,13:103,14:101,14:103,15:101,15:102,16:101,16:103,17:102,17:103,18:101,18:103,19:101,19:102,1:102,1:103,20:102,20:103,21:101,21:103,22:102,22:103,23:101,23:102,24:102,24:103,25:101,25:103,26:101,26:102,27:101,27:103,28:101,28:102,29:102,29:103,2:101,2:103,30:101,30:102,31:102,31:103,32:101,32:103,33:101,33:102,34:102,34:103,35:101,35:103,36:101,36:103,37:101,37:102,38:102,38:103,39:102,39:103,3:101,3:102,40:101,40:102,41:101,41:103,42:101,42:103,43:101,43:102,44:102,44:103,45:102,45:103,46:101,46:103,47:101,47:102,48:102,48:103,49:101,49:103,4:101,4:103,5:102,5:103,6:101,6:103,7:102,7:103,8:101,8:102,9:101,9:103"
+      },
+      "leader.replication.throttled.replicas": {
+        "source": "DYNAMIC_TOPIC_CONFIG",
+        "value": "0:103,10:101,11:103,12:103,13:101,14:102,15:103,16:102,17:101,18:102,19:103,1:101,20:101,21:102,22:101,23:103,24:101,25:102,26:103,27:102,28:103,29:101,2:102,30:103,31:101,32:102,33:103,34:101,35:102,36:102,37:103,38:101,39:101,3:103,40:103,41:102,42:102,43:103,44:101,45:101,46:102,47:103,48:101,49:102,4:102,5:101,6:102,7:101,8:103,9:102"
+      }
+    }
+  },
+  "final_reassignments": "{}",
+  "preflight": {
+    "time": "2026-10-03T07:33:58.154391+00:00",
+    "memory_kb": {
+      "MemAvailable": 4144060,
+      "SwapFree": 6765572
+    },
+    "ports": [
+      41001,
+      41002,
+      41003,
+      41004,
+      41005,
+      41006
+    ],
+    "free_disk_bytes": 2357520203776
+  },
+  "shutdown": [
+    {
+      "pid": 18318,
+      "exit_code": 0
+    },
+    {
+      "pid": 16917,
+      "verified_command_contains": "node-103.properties",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 16917,
+      "exit_code": 143
+    },
+    {
+      "pid": 16016,
+      "verified_command_contains": "node-102.properties",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 16016,
+      "exit_code": 143
+    },
+    {
+      "pid": 15168,
+      "verified_command_contains": "node-101.properties",
+      "signal": "SIGTERM"
+    },
+    {
+      "pid": 15168,
+      "exit_code": null
+    }
+  ],
+  "partition_count": 50
+}

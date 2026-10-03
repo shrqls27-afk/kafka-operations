@@ -1,0 +1,1352 @@
+[
+  {
+    "partition": 0,
+    "before": {
+      "partition": 0,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 0
+    }
+  },
+  {
+    "partition": 1,
+    "before": {
+      "partition": 1,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 1
+    }
+  },
+  {
+    "partition": 2,
+    "before": {
+      "partition": 2,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 2
+    }
+  },
+  {
+    "partition": 3,
+    "before": {
+      "partition": 3,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 3
+    }
+  },
+  {
+    "partition": 4,
+    "before": {
+      "partition": 4,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 4
+    }
+  },
+  {
+    "partition": 5,
+    "before": {
+      "partition": 5,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 5
+    }
+  },
+  {
+    "partition": 6,
+    "before": {
+      "partition": 6,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 6
+    }
+  },
+  {
+    "partition": 7,
+    "before": {
+      "partition": 7,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 7
+    }
+  },
+  {
+    "partition": 8,
+    "before": {
+      "partition": 8,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 8
+    }
+  },
+  {
+    "partition": 9,
+    "before": {
+      "partition": 9,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 9
+    }
+  },
+  {
+    "partition": 10,
+    "before": {
+      "partition": 10,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 10
+    }
+  },
+  {
+    "partition": 11,
+    "before": {
+      "partition": 11,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 11
+    }
+  },
+  {
+    "partition": 12,
+    "before": {
+      "partition": 12,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 12
+    }
+  },
+  {
+    "partition": 13,
+    "before": {
+      "partition": 13,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 13
+    }
+  },
+  {
+    "partition": 14,
+    "before": {
+      "partition": 14,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 14
+    }
+  },
+  {
+    "partition": 15,
+    "before": {
+      "partition": 15,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 15
+    }
+  },
+  {
+    "partition": 16,
+    "before": {
+      "partition": 16,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 16
+    }
+  },
+  {
+    "partition": 17,
+    "before": {
+      "partition": 17,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 17
+    }
+  },
+  {
+    "partition": 18,
+    "before": {
+      "partition": 18,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 18
+    }
+  },
+  {
+    "partition": 19,
+    "before": {
+      "partition": 19,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 19
+    }
+  },
+  {
+    "partition": 20,
+    "before": {
+      "partition": 20,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 20
+    }
+  },
+  {
+    "partition": 21,
+    "before": {
+      "partition": 21,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 21
+    }
+  },
+  {
+    "partition": 22,
+    "before": {
+      "partition": 22,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 22
+    }
+  },
+  {
+    "partition": 23,
+    "before": {
+      "partition": 23,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 23
+    }
+  },
+  {
+    "partition": 24,
+    "before": {
+      "partition": 24,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 24
+    }
+  },
+  {
+    "partition": 25,
+    "before": {
+      "partition": 25,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 25
+    }
+  },
+  {
+    "partition": 26,
+    "before": {
+      "partition": 26,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 26
+    }
+  },
+  {
+    "partition": 27,
+    "before": {
+      "partition": 27,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 27
+    }
+  },
+  {
+    "partition": 28,
+    "before": {
+      "partition": 28,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 28
+    }
+  },
+  {
+    "partition": 29,
+    "before": {
+      "partition": 29,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 29
+    }
+  },
+  {
+    "partition": 30,
+    "before": {
+      "partition": 30,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 30
+    }
+  },
+  {
+    "partition": 31,
+    "before": {
+      "partition": 31,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 31
+    }
+  },
+  {
+    "partition": 32,
+    "before": {
+      "partition": 32,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 32
+    }
+  },
+  {
+    "partition": 33,
+    "before": {
+      "partition": 33,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 33
+    }
+  },
+  {
+    "partition": 34,
+    "before": {
+      "partition": 34,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 34
+    }
+  },
+  {
+    "partition": 35,
+    "before": {
+      "partition": 35,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 35
+    }
+  },
+  {
+    "partition": 36,
+    "before": {
+      "partition": 36,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 36
+    }
+  },
+  {
+    "partition": 37,
+    "before": {
+      "partition": 37,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 37
+    }
+  },
+  {
+    "partition": 38,
+    "before": {
+      "partition": 38,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 38
+    }
+  },
+  {
+    "partition": 39,
+    "before": {
+      "partition": 39,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 39
+    }
+  },
+  {
+    "partition": 40,
+    "before": {
+      "partition": 40,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 40
+    }
+  },
+  {
+    "partition": 41,
+    "before": {
+      "partition": 41,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 41
+    }
+  },
+  {
+    "partition": 42,
+    "before": {
+      "partition": 42,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 42
+    }
+  },
+  {
+    "partition": 43,
+    "before": {
+      "partition": 43,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 43
+    }
+  },
+  {
+    "partition": 44,
+    "before": {
+      "partition": 44,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 44
+    }
+  },
+  {
+    "partition": 45,
+    "before": {
+      "partition": 45,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 45
+    }
+  },
+  {
+    "partition": 46,
+    "before": {
+      "partition": 46,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 46
+    }
+  },
+  {
+    "partition": 47,
+    "before": {
+      "partition": 47,
+      "replicas": [
+        103
+      ],
+      "isr": [
+        103
+      ],
+      "leader": 103
+    },
+    "after": {
+      "replicas": [
+        103,
+        101,
+        102
+      ],
+      "isr": [
+        103,
+        102,
+        101
+      ],
+      "leader": 103,
+      "partition": 47
+    }
+  },
+  {
+    "partition": 48,
+    "before": {
+      "partition": 48,
+      "replicas": [
+        101
+      ],
+      "isr": [
+        101
+      ],
+      "leader": 101
+    },
+    "after": {
+      "replicas": [
+        101,
+        102,
+        103
+      ],
+      "isr": [
+        101,
+        102,
+        103
+      ],
+      "leader": 101,
+      "partition": 48
+    }
+  },
+  {
+    "partition": 49,
+    "before": {
+      "partition": 49,
+      "replicas": [
+        102
+      ],
+      "isr": [
+        102
+      ],
+      "leader": 102
+    },
+    "after": {
+      "replicas": [
+        102,
+        101,
+        103
+      ],
+      "isr": [
+        102,
+        103,
+        101
+      ],
+      "leader": 102,
+      "partition": 49
+    }
+  }
+]

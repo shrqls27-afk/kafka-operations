@@ -1,0 +1,16 @@
+{
+  "verified_at_utc": "2026-10-03T12:11:19.732038+00:00",
+  "python_version": "3.8.12",
+  "unit_tests_passed": 11,
+  "bash_syntax_passed": true,
+  "python_compile_passed": true,
+  "java_compile_and_readonly_rf3_isr3_check_passed": true,
+  "original_raw_hashes_rechecked": true,
+  "message_id_sets_rechecked_for_both_runs": true,
+  "complete_assignment_gate_checked_against_both_saved_snapshots": true,
+  "staged_diff_secret_scan_passed": true,
+  "staged_files_before_this_record": 23,
+  "staged_bytes_before_this_record": 145136,
+  "raw_logs_auth_binary_runtime_excluded": true,
+  "broker_fault_injection_executed": false
+}

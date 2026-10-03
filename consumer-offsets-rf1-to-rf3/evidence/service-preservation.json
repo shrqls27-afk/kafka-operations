@@ -1,0 +1,64 @@
+{
+  "time_utc": "2026-10-03T12:07:35.306137+00:00",
+  "existing_services": {
+    "Kafka-1": {
+      "pid": 28149,
+      "command_contains": "node-1.properties",
+      "still_running": true
+    },
+    "Kafka-2": {
+      "pid": 28150,
+      "command_contains": "node-2.properties",
+      "still_running": true
+    },
+    "Kafka-3": {
+      "pid": 28151,
+      "command_contains": "node-3.properties",
+      "still_running": true
+    },
+    "UI": {
+      "pid": 31776,
+      "command_contains": "kafka-ui-api",
+      "still_running": true
+    },
+    "Codex": {
+      "pid": 6071,
+      "command_contains": "app-server",
+      "still_running": true
+    },
+    "Telegram": {
+      "pid": 6599,
+      "command_contains": "telegram-codex.py",
+      "still_running": true
+    }
+  },
+  "isolated_test_ports_not_listening": true,
+  "existing_offsets_partitions": 50,
+  "existing_offsets_rf3_isr3_partitions": 50,
+  "cleanup_recovery": [
+    {
+      "pid": 22697,
+      "node": 102,
+      "purpose": "isolated quorum recovery for pending shutdown"
+    },
+    {
+      "pid": 22698,
+      "node": 103,
+      "purpose": "isolated quorum recovery for pending shutdown"
+    },
+    {
+      "pid": 15168,
+      "confirmed_absent": true
+    },
+    {
+      "pid": 22698,
+      "signal": "SIGTERM",
+      "exit_code": 143
+    },
+    {
+      "pid": 22697,
+      "signal": "SIGTERM",
+      "exit_code": 143
+    }
+  ]
+}
