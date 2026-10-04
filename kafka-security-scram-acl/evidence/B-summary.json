@@ -1,0 +1,1332 @@
+{
+  "scenario": "B",
+  "completed": true,
+  "legacy_client_and_controller_ports_closed": true,
+  "tls_hostname_verification": "HTTPS",
+  "tls_sasl_scram_sha512": true,
+  "matrix_passed": true,
+  "final_validation_completed_utc": "2026-10-04T00:49:31.262604+00:00",
+  "started_utc": "2026-10-04T00:39:19.580407+00:00",
+  "last_step_utc": "2026-10-04T00:49:31.256451+00:00",
+  "commands": [
+    {
+      "step": "tls-ca",
+      "utc": "2026-10-04T00:39:19.580407+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-trust",
+      "utc": "2026-10-04T00:39:20.351074+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-key-301",
+      "utc": "2026-10-04T00:39:20.619953+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-cert-301",
+      "utc": "2026-10-04T00:39:20.643139+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-p12-301",
+      "utc": "2026-10-04T00:39:20.655602+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-key-302",
+      "utc": "2026-10-04T00:39:20.724238+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-cert-302",
+      "utc": "2026-10-04T00:39:20.744781+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-p12-302",
+      "utc": "2026-10-04T00:39:20.757380+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-key-303",
+      "utc": "2026-10-04T00:39:21.076561+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-cert-303",
+      "utc": "2026-10-04T00:39:21.097629+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-p12-303",
+      "utc": "2026-10-04T00:39:21.172851+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "entry-prepare-new",
+      "utc": "2026-10-04T00:39:24.585940+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "format-301",
+      "utc": "2026-10-04T00:39:29.373337+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "format-302",
+      "utc": "2026-10-04T00:39:35.083919+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "format-303",
+      "utc": "2026-10-04T00:39:43.680905+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "create-data",
+      "utc": "2026-10-04T00:40:19.426721+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "acl-bootstrap",
+      "utc": "2026-10-04T00:40:25.245714+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "warm-transaction-coordinator",
+      "utc": "2026-10-04T00:41:09.070560+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "warm-offsets-coordinator",
+      "utc": "2026-10-04T00:42:04.052136+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "permission-matrix",
+      "utc": "2026-10-04T00:42:54.830889+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "rotate-producer",
+      "utc": "2026-10-04T00:43:15.702450+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "old-password-denied",
+      "utc": "2026-10-04T00:43:20.492421+00:00",
+      "exit_code": 1
+    },
+    {
+      "step": "new-password-allowed",
+      "utc": "2026-10-04T00:43:25.426999+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "after-restart-new-password",
+      "utc": "2026-10-04T00:47:54.759079+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "matrix-after-restart",
+      "utc": "2026-10-04T00:48:25.237299+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "entry-inspect",
+      "utc": "2026-10-04T00:48:54.244195+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "entry-users-dry-run",
+      "utc": "2026-10-04T00:49:04.454404+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "entry-apply-acls",
+      "utc": "2026-10-04T00:49:24.352079+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "acl-and-user-audit",
+      "utc": "2026-10-04T00:49:31.256451+00:00",
+      "exit_code": 0
+    }
+  ],
+  "rolling_events": [
+    {
+      "utc": "2026-10-04T00:39:29.377942+00:00",
+      "event": "broker_start",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:39:35.091291+00:00",
+      "event": "broker_start",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T00:39:43.691762+00:00",
+      "event": "broker_start",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T00:40:14.277359+00:00",
+      "event": "health_ready",
+      "stage": "initial"
+    },
+    {
+      "utc": "2026-10-04T00:40:43.282529+00:00",
+      "event": "health_ready",
+      "stage": "final-before-matrix"
+    },
+    {
+      "utc": "2026-10-04T00:41:35.459750+00:00",
+      "event": "health_ready",
+      "stage": "transaction-internal-ready"
+    },
+    {
+      "utc": "2026-10-04T00:42:23.780015+00:00",
+      "event": "health_ready",
+      "stage": "offsets-internal-ready"
+    },
+    {
+      "utc": "2026-10-04T00:43:43.208425+00:00",
+      "event": "health_ready",
+      "stage": "restart-persistence-before-301"
+    },
+    {
+      "utc": "2026-10-04T00:43:45.735903+00:00",
+      "event": "broker_stop",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:43:45.741371+00:00",
+      "event": "broker_start",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:44:30.040530+00:00",
+      "event": "health_ready",
+      "stage": "restart-persistence-after-301"
+    },
+    {
+      "utc": "2026-10-04T00:44:48.723678+00:00",
+      "event": "health_ready",
+      "stage": "restart-persistence-before-302"
+    },
+    {
+      "utc": "2026-10-04T00:44:51.599428+00:00",
+      "event": "broker_stop",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T00:44:51.605615+00:00",
+      "event": "broker_start",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T00:46:03.797853+00:00",
+      "event": "health_ready",
+      "stage": "restart-persistence-after-302"
+    },
+    {
+      "utc": "2026-10-04T00:46:22.610040+00:00",
+      "event": "health_ready",
+      "stage": "restart-persistence-before-303"
+    },
+    {
+      "utc": "2026-10-04T00:46:28.005178+00:00",
+      "event": "broker_stop",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T00:46:28.010621+00:00",
+      "event": "broker_start",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T00:47:48.566195+00:00",
+      "event": "health_ready",
+      "stage": "restart-persistence-after-303"
+    },
+    {
+      "utc": "2026-10-04T00:48:44.379592+00:00",
+      "event": "health_ready",
+      "stage": "final"
+    }
+  ],
+  "quorum_checkpoints": [
+    {
+      "stage": "initial",
+      "utc": "2026-10-04T00:40:14.277359+00:00",
+      "leader": 301,
+      "epoch": 6,
+      "high_watermark": 70,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "final-before-matrix",
+      "utc": "2026-10-04T00:40:43.282529+00:00",
+      "leader": 301,
+      "epoch": 6,
+      "high_watermark": 148,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "transaction-internal-ready",
+      "utc": "2026-10-04T00:41:35.459750+00:00",
+      "leader": 303,
+      "epoch": 12,
+      "high_watermark": 294,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "offsets-internal-ready",
+      "utc": "2026-10-04T00:42:23.780015+00:00",
+      "leader": 303,
+      "epoch": 12,
+      "high_watermark": 446,
+      "max_offset_lag": 1
+    },
+    {
+      "stage": "restart-persistence-before-301",
+      "utc": "2026-10-04T00:43:43.208425+00:00",
+      "leader": 303,
+      "epoch": 12,
+      "high_watermark": 611,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "restart-persistence-after-301",
+      "utc": "2026-10-04T00:44:30.040530+00:00",
+      "leader": 303,
+      "epoch": 12,
+      "high_watermark": 913,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "restart-persistence-before-302",
+      "utc": "2026-10-04T00:44:48.723678+00:00",
+      "leader": 303,
+      "epoch": 12,
+      "high_watermark": 950,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "restart-persistence-after-302",
+      "utc": "2026-10-04T00:46:03.797853+00:00",
+      "leader": 303,
+      "epoch": 35,
+      "high_watermark": 1257,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "restart-persistence-before-303",
+      "utc": "2026-10-04T00:46:22.610040+00:00",
+      "leader": 303,
+      "epoch": 35,
+      "high_watermark": 1293,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "restart-persistence-after-303",
+      "utc": "2026-10-04T00:47:48.566195+00:00",
+      "leader": 301,
+      "epoch": 41,
+      "high_watermark": 1658,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "final",
+      "utc": "2026-10-04T00:48:44.379592+00:00",
+      "leader": 301,
+      "epoch": 6,
+      "high_watermark": 148,
+      "max_offset_lag": 0
+    }
+  ],
+  "matrix": [
+    {
+      "exit_code": 0,
+      "result": "OK",
+      "passed": true,
+      "expected": "ALLOW",
+      "case": "admin_create"
+    },
+    {
+      "exit_code": 0,
+      "result": "OK",
+      "passed": true,
+      "expected": "ALLOW",
+      "case": "admin_partitions"
+    },
+    {
+      "exit_code": 0,
+      "result": "OK",
+      "passed": true,
+      "expected": "ALLOW",
+      "case": "admin_config"
+    },
+    {
+      "exit_code": 0,
+      "result": "OK",
+      "passed": true,
+      "expected": "ALLOW",
+      "case": "admin_delete"
+    },
+    {
+      "exit_code": 0,
+      "result": "OK",
+      "passed": true,
+      "expected": "ALLOW",
+      "case": "producer_idempotent_allowed_no_cluster_idempotent_acl"
+    },
+    {
+      "exit_code": 1,
+      "result": "TopicAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "producer_other_topic"
+    },
+    {
+      "exit_code": 1,
+      "result": "TopicAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "producer_create"
+    },
+    {
+      "exit_code": 1,
+      "result": "TopicAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "producer_delete"
+    },
+    {
+      "exit_code": 1,
+      "result": "TopicAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "producer_partitions"
+    },
+    {
+      "exit_code": 1,
+      "result": "TopicAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "producer_alter_config"
+    },
+    {
+      "exit_code": 1,
+      "result": "ClusterAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "producer_manage_acl"
+    },
+    {
+      "exit_code": 1,
+      "result": "ClusterAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "producer_manage_account"
+    },
+    {
+      "exit_code": 0,
+      "result": "OK",
+      "passed": true,
+      "expected": "ALLOW",
+      "case": "consumer_topic_group_commit"
+    },
+    {
+      "exit_code": 1,
+      "result": "TopicAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "consumer_other_topic"
+    },
+    {
+      "exit_code": 1,
+      "result": "GroupAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "consumer_other_group"
+    },
+    {
+      "exit_code": 1,
+      "result": "ClusterAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "consumer_write"
+    },
+    {
+      "exit_code": 1,
+      "result": "TopicAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "app_direct_offsets_write"
+    },
+    {
+      "exit_code": 1,
+      "result": "ClusterAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "consumer_manage_acl"
+    },
+    {
+      "exit_code": 1,
+      "result": "ClusterAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "consumer_manage_account"
+    },
+    {
+      "exit_code": 1,
+      "result": "SaslAuthenticationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "wrong_password"
+    },
+    {
+      "exit_code": 1,
+      "result": "TimeoutException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "anonymous_secure_port"
+    },
+    {
+      "exit_code": 1,
+      "result": "CertificateException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "tls_wrong_hostname"
+    },
+    {
+      "exit_code": 1,
+      "result": "TransactionalIdAuthorizationException",
+      "passed": true,
+      "expected": "DENY",
+      "case": "transaction_unallowed_id"
+    },
+    {
+      "exit_code": 0,
+      "result": "OK",
+      "passed": true,
+      "expected": "ALLOW",
+      "case": "transaction_allowed_id_topic"
+    }
+  ],
+  "recheck_commands": [],
+  "matrix_after_restart": [
+    {
+      "exit_code": 0,
+      "case": "admin_create",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK"
+    },
+    {
+      "exit_code": 0,
+      "case": "admin_partitions",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK"
+    },
+    {
+      "exit_code": 0,
+      "case": "admin_config",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK"
+    },
+    {
+      "exit_code": 0,
+      "case": "admin_delete",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK"
+    },
+    {
+      "exit_code": 0,
+      "case": "producer_idempotent_allowed_no_cluster_idempotent_acl",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK"
+    },
+    {
+      "exit_code": 1,
+      "case": "producer_other_topic",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "producer_create",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "producer_delete",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "producer_partitions",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "producer_alter_config",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "producer_manage_acl",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "producer_manage_account",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException"
+    },
+    {
+      "exit_code": 0,
+      "case": "consumer_topic_group_commit",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK"
+    },
+    {
+      "exit_code": 1,
+      "case": "consumer_other_topic",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "consumer_other_group",
+      "expected": "DENY",
+      "passed": true,
+      "result": "GroupAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "consumer_write",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "app_direct_offsets_write",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "consumer_manage_acl",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "consumer_manage_account",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "wrong_password",
+      "expected": "DENY",
+      "passed": true,
+      "result": "SaslAuthenticationException"
+    },
+    {
+      "exit_code": 1,
+      "case": "anonymous_secure_port",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TimeoutException"
+    },
+    {
+      "exit_code": 1,
+      "case": "tls_wrong_hostname",
+      "expected": "DENY",
+      "passed": true,
+      "result": "CertificateException"
+    },
+    {
+      "exit_code": 1,
+      "case": "transaction_unallowed_id",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TransactionalIdAuthorizationException"
+    },
+    {
+      "exit_code": 0,
+      "case": "transaction_allowed_id_topic",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK"
+    }
+  ],
+  "final_health": {
+    "broker_count": 3,
+    "partition_count": 102,
+    "all_rf3_isr3": true,
+    "offsets_partition_count": 50,
+    "healthy": true,
+    "quorum_high_watermark": 1778,
+    "quorum_leader_epoch": 41,
+    "quorum_max_offset_lag": 0
+  },
+  "partition_verification": [
+    {
+      "topic": "other-data",
+      "partition": 0,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "app-data",
+      "partition": 0,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 0,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 1,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 2,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 3,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 4,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 5,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 6,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 7,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 8,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 9,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 10,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 11,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 12,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 13,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 14,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 15,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 16,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 17,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 18,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 19,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 20,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 21,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 22,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 23,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 24,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 25,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 26,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 27,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 28,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 29,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 30,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 31,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 32,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 33,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 34,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 35,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 36,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 37,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 38,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 39,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 40,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 41,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 42,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 43,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 44,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 45,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 46,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 47,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 48,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 49,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 0,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 1,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 2,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 3,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 4,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 5,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 6,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 7,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 8,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 9,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 10,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 11,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 12,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 13,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 14,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 15,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 16,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 17,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 18,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 19,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 20,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 21,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 22,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 23,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 24,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 25,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 26,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 27,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 28,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 29,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 30,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 31,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 32,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 33,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 34,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 35,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 36,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 37,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 38,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 39,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 40,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 41,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 42,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 43,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 44,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 45,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 46,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 47,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 48,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 49,
+      "rf": 3,
+      "isr": 3
+    }
+  ],
+  "final_health_sha256": "a706eeac92a2489b6f75eaf2640a16c012c547207beeef0444ffdd6d937191d3",
+  "final_acl_count": 15,
+  "anonymous_acl_remaining": false,
+  "all_owned_processes_exited": true,
+  "recheck_owned_processes_exited": true,
+  "post_dry_run_credential_check": {
+    "new_password_after_original_user_file_dry_run_exit_code": 0
+  },
+  "password_rotation_old_error_type": "SaslAuthenticationException",
+  "raw_evidence_sha256": {
+    "steps.json": "4b6783ac013640f9b0aaf8fdef1cd8d6c4b2042fde0561ec2d185b864bfa403f",
+    "matrix.json": "7f8f99c088cf61c7780ce56f9eadba650eac9926048799af26c066fb18f58630",
+    "matrix-after-restart.json": "31a01976f647d18b566c0c163cac799959ef66d8354f7208e3d68572c9fdf337",
+    "audit.json": "d17cab69472b7a96f36a42e031a772e31e8dd8004b541a87aaa3b563b831de37",
+    "result.json": "f294f63d467a7e654aac53e373fbe5e9a9fc04267e4d0b0e6fa39fedfab7aee1",
+    "shutdown.json": "e789134abc5675cf1adf705fef5ef7a0f9bd95c5a5454c7245a9b89afed33dfc"
+  }
+}

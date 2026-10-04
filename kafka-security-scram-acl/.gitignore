@@ -1,0 +1,23 @@
+/runtime/
+/build/
+**/__pycache__/
+*.key
+*.p12
+*.jks
+*.args
+*.log
+store-password
+users.properties
+rotate.properties
+*-producer.properties
+*-consumer.properties
+/evidence/*-superseded.json
+*.crt
+*.csr
+*.srl
+/private/
+# 초기 실패 상태 조사용 NAS 보조 도구; 공개 재현은 lab.py 사용
+/scripts/recheck_final.py
+
+# 실행하지 않은 후속 drain 초안은 공개 배포에서 제외
+/tests/RecoveryDrain.java

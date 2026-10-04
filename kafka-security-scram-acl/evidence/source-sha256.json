@@ -1,0 +1,14 @@
+{
+  "scope": "final released sources; full A after migration gate change not rerun",
+  "sha256": {
+    "kafka-security.sh": "befdc92249cef766f3e8a0b96dba9c2427e9a3fcb1489664462826f35d18471f",
+    "scripts/java.sh": "8c3dfb0d857c5cf7199e25f2c8942fc3ef3441704172423e51a3be6b23c09ce2",
+    "scripts/lab.py": "d3d57244c5b7571f535279aece692083770c36dc066934ae4baa3d49a63c7548",
+    "scripts/migration_gate.py": "2410147ee1790a144da629835ffbe426ab7b1410ea6ae3424a5e2d39aa304324",
+    "scripts/security.py": "d0350c11c17d51a7598a8da72ec3e13cfbf6f58b32fdc48f7c4830cde7e07ba9",
+    "scripts/summarize.py": "171e407b23bc418665db21497b086398533dcb6bbdb4b79ae2458f4203065533",
+    "tests/SecurityProbe.java": "a33f23088c014813e4deb6e0f342d4448f6e06c92da8508035fdac51f5e3a21a",
+    "tests/test_guard.py": "1e0b51deeae9214e047883a848ca7a2c9356d53a6e6928584c4fdfb448eec0e0",
+    "tests/test_migration_gate.py": "bcf0d71489c7c77288e185d9b7971dadb2616c5e8bfe168615378b5d0e819491"
+  }
+}

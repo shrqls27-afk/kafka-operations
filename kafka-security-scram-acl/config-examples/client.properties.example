@@ -1,0 +1,9 @@
+bootstrap.servers=node1.example.invalid:9094,node2.example.invalid:9094,node3.example.invalid:9094
+security.protocol=SASL_SSL
+sasl.mechanism=SCRAM-SHA-512
+sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="APP_USER" password="REPLACE_WITH_PRIVATE_SECRET";
+ssl.truststore.location=/protected/trust.p12
+ssl.truststore.type=PKCS12
+ssl.truststore.password=REPLACE_WITH_PRIVATE_SECRET
+ssl.endpoint.identification.algorithm=HTTPS
+allow.auto.create.topics=false

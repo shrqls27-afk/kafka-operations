@@ -1,0 +1,178 @@
+{
+  "scenario": "B first attempt",
+  "completed": false,
+  "started_utc": "2026-10-04T00:27:56.219830+00:00",
+  "last_step_utc": "2026-10-04T00:30:28.605165+00:00",
+  "matrix": [
+    {
+      "case": "admin_create",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "admin_partitions",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "admin_config",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "admin_delete",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "producer_idempotent_allowed_no_cluster_idempotent_acl",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "producer_other_topic",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_create",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_delete",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_partitions",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_alter_config",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_manage_acl",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_manage_account",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_topic_group_commit",
+      "expected": "ALLOW",
+      "passed": false,
+      "result": "TimeoutException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_other_topic",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_other_group",
+      "expected": "DENY",
+      "passed": true,
+      "result": "GroupAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_write",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "app_direct_offsets_write",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_manage_acl",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_manage_account",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "wrong_password",
+      "expected": "DENY",
+      "passed": true,
+      "result": "SaslAuthenticationException",
+      "exit_code": 1
+    },
+    {
+      "case": "anonymous_secure_port",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TimeoutException",
+      "exit_code": 1
+    },
+    {
+      "case": "tls_wrong_hostname",
+      "expected": "DENY",
+      "passed": true,
+      "result": "CertificateException",
+      "exit_code": 1
+    },
+    {
+      "case": "transaction_unallowed_id",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TransactionalIdAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "transaction_allowed_id_topic",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    }
+  ],
+  "all_owned_processes_exited": true,
+  "raw_steps_sha256": "95fa6c8bce64326778f5e8f3a99692e392fe0cd700cfbf2b93da900a703845d0"
+}

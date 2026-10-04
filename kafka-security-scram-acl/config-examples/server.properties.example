@@ -1,0 +1,29 @@
+# node1 신규 예제. 모든 경로/계정/인증서는 별도 검토·비공개 입력 필요.
+process.roles=broker,controller
+node.id=1
+controller.quorum.voters=1@node1.example.invalid:9093,2@node2.example.invalid:9093,3@node3.example.invalid:9093
+listeners=CLIENT://:9094,CONTROLLER://node1.example.invalid:9093
+advertised.listeners=CLIENT://node1.example.invalid:9094
+listener.security.protocol.map=CLIENT:SASL_SSL,CONTROLLER:SSL
+controller.listener.names=CONTROLLER
+inter.broker.listener.name=CLIENT
+sasl.enabled.mechanisms=SCRAM-SHA-512
+sasl.mechanism.inter.broker.protocol=SCRAM-SHA-512
+listener.name.client.scram-sha-512.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="broker-1" password="REPLACE_WITH_PRIVATE_SECRET";
+ssl.keystore.location=/protected/node1.p12
+ssl.keystore.type=PKCS12
+ssl.keystore.password=REPLACE_WITH_PRIVATE_SECRET
+ssl.key.password=REPLACE_WITH_PRIVATE_SECRET
+ssl.truststore.location=/protected/trust.p12
+ssl.truststore.type=PKCS12
+ssl.truststore.password=REPLACE_WITH_PRIVATE_SECRET
+ssl.endpoint.identification.algorithm=HTTPS
+listener.name.controller.ssl.client.auth=required
+authorizer.class.name=org.apache.kafka.metadata.authorizer.StandardAuthorizer
+super.users=User:security-root;User:broker-1;User:broker-2;User:broker-3;User:CN=node1;User:CN=node2;User:CN=node3
+allow.everyone.if.no.acl.found=false
+auto.create.topics.enable=false
+offsets.topic.replication.factor=3
+transaction.state.log.replication.factor=3
+transaction.state.log.min.isr=2
+log.dirs=/new/cluster/data-node1

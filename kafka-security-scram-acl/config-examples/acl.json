@@ -1,0 +1,93 @@
+[
+  {
+    "principal": "User:topic-admin",
+    "type": "TOPIC",
+    "name": "*",
+    "operation": "CREATE",
+    "host": "*"
+  },
+  {
+    "principal": "User:topic-admin",
+    "type": "TOPIC",
+    "name": "*",
+    "operation": "DELETE",
+    "host": "*"
+  },
+  {
+    "principal": "User:topic-admin",
+    "type": "TOPIC",
+    "name": "*",
+    "operation": "ALTER",
+    "host": "*"
+  },
+  {
+    "principal": "User:topic-admin",
+    "type": "TOPIC",
+    "name": "*",
+    "operation": "ALTER_CONFIGS",
+    "host": "*"
+  },
+  {
+    "principal": "User:topic-admin",
+    "type": "TOPIC",
+    "name": "*",
+    "operation": "DESCRIBE",
+    "host": "*"
+  },
+  {
+    "principal": "User:topic-admin",
+    "type": "TOPIC",
+    "name": "*",
+    "operation": "DESCRIBE_CONFIGS",
+    "host": "*"
+  },
+  {
+    "principal": "User:topic-admin",
+    "type": "CLUSTER",
+    "name": "kafka-cluster",
+    "operation": "DESCRIBE",
+    "host": "*"
+  },
+  {
+    "principal": "User:producer",
+    "type": "TOPIC",
+    "name": "app-data",
+    "operation": "WRITE",
+    "host": "*"
+  },
+  {
+    "principal": "User:producer",
+    "type": "TOPIC",
+    "name": "app-data",
+    "operation": "DESCRIBE",
+    "host": "*"
+  },
+  {
+    "principal": "User:consumer",
+    "type": "TOPIC",
+    "name": "app-data",
+    "operation": "READ",
+    "host": "*"
+  },
+  {
+    "principal": "User:consumer",
+    "type": "TOPIC",
+    "name": "app-data",
+    "operation": "DESCRIBE",
+    "host": "*"
+  },
+  {
+    "principal": "User:consumer",
+    "type": "GROUP",
+    "name": "app-group",
+    "operation": "READ",
+    "host": "*"
+  },
+  {
+    "principal": "User:consumer",
+    "type": "GROUP",
+    "name": "app-group",
+    "operation": "DESCRIBE",
+    "host": "*"
+  }
+]

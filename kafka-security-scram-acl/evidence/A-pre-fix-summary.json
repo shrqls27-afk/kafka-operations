@@ -1,0 +1,48 @@
+{
+  "scenario": "A pre-fix run",
+  "completed": false,
+  "qualification": "Old health predicate accepted a quorum high watermark of -1; superseded by final strict-quorum run",
+  "started_utc": "2026-10-04T00:03:44.082626+00:00",
+  "final_validation_completed_utc": "2026-10-04T00:27:30.278034+00:00",
+  "stream": {
+    "consumed_unique": 2720,
+    "missing_ack_ids": [],
+    "attempted": 2725,
+    "duplicates": 0,
+    "acked": 2716,
+    "consumed_without_success_ack": 4,
+    "attempted_not_consumed": 5,
+    "event_counts": {
+      "producer_client_recreated": 2,
+      "send_attempt": 2725,
+      "consumer_client_recreated": 2,
+      "send_ok": 2716,
+      "monitor_error": 22,
+      "lag": 104,
+      "rebalance_assigned": 2,
+      "consume": 2720,
+      "commit_ok": 1969,
+      "send_error": 9,
+      "commit_error": 3,
+      "rebalance_revoked": 2,
+      "consumer_client_closed_for_transition": 1,
+      "send_finished": 1,
+      "drain_complete": 1
+    },
+    "max_consume_interval_ms": 112887,
+    "max_observed_lag": 104,
+    "max_send_duration_ms": 18706,
+    "error_types": {
+      "TimeoutException": 34
+    }
+  },
+  "matrix_recheck_passed": 24,
+  "raw_evidence_sha256": {
+    "steps.json": "bdcaad61e33b4802329f134184cf364efd8fa345855326749d46c1eb14a569a9",
+    "stream-summary.json": "f4646e076865d5345c95881d5cf9dcd7af089161aa11c78d83a0b53090e81b43",
+    "matrix.json": "5d19b37c70970585c2c0614941e0778465babd501c3ef63f4256277bbb818432",
+    "shutdown.json": "5b382a1c92871171f5ce11c7cae18db238354f50b2405947d3c86f42d71136a2",
+    "audit.json": "64ccd40ce4cf0faa402d41a2d7b8d7334e7886a4d29b5551547effe35ff715a3",
+    "result.json": "a0e933e113447b98a0f270c90c5efe9b5ae27f9cdc9e5a503564bb1ad830c647"
+  }
+}

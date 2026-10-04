@@ -1,0 +1,16 @@
+{
+  "scenario": "A first attempt",
+  "completed": false,
+  "reason": "listener port inside outbound ephemeral range; broker bind failure followed by ISR safety halt",
+  "started_utc": "2026-10-03T13:41:30.208363+00:00",
+  "last_step_utc": "2026-10-03T13:43:29.833036+00:00",
+  "stream": {
+    "acked": 1139,
+    "consumed_unique": 1140,
+    "missing_ack_ids": [],
+    "attempted": 1140,
+    "duplicates": 0
+  },
+  "all_owned_processes_exited": true,
+  "raw_steps_sha256": "dbeb21b49fd0cd65d628efd409235f38e40f56cb3fec4104f9aa9e8c0ea55279"
+}

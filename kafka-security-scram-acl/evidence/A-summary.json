@@ -1,0 +1,1485 @@
+{
+  "scenario": "A",
+  "completed": false,
+  "final_state_validated": true,
+  "safety_halt_during_migration": true,
+  "matrix_passed": true,
+  "legacy_client_and_controller_ports_closed": true,
+  "tls_hostname_verification": "HTTPS",
+  "matrix_first_pass_failed": false,
+  "final_matrix_file": "matrix-recheck.json",
+  "final_validation_completed_utc": "2026-10-04T01:25:02.728805+00:00",
+  "started_utc": "2026-10-04T00:49:58.042143+00:00",
+  "last_step_utc": "2026-10-04T01:11:26.313341+00:00",
+  "commands": [
+    {
+      "step": "tls-ca",
+      "utc": "2026-10-04T00:49:58.042143+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-trust",
+      "utc": "2026-10-04T00:49:58.812402+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-key-301",
+      "utc": "2026-10-04T00:49:58.881044+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-cert-301",
+      "utc": "2026-10-04T00:49:58.903051+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-p12-301",
+      "utc": "2026-10-04T00:49:58.914731+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-key-302",
+      "utc": "2026-10-04T00:49:59.134711+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-cert-302",
+      "utc": "2026-10-04T00:49:59.173331+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-p12-302",
+      "utc": "2026-10-04T00:49:59.193652+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-key-303",
+      "utc": "2026-10-04T00:49:59.342549+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-cert-303",
+      "utc": "2026-10-04T00:49:59.362177+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "tls-p12-303",
+      "utc": "2026-10-04T00:49:59.375082+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "format-301",
+      "utc": "2026-10-04T00:50:05.506029+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "format-302",
+      "utc": "2026-10-04T00:50:09.761250+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "format-303",
+      "utc": "2026-10-04T00:50:15.425345+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "create-data",
+      "utc": "2026-10-04T00:50:43.836215+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "bootstrap-credentials-existing",
+      "utc": "2026-10-04T00:50:47.632339+00:00",
+      "exit_code": 0
+    },
+    {
+      "step": "acl-legacy-and-apps",
+      "utc": "2026-10-04T01:04:46.134755+00:00",
+      "exit_code": 0
+    }
+  ],
+  "rolling_events": [
+    {
+      "utc": "2026-10-04T00:50:05.510705+00:00",
+      "event": "broker_start",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:50:09.767357+00:00",
+      "event": "broker_start",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T00:50:15.430301+00:00",
+      "event": "broker_start",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T00:50:40.653416+00:00",
+      "event": "health_ready",
+      "stage": "initial"
+    },
+    {
+      "utc": "2026-10-04T00:51:27.794715+00:00",
+      "event": "health_ready",
+      "stage": "offsets-rf3-before-rolling"
+    },
+    {
+      "utc": "2026-10-04T00:51:42.137685+00:00",
+      "event": "health_ready",
+      "stage": "add-dual-listeners-before-301"
+    },
+    {
+      "utc": "2026-10-04T00:51:46.671760+00:00",
+      "event": "broker_stop",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:51:46.680199+00:00",
+      "event": "broker_start",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:52:46.152021+00:00",
+      "event": "health_ready",
+      "stage": "add-dual-listeners-after-301"
+    },
+    {
+      "utc": "2026-10-04T00:53:00.266137+00:00",
+      "event": "health_ready",
+      "stage": "add-dual-listeners-before-302"
+    },
+    {
+      "utc": "2026-10-04T00:53:06.555990+00:00",
+      "event": "broker_stop",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T00:53:06.566640+00:00",
+      "event": "broker_start",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T00:53:55.476337+00:00",
+      "event": "health_ready",
+      "stage": "add-dual-listeners-after-302"
+    },
+    {
+      "utc": "2026-10-04T00:54:09.431420+00:00",
+      "event": "health_ready",
+      "stage": "add-dual-listeners-before-303"
+    },
+    {
+      "utc": "2026-10-04T00:54:12.508131+00:00",
+      "event": "broker_stop",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T00:54:12.514413+00:00",
+      "event": "broker_start",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T00:54:49.956418+00:00",
+      "event": "health_ready",
+      "stage": "add-dual-listeners-after-303"
+    },
+    {
+      "utc": "2026-10-04T00:55:03.659701+00:00",
+      "event": "health_ready",
+      "stage": "controller-dual-to-mtls-before-301"
+    },
+    {
+      "utc": "2026-10-04T00:55:10.450482+00:00",
+      "event": "broker_stop",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:55:10.455874+00:00",
+      "event": "broker_start",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:56:22.765119+00:00",
+      "event": "health_ready",
+      "stage": "controller-dual-to-mtls-after-301"
+    },
+    {
+      "utc": "2026-10-04T00:56:36.507521+00:00",
+      "event": "health_ready",
+      "stage": "controller-dual-to-mtls-before-302"
+    },
+    {
+      "utc": "2026-10-04T00:56:39.738919+00:00",
+      "event": "broker_stop",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T00:56:39.746376+00:00",
+      "event": "broker_start",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T00:57:32.126437+00:00",
+      "event": "health_ready",
+      "stage": "controller-dual-to-mtls-after-302"
+    },
+    {
+      "utc": "2026-10-04T00:57:45.422676+00:00",
+      "event": "health_ready",
+      "stage": "controller-dual-to-mtls-before-303"
+    },
+    {
+      "utc": "2026-10-04T00:57:51.114230+00:00",
+      "event": "broker_stop",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T00:57:51.128304+00:00",
+      "event": "broker_start",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T00:59:06.364804+00:00",
+      "event": "health_ready",
+      "stage": "controller-dual-to-mtls-after-303"
+    },
+    {
+      "utc": "2026-10-04T00:59:25.551801+00:00",
+      "event": "health_ready",
+      "stage": "scram-internal-authorizer-bootstrap-before-301"
+    },
+    {
+      "utc": "2026-10-04T00:59:32.644382+00:00",
+      "event": "broker_stop",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T00:59:32.654444+00:00",
+      "event": "broker_start",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T01:01:12.472316+00:00",
+      "event": "health_ready",
+      "stage": "scram-internal-authorizer-bootstrap-after-301"
+    },
+    {
+      "utc": "2026-10-04T01:01:31.098742+00:00",
+      "event": "health_ready",
+      "stage": "scram-internal-authorizer-bootstrap-before-302"
+    },
+    {
+      "utc": "2026-10-04T01:01:34.577534+00:00",
+      "event": "broker_stop",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T01:01:34.586003+00:00",
+      "event": "broker_start",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T01:02:46.908362+00:00",
+      "event": "health_ready",
+      "stage": "scram-internal-authorizer-bootstrap-after-302"
+    },
+    {
+      "utc": "2026-10-04T01:03:04.970769+00:00",
+      "event": "health_ready",
+      "stage": "scram-internal-authorizer-bootstrap-before-303"
+    },
+    {
+      "utc": "2026-10-04T01:03:10.708144+00:00",
+      "event": "broker_stop",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T01:03:10.715739+00:00",
+      "event": "broker_start",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T01:04:40.687399+00:00",
+      "event": "health_ready",
+      "stage": "scram-internal-authorizer-bootstrap-after-303"
+    },
+    {
+      "utc": "2026-10-04T01:05:04.533544+00:00",
+      "event": "health_ready",
+      "stage": "remove-default-allow-before-301"
+    },
+    {
+      "utc": "2026-10-04T01:05:08.513584+00:00",
+      "event": "broker_stop",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T01:05:08.521001+00:00",
+      "event": "broker_start",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T01:05:58.670098+00:00",
+      "event": "health_ready",
+      "stage": "remove-default-allow-after-301"
+    },
+    {
+      "utc": "2026-10-04T01:06:17.916889+00:00",
+      "event": "health_ready",
+      "stage": "remove-default-allow-before-302"
+    },
+    {
+      "utc": "2026-10-04T01:06:20.647576+00:00",
+      "event": "broker_stop",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T01:06:20.654454+00:00",
+      "event": "broker_start",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T01:07:07.792034+00:00",
+      "event": "health_ready",
+      "stage": "remove-default-allow-after-302"
+    },
+    {
+      "utc": "2026-10-04T01:07:27.926546+00:00",
+      "event": "health_ready",
+      "stage": "remove-default-allow-before-303"
+    },
+    {
+      "utc": "2026-10-04T01:07:34.319343+00:00",
+      "event": "broker_stop",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T01:07:34.337153+00:00",
+      "event": "broker_start",
+      "node": 303
+    },
+    {
+      "utc": "2026-10-04T01:09:11.899380+00:00",
+      "event": "health_ready",
+      "stage": "remove-default-allow-after-303"
+    },
+    {
+      "utc": "2026-10-04T01:09:11.902879+00:00",
+      "event": "application_client_config_switch"
+    },
+    {
+      "utc": "2026-10-04T01:09:55.308168+00:00",
+      "event": "health_ready",
+      "stage": "remove-plaintext-listeners-before-301"
+    },
+    {
+      "utc": "2026-10-04T01:09:58.586251+00:00",
+      "event": "broker_stop",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T01:09:58.662332+00:00",
+      "event": "broker_start",
+      "node": 301
+    },
+    {
+      "utc": "2026-10-04T01:10:58.638671+00:00",
+      "event": "health_ready",
+      "stage": "remove-plaintext-listeners-after-301"
+    },
+    {
+      "utc": "2026-10-04T01:11:18.781709+00:00",
+      "event": "health_ready",
+      "stage": "remove-plaintext-listeners-before-302"
+    },
+    {
+      "utc": "2026-10-04T01:11:26.132585+00:00",
+      "event": "broker_stop",
+      "node": 302
+    },
+    {
+      "utc": "2026-10-04T01:11:26.313341+00:00",
+      "event": "broker_start",
+      "node": 302
+    }
+  ],
+  "quorum_checkpoints": [
+    {
+      "stage": "initial",
+      "utc": "2026-10-04T00:50:40.653416+00:00",
+      "leader": 301,
+      "epoch": 4,
+      "high_watermark": 53,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "offsets-rf3-before-rolling",
+      "utc": "2026-10-04T00:51:27.794715+00:00",
+      "leader": 301,
+      "epoch": 4,
+      "high_watermark": 215,
+      "max_offset_lag": 1
+    },
+    {
+      "stage": "add-dual-listeners-before-301",
+      "utc": "2026-10-04T00:51:42.137685+00:00",
+      "leader": 301,
+      "epoch": 4,
+      "high_watermark": 243,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "add-dual-listeners-after-301",
+      "utc": "2026-10-04T00:52:46.152021+00:00",
+      "leader": 302,
+      "epoch": 21,
+      "high_watermark": 422,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "add-dual-listeners-before-302",
+      "utc": "2026-10-04T00:53:00.266137+00:00",
+      "leader": 302,
+      "epoch": 21,
+      "high_watermark": 450,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "add-dual-listeners-after-302",
+      "utc": "2026-10-04T00:53:55.476337+00:00",
+      "leader": 301,
+      "epoch": 22,
+      "high_watermark": 664,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "add-dual-listeners-before-303",
+      "utc": "2026-10-04T00:54:09.431420+00:00",
+      "leader": 301,
+      "epoch": 22,
+      "high_watermark": 691,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "add-dual-listeners-after-303",
+      "utc": "2026-10-04T00:54:49.956418+00:00",
+      "leader": 301,
+      "epoch": 22,
+      "high_watermark": 881,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "controller-dual-to-mtls-before-301",
+      "utc": "2026-10-04T00:55:03.659701+00:00",
+      "leader": 301,
+      "epoch": 22,
+      "high_watermark": 908,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "controller-dual-to-mtls-after-301",
+      "utc": "2026-10-04T00:56:22.765119+00:00",
+      "leader": 303,
+      "epoch": 51,
+      "high_watermark": 1096,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "controller-dual-to-mtls-before-302",
+      "utc": "2026-10-04T00:56:36.507521+00:00",
+      "leader": 303,
+      "epoch": 51,
+      "high_watermark": 1123,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "controller-dual-to-mtls-after-302",
+      "utc": "2026-10-04T00:57:32.126437+00:00",
+      "leader": 303,
+      "epoch": 63,
+      "high_watermark": 1308,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "controller-dual-to-mtls-before-303",
+      "utc": "2026-10-04T00:57:45.422676+00:00",
+      "leader": 303,
+      "epoch": 63,
+      "high_watermark": 1335,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "controller-dual-to-mtls-after-303",
+      "utc": "2026-10-04T00:59:06.364804+00:00",
+      "leader": 301,
+      "epoch": 91,
+      "high_watermark": 1527,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "scram-internal-authorizer-bootstrap-before-301",
+      "utc": "2026-10-04T00:59:25.551801+00:00",
+      "leader": 301,
+      "epoch": 91,
+      "high_watermark": 1565,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "scram-internal-authorizer-bootstrap-after-301",
+      "utc": "2026-10-04T01:01:12.472316+00:00",
+      "leader": 303,
+      "epoch": 135,
+      "high_watermark": 1774,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "scram-internal-authorizer-bootstrap-before-302",
+      "utc": "2026-10-04T01:01:31.098742+00:00",
+      "leader": 303,
+      "epoch": 135,
+      "high_watermark": 1810,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "scram-internal-authorizer-bootstrap-after-302",
+      "utc": "2026-10-04T01:02:46.908362+00:00",
+      "leader": 303,
+      "epoch": 154,
+      "high_watermark": 2022,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "scram-internal-authorizer-bootstrap-before-303",
+      "utc": "2026-10-04T01:03:04.970769+00:00",
+      "leader": 303,
+      "epoch": 154,
+      "high_watermark": 2059,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "scram-internal-authorizer-bootstrap-after-303",
+      "utc": "2026-10-04T01:04:40.687399+00:00",
+      "leader": 303,
+      "epoch": 187,
+      "high_watermark": 2259,
+      "max_offset_lag": 1
+    },
+    {
+      "stage": "remove-default-allow-before-301",
+      "utc": "2026-10-04T01:05:04.533544+00:00",
+      "leader": 303,
+      "epoch": 187,
+      "high_watermark": 2326,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "remove-default-allow-after-301",
+      "utc": "2026-10-04T01:05:58.670098+00:00",
+      "leader": 303,
+      "epoch": 187,
+      "high_watermark": 2543,
+      "max_offset_lag": 1
+    },
+    {
+      "stage": "remove-default-allow-before-302",
+      "utc": "2026-10-04T01:06:17.916889+00:00",
+      "leader": 303,
+      "epoch": 187,
+      "high_watermark": 2581,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "remove-default-allow-after-302",
+      "utc": "2026-10-04T01:07:07.792034+00:00",
+      "leader": 303,
+      "epoch": 187,
+      "high_watermark": 2789,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "remove-default-allow-before-303",
+      "utc": "2026-10-04T01:07:27.926546+00:00",
+      "leader": 303,
+      "epoch": 187,
+      "high_watermark": 2828,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "remove-default-allow-after-303",
+      "utc": "2026-10-04T01:09:11.899380+00:00",
+      "leader": 302,
+      "epoch": 227,
+      "high_watermark": 3027,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "remove-plaintext-listeners-before-301",
+      "utc": "2026-10-04T01:09:55.308168+00:00",
+      "leader": 302,
+      "epoch": 227,
+      "high_watermark": 3117,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "remove-plaintext-listeners-after-301",
+      "utc": "2026-10-04T01:10:58.638671+00:00",
+      "leader": 302,
+      "epoch": 234,
+      "high_watermark": 3331,
+      "max_offset_lag": 0
+    },
+    {
+      "stage": "remove-plaintext-listeners-before-302",
+      "utc": "2026-10-04T01:11:18.781709+00:00",
+      "leader": 302,
+      "epoch": 234,
+      "high_watermark": 3371,
+      "max_offset_lag": 0
+    }
+  ],
+  "matrix": [
+    {
+      "case": "admin_create",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "admin_partitions",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "admin_config",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "admin_delete",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "producer_idempotent_allowed_no_cluster_idempotent_acl",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "producer_other_topic",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_create",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_delete",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_partitions",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_alter_config",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_manage_acl",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "producer_manage_account",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_topic_group_commit",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    },
+    {
+      "case": "consumer_other_topic",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_other_group",
+      "expected": "DENY",
+      "passed": true,
+      "result": "GroupAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_write",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "app_direct_offsets_write",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TopicAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_manage_acl",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "consumer_manage_account",
+      "expected": "DENY",
+      "passed": true,
+      "result": "ClusterAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "wrong_password",
+      "expected": "DENY",
+      "passed": true,
+      "result": "SaslAuthenticationException",
+      "exit_code": 1
+    },
+    {
+      "case": "anonymous_secure_port",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TimeoutException",
+      "exit_code": 1
+    },
+    {
+      "case": "tls_wrong_hostname",
+      "expected": "DENY",
+      "passed": true,
+      "result": "CertificateException",
+      "exit_code": 1
+    },
+    {
+      "case": "transaction_unallowed_id",
+      "expected": "DENY",
+      "passed": true,
+      "result": "TransactionalIdAuthorizationException",
+      "exit_code": 1
+    },
+    {
+      "case": "transaction_allowed_id_topic",
+      "expected": "ALLOW",
+      "passed": true,
+      "result": "OK",
+      "exit_code": 0
+    }
+  ],
+  "recheck_commands": [
+    {
+      "attempt": "validation-recovery",
+      "steps": [
+        {
+          "event": "recovery-remove-legacy-acl",
+          "exit_code": 0
+        },
+        {
+          "event": "recheck-warm-transaction",
+          "exit_code": 0
+        },
+        {
+          "event": "recheck-matrix",
+          "exit_code": 0
+        },
+        {
+          "event": "entry-inspect",
+          "exit_code": 0
+        },
+        {
+          "event": "entry-issue-users",
+          "exit_code": 0
+        },
+        {
+          "event": "entry-apply-acls",
+          "exit_code": 0
+        },
+        {
+          "event": "recheck-final-health",
+          "exit_code": 0
+        },
+        {
+          "event": "recheck-audit",
+          "exit_code": 0
+        }
+      ]
+    }
+  ],
+  "final_health": {
+    "broker_count": 3,
+    "partition_count": 102,
+    "all_rf3_isr3": true,
+    "offsets_partition_count": 50,
+    "healthy": true,
+    "quorum_high_watermark": 4154,
+    "quorum_leader_epoch": 343,
+    "quorum_max_offset_lag": 1
+  },
+  "partition_verification": [
+    {
+      "topic": "other-data",
+      "partition": 0,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "app-data",
+      "partition": 0,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 0,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 1,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 2,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 3,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 4,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 5,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 6,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 7,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 8,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 9,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 10,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 11,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 12,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 13,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 14,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 15,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 16,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 17,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 18,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 19,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 20,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 21,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 22,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 23,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 24,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 25,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 26,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 27,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 28,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 29,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 30,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 31,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 32,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 33,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 34,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 35,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 36,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 37,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 38,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 39,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 40,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 41,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 42,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 43,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 44,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 45,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 46,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 47,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 48,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__consumer_offsets",
+      "partition": 49,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 0,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 1,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 2,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 3,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 4,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 5,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 6,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 7,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 8,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 9,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 10,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 11,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 12,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 13,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 14,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 15,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 16,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 17,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 18,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 19,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 20,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 21,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 22,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 23,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 24,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 25,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 26,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 27,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 28,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 29,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 30,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 31,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 32,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 33,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 34,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 35,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 36,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 37,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 38,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 39,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 40,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 41,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 42,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 43,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 44,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 45,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 46,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 47,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 48,
+      "rf": 3,
+      "isr": 3
+    },
+    {
+      "topic": "__transaction_state",
+      "partition": 49,
+      "rf": 3,
+      "isr": 3
+    }
+  ],
+  "final_health_sha256": "3dd7b2f3ad170e5b0e37684b139ca115349d6909d187e4e52e0017d5ac9797fb",
+  "final_acl_count": 15,
+  "anonymous_acl_remaining": false,
+  "all_owned_processes_exited": true,
+  "recheck_owned_processes_exited": true,
+  "raw_evidence_sha256": {
+    "steps.json": "ca8b76c232f0c1904b5a127f6ea3a1f92ebae65aa6a79c64fa06cd65b11e07eb",
+    "shutdown.json": "0baee5e536e759486007ec9f51f96501864b0de7a4971efc28f17046c17670ec",
+    "audit.json": "7e669c0566fe2f977997a922fd91664f10d60d6ddb01711c05130d2e57300c54",
+    "result.json": "ba4e147ca7580d222db95022b74a8d02deea5e21ee6337d884e5a36e65719d4b"
+  }
+}

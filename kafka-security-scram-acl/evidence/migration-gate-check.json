@@ -1,0 +1,7 @@
+{
+  "actual_pre_first_removal_events_ready": false,
+  "actual_later_secure_send_consume_commit_events_ready": true,
+  "wait_on_preserved_actual_events_exit_code": 0,
+  "unit_cases_passed": 5,
+  "full_migration_after_gate_change_rerun": false
+}

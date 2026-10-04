@@ -1,0 +1,38 @@
+{
+  "scenario": "A final staged run",
+  "completed": false,
+  "failure": "broker registration timeout during second node plaintext removal",
+  "default_registration_deadline_ms": 60000,
+  "started_utc": "2026-10-04T00:49:58.042143+00:00",
+  "last_step_utc": "2026-10-04T01:11:26.313341+00:00",
+  "test_stream_exit_code": 143,
+  "drain_completed": false,
+  "attempted": 9339,
+  "acknowledged": 9332,
+  "consumed_unique": 8706,
+  "duplicates": 0,
+  "ack_not_observed_at_safety_halt": 632,
+  "loss_verdict": "inconclusive because safety halt interrupted drain",
+  "event_counts": {
+    "producer_client_recreated": 2,
+    "send_attempt": 9339,
+    "consumer_client_recreated": 2,
+    "send_ok": 9332,
+    "monitor_error": 15,
+    "lag": 231,
+    "rebalance_assigned": 2,
+    "consume": 8706,
+    "commit_ok": 5578,
+    "send_error": 7,
+    "commit_error": 1,
+    "commit_error_at_transition": 1,
+    "rebalance_revoked": 1,
+    "consumer_client_closed_for_transition": 1,
+    "send_finished": 1
+  },
+  "max_consume_interval_ms": 213579,
+  "max_observed_lag": 1498,
+  "error_types": {
+    "TimeoutException": 24
+  }
+}
