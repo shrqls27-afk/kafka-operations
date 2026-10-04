@@ -1,12 +1,14 @@
 #!/usr/bin/env python3
-"""NAS A/B 순차 격리 실험. 운영 경로에 format/재시작을 하지 않는다."""
+"""NAS A/B/C 순차 격리 실험. 운영 경로에 format/재시작을 하지 않는다."""
 import argparse, datetime, hashlib, json, os, re, secrets, shutil, signal, socket, subprocess, time
 from pathlib import Path
 from migration_gate import wait_for_secure_clients
 
 ROOT=Path(__file__).resolve().parents[1]
 
-def run_lab(which,d,base,kh,jh):
+def run_lab(which,d,base,kh,jh,profile="short",quorum_profile="default"):
+    assert quorum_profile=="default" or which=="C"
+    assert profile=="short" or which=="C"
     assert not d.exists();d.mkdir(parents=True);d.chmod(0o700)
     home=d/'home';(home/'kafka').mkdir(parents=True);(home/'kafka/current').symlink_to(kh,target_is_directory=True)
     env=dict(os.environ,HOME=str(home),JAVA_HOME=str(jh),KAFKA_HOME=str(kh),KAFKA_HEAP_OPTS='-Xms256m -Xmx256m')
@@ -51,20 +53,31 @@ def run_lab(which,d,base,kh,jh):
     anon=client('anonymous','security-root');anon.write_text(anon.read_text().replace('security.protocol=SASL_SSL','security.protocol=SSL'))
     for role in ['producer','consumer']:
         client('plain-'+role,role,False);shutil.copy2(d/(role+'.properties'),d/('secure-'+role+'.properties'))
-    shutil.copy2(plain if which=='A' else root,d/'monitor.properties')
+    if which=='C':
+        profile_data={'profile':profile,'producer_delivery_timeout_ms':120000 if profile=='reference' else 20000,'producer_max_block_ms':60000 if profile=='reference' else 12000,'producer_request_timeout_ms':30000 if profile=='reference' else 8000,'consumer_default_api_timeout_ms':60000 if profile=='reference' else 15000,'commit_timeout_ms':60000 if profile=='reference' else 10000,'acks':'all','idempotence':True,'manual_commit':True}
+        save('client-profile.json',profile_data)
+        save('lab-quorum-profile.json',{'profile':quorum_profile,'election_timeout_ms':10000 if quorum_profile=='extended' else 1000,'fetch_timeout_ms':20000 if quorum_profile=='extended' else 2000,'request_timeout_ms':20000 if quorum_profile=='extended' else 2000,'operating_recommendation':False})
+        if profile=='reference':
+            for role in ['producer','consumer']:
+                path=d/('plain-'+role+'.properties')
+                path.write_text(path.read_text()+('delivery.timeout.ms=120000\nmax.block.ms=60000\nrequest.timeout.ms=30000\n' if role=='producer' else 'default.api.timeout.ms=60000\n'))
+    shutil.copy2(plain if which in ['A','C'] else root,d/'monitor.properties')
     def config(n,wave):
         i=nodes.index(n);secured=(which=='B' or wave>=1);ct=(which=='B' or wave>=2);auth=(which=='B' or wave>=3);final=(which=='B' or wave>=5)
         listeners=[];adv=[]
         if not final:listeners.append('OLD://127.0.0.1:%d'%legacy[i]);adv.append('OLD://localhost:%d'%legacy[i])
-        if secured:listeners.append('NEW://127.0.0.1:%d'%secure[i]);adv.append('NEW://localhost:%d'%secure[i]);listeners.append('CTRLTLS://localhost:%d'%tlsctrl[i])
+        if secured:
+            listeners.append('NEW://127.0.0.1:%d'%secure[i]);adv.append('NEW://localhost:%d'%secure[i])
+            if which!='C':listeners.append('CTRLTLS://localhost:%d'%tlsctrl[i])
         if not final:listeners.append('CTRL://localhost:%d'%ctrl[i])
-        first='CTRLTLS' if ct else 'CTRL';controllers=first+(',CTRL' if ct and not final else ',CTRLTLS' if secured and not ct else '')
+        first='CTRLTLS' if ct else 'CTRL';controllers=first+(',CTRL' if ct and not final else ',CTRLTLS' if secured and not ct and which!='C' else '')
         common={'process.roles':'broker,controller','node.id':str(n),'controller.quorum.voters':','.join('%d@localhost:%d'%(x,(tlsctrl if ct else ctrl)[j]) for j,x in enumerate(nodes)),
                 'listeners':','.join(listeners),'advertised.listeners':','.join(adv),'controller.listener.names':controllers,
                 'listener.security.protocol.map':'OLD:PLAINTEXT,NEW:SASL_SSL,CTRL:PLAINTEXT,CTRLTLS:SSL',
                 'inter.broker.listener.name':'NEW' if auth else 'OLD','log.dirs':str(d/('data-%d'%n)),
                 'offsets.topic.replication.factor':'3','offsets.topic.num.partitions':'50','transaction.state.log.replication.factor':'3','transaction.state.log.min.isr':'2',
-                'auto.create.topics.enable':'false','num.network.threads':'2','num.io.threads':'2','num.replica.fetchers':'1','log.cleaner.dedupe.buffer.size':'16777216','log.segment.bytes':'16777216','offsets.topic.segment.bytes':'1048576','controlled.shutdown.enable':'false','group.initial.rebalance.delay.ms':'1000'}
+                'auto.create.topics.enable':'false','num.network.threads':'2','num.io.threads':'2','num.replica.fetchers':'1','log.cleaner.dedupe.buffer.size':'16777216','log.segment.bytes':'16777216','offsets.topic.segment.bytes':'1048576','controlled.shutdown.enable':'true' if which=='C' else 'false','group.initial.rebalance.delay.ms':'1000'}
+        if which=='C' and quorum_profile=='extended':common.update({'controller.quorum.election.timeout.ms':'10000','controller.quorum.fetch.timeout.ms':'20000','controller.quorum.request.timeout.ms':'20000'})
         if secured:common.update({'ssl.keystore.location':str(d/('node-%d.p12'%n)),'ssl.keystore.type':'PKCS12','ssl.keystore.password':storepass,'ssl.key.password':storepass,'ssl.truststore.location':str(d/'trust.p12'),'ssl.truststore.type':'PKCS12','ssl.truststore.password':storepass,'ssl.endpoint.identification.algorithm':'HTTPS','listener.name.ctrltls.ssl.client.auth':'required',
                                 'sasl.enabled.mechanisms':'SCRAM-SHA-512','sasl.mechanism.inter.broker.protocol':'SCRAM-SHA-512','listener.name.new.scram-sha-512.sasl.jaas.config':'org.apache.kafka.common.security.scram.ScramLoginModule required username="broker-%d" password="%s";'%(n,creds['broker-%d'%n])})
         if auth:common.update({'authorizer.class.name':'org.apache.kafka.metadata.authorizer.StandardAuthorizer','super.users':';'.join(['User:security-root']+['User:broker-%d'%x for x in nodes]+['User:CN=node%d'%x for x in nodes]),'allow.everyone.if.no.acl.found':'true' if which=='A' and wave==3 else 'false'})
@@ -76,7 +89,7 @@ def run_lab(which,d,base,kh,jh):
     def stop(n):
         p=owned[n]
         if p.poll() is None:
-            assert str(d/('node-%d.properties'%n)).encode() in Path('/proc/%d/cmdline'%p.pid).read_bytes();p.send_signal(signal.SIGTERM);p.wait(timeout=45)
+            assert str(d/('node-%d.properties'%n)).encode() in Path('/proc/%d/cmdline'%p.pid).read_bytes();p.send_signal(signal.SIGTERM);p.wait(timeout=90 if which=='C' else 45)
         event('broker_stop',node=n,pid=p.pid,exit_code=p.poll())
     def health(label,p,tries=30):
         stable=0;previous=None
@@ -112,7 +125,7 @@ def run_lab(which,d,base,kh,jh):
             run(['bash',str(ROOT/'kafka-security.sh'),'prepare-new','--new-root',str(d/'entry-prepared-empty'),'--apply','--confirm','NEW EMPTY CLUSTER'],'entry-prepare-new')
             (d/'.approved-new-cluster').write_text('new-only\n');(d/'.approved-new-cluster').chmod(0o600)
         for n in nodes:
-            cfg=config(n,0 if which=='A' else 5);data=d/('data-%d'%n)
+            cfg=config(n,0 if which in ['A','C'] else 5);data=d/('data-%d'%n)
             assert not data.exists()
             args=['format','--cluster-id',cid,'--config',str(cfg)]
             if which=='B':
@@ -123,11 +136,31 @@ def run_lab(which,d,base,kh,jh):
             else:run([str(kh/'bin/kafka-storage.sh'),'@'+str(argfile)],'format-%d'%n)
             start(n)
         time.sleep(12)
-        active=plain if which=='A' else root
+        active=plain if which in ['A','C'] else root
         health('initial',active);probe('create',active,[],'create-data');
-        if which=='A':probe('users',plain,[users],'bootstrap-credentials-existing')
+        if which in ['A','C']:probe('users',plain,[users],'bootstrap-credentials-existing')
         else:
             acl=d/'acl-final.json';save(acl.name,acl_specs());probe('acls',root,[acl],'acl-bootstrap')
+        if which=='C':
+            (d/'phase').write_text('baseline');(d/'clients').write_text('plain')
+            f=(d/'stream.log').open('w');handles.append(f)
+            stream=subprocess.Popen(java+['stream',str(d)],env=env,stdout=f,stderr=subprocess.STDOUT,start_new_session=True);all_owned.append((stream,'SecurityProbe stream'))
+            time.sleep(30);health('offsets-rf3-before-rolling',plain)
+            roll(1,'add-secure-client-listener-only',plain)
+            probe('coexist-probe',d,[d/'coexist-probe.json'],'secure-shadow-and-negative-probes',timeout=120)
+            health('secure-listener-health',root);health('plaintext-still-healthy',plain)
+            (d/'phase').write_text('coexist-observation');time.sleep(60)
+            (d/'phase').write_text('drain');(d/'stop-send').write_text('stop');stream.wait(timeout=120);assert stream.returncode==0;event('stream_exit',exit_code=stream.returncode)
+            probe('resume-check',plain,[d/'resume-check.json'],'plaintext-committed-offset-resume',timeout=90)
+            health('final',plain)
+            for port in legacy+ctrl+secure:
+                with socket.socket() as sock:assert sock.connect_ex(('127.0.0.1',port))==0
+            for n in nodes:
+                props=dict(line.split('=',1) for line in (d/('node-%d.properties'%n)).read_text().splitlines() if '=' in line)
+                assert props['inter.broker.listener.name']=='OLD' and props['controller.listener.names']=='CTRL'
+                assert 'authorizer.class.name' not in props and 'OLD://' in props['listeners'] and 'NEW://' in props['listeners']
+            save('result.json',{'scenario':'C','completed':True,'scope':'SASL_SSL client listener addition with unchanged PLAINTEXT applications and internal paths','plaintext_retained':True,'authorizer_enabled':False,'internal_paths_unchanged':True,'application_transport_switched':False,'tls_hostname_verification':'HTTPS','drain_completed':True,'committed_offset_resume_verified':True})
+            return
         if which=='A':
             (d/'phase').write_text('baseline');(d/'clients').write_text('plain')
             f=(d/'stream.log').open('w');handles.append(f);stream=subprocess.Popen(java+['stream',str(d)],env=env,stdout=f,stderr=subprocess.STDOUT,start_new_session=True);all_owned.append((stream,'SecurityProbe stream'));time.sleep(25);health('offsets-rf3-before-rolling',plain)
@@ -165,11 +198,16 @@ def run_lab(which,d,base,kh,jh):
         save('final-configs-redacted.json',final_configs);save('result.json',{'scenario':which,'completed':True,'legacy_client_and_controller_ports_closed':True,'tls_hostname_verification':'HTTPS','tls_sasl_scram_sha512':True,'matrix_passed':True})
     finally:
         if (d/'events.jsonl').exists():(d/'stop-send').write_text('stop')
+        if which=='C':
+            for p,needle in reversed(all_owned):
+                if p.poll() is None:
+                    assert needle.encode() in Path('/proc/%d/cmdline'%p.pid).read_bytes().replace(b'\0',b' ')
+                    p.send_signal(signal.SIGTERM)
         for p,needle in reversed(all_owned):
             if p.poll() is None:
                 assert needle.encode() in Path('/proc/%d/cmdline'%p.pid).read_bytes().replace(b'\0',b' ')
                 p.send_signal(signal.SIGTERM)
-                try:p.wait(timeout=45)
+                try:p.wait(timeout=90 if which=='C' else 45)
                 except subprocess.TimeoutExpired:event('normal_shutdown_pending',pid=p.pid)
         for f in handles:f.close()
         save('shutdown.json',[{'pid':p.pid,'command_contains':Path(needle).name,'exit_code':p.poll()} for p,needle in all_owned])
@@ -178,13 +216,13 @@ def run_lab(which,d,base,kh,jh):
         assert all(p.poll() is not None for p,_ in all_owned)
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--scenario',choices=['A','B'],required=True);ap.add_argument('--directory',type=Path,required=True);ap.add_argument('--port-base',type=int,default=16000);a=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--scenario',choices=['A','B','C'],required=True);ap.add_argument('--directory',type=Path,required=True);ap.add_argument('--port-base',type=int,default=16000);ap.add_argument('--client-profile',choices=['short','reference'],default='short');ap.add_argument('--lab-quorum-timeouts',choices=['default','extended'],default='default');a=ap.parse_args()
     os.umask(0o077)
     assert int(next(x for x in Path('/proc/meminfo').read_text().splitlines() if x.startswith('MemAvailable:')).split()[1])>=2500000
     assert shutil.disk_usage(ROOT).free>5*1024**3
     kh=Path(os.environ['KAFKA_HOME']);jh=Path(os.environ['JAVA_HOME']);assert (kh/'libs/kafka-clients-3.9.1.jar').exists()
     (ROOT/'build').mkdir(exist_ok=True);subprocess.run([str(jh/'bin/javac'),'-cp',str(kh/'libs/*'),'-d',str(ROOT/'build'),str(ROOT/'tests/SecurityProbe.java')],check=True)
-    run_lab(a.scenario,a.directory.resolve(),a.port_base,kh,jh)
+    run_lab(a.scenario,a.directory.resolve(),a.port_base,kh,jh,a.client_profile,a.lab_quorum_timeouts)
 
 if __name__=='__main__':
     if not __debug__:raise RuntimeError('python -O 금지')

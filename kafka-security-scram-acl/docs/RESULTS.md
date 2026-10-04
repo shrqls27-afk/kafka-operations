@@ -23,10 +23,35 @@
 
 ## 환경과 한계
 
-Linux 직접 설치, Kafka3.9.1, JDK17, Python3.8, OpenSSL1.1.1, 한 호스트의 격리된 combined KRaft3노드/static quorum입니다. 별도 포트·데이터·테스트 HOME을 사용했습니다. client/inter-broker는 SASL_SSL/SCRAM-SHA-512(8192 iterations), controller는 mTLS입니다. 테스트256MB heap/작은 thread 수/controlled.shutdown.enable=false는 운영 권장 설정이 아닙니다. 기존 Kafka/UI/Codex/Telegram 서비스를 변경하거나 재시작하지 않았습니다.
+Linux 직접 설치, Kafka3.9.1, JDK17, Python3.8, OpenSSL1.1.1, 한 호스트의 격리된 combined KRaft3노드/static quorum입니다. 별도 포트·데이터·테스트 HOME을 사용했습니다. client/inter-broker는 SASL_SSL/SCRAM-SHA-512(8192 iterations), controller는 mTLS입니다. A/B의 테스트256MB heap/작은 thread 수/controlled.shutdown.enable=false는 운영 권장 설정이 아닙니다. C는 controlled.shutdown.enable=true로 순차 정상 종료했습니다. 기존 Kafka/UI/Codex/Telegram 서비스를 변경하거나 재시작하지 않았습니다.
 
 A는 consumer 객체를 명시적으로 close/recreate했으며 rebalance와 소비 공백이 있습니다. 안전 중단 시 테스트 앱도 종료했으므로 전체 기간 앱 지속 성공으로 표현하지 않습니다. producer 내부 retry 횟수는 직접 측정하지 않았습니다. lag는 표본이고 소비 간격에 동기 Admin 조회/close 및 계측 오버헤드가 포함됩니다. timeout은 전송 유실 확정이 아닙니다. 짧은 단일 호스트 실험으로 운영 환경의 무중단을 보장하지 않습니다.
 
 미검증: 물리 서버 간 네트워크/방화벽, 운영 CA/DNS/SAN 배포 및 인증서 회전, 실제 앱 배포, 장시간 부하/장애, SCRAM controller, dynamic quorum, read_committed/EOS offsets 트랜잭션, 최종9092 재사용, 수정 gate 포함 A 전체 전환 및 A 최종 drain. 실제 TLS/SASL·잘못된 암호·익명 접속·hostname 부정 검증과 지정 transactional ID 테스트는 수행했습니다. RF1 또는 ISR 부족 상태에서 rolling restart 가용성을 검증한 것이 아니며 RF1→3 선행 절차가 필요합니다.
 
-모든 테스트 소유 PID/명령을 확인해 SIGTERM으로 종료했고 실제 종료·테스트 포트 폐쇄를 확인했습니다. 전체 종료 중 quorum 과반수 소실로 graceful-shutdown timeout 경고가 발생할 수 있으나 강제 종료나 기존 서비스 재시작을 사용하지 않았습니다.
+A/B 테스트 소유 PID/명령을 확인해 SIGTERM으로 종료했고 실제 종료·테스트 포트 폐쇄를 확인했습니다. 전체 종료 중 quorum 과반수 소실로 graceful-shutdown timeout 경고가 발생할 수 있으나 강제 종료나 기존 서비스 재시작을 사용하지 않았습니다.
+
+
+## C 기존 PLAINTEXT 앱 유지 경로 추가 검증
+
+운영 적용의 우선 시작 문서는 [KEEP-PLAINTEXT](KEEP-PLAINTEXT.md)입니다. 기존9092를 유지하고 별도9094 보안 client 포트만 추가하는 공존 단계를 재현했습니다. controller endpoint/protocol, inter-broker listener, 앱 transport/프로세스는 변경 중 유지했습니다. authorizer 및 기존 포트 제거는 수행하지 않았습니다. 실험 실제 포트는 전용 loopback 범위를 사용했으므로 운영9092/9094 방화벽이나 외부 DNS 접속을 검증한 것은 아닙니다.
+
+| 실행 | 전송 ACK/고유 소비 | 누락/중복 | 앱 API 오류 | 후속 최대 소비 간격 | 결과 |
+| --- | --- | --- | --- | --- | --- |
+| C 짧은 제한시간 | 3096/3096 | 0/0 | commit timeout1, send/consume0 | 10.059초 | 공존·drain 성공, 오류0 요구 불충족 |
+| C 참조 제한시간·기본 quorum | 판정하지 않음 | drain 미실행 | 별도 실패 증거 참조 | 판정하지 않음 | 변경 전 quorum 선거 반복으로 보류·종료 |
+| C 참조 제한시간·NAS용 quorum | 3610/3610 | 0/0 | send/consume/commit0 | 13.314초 | 공존·drain·재접속 검증 성공, 처리 영향0 증명은 아님 |
+
+짧은 제한시간은 delivery20초/max-block12초/request8초, consumer API15초/commit10초입니다. 참조 제한시간은 delivery120초/max-block60초/request30초, consumer API/commit60초이며 acks=all·idempotence=true·manual commit을 사용했습니다. client 설정은 각 실험 시작부터 적용하고 rolling 중 바꾸지 않았습니다. 실제 운영 앱의 현재 설정/프레임워크/지연 허용 기준은 제공되지 않아 그 앱의 적합성은 미검증입니다.
+
+기본 quorum 참조 실행은 listener를 변경하기 전에 health gate에서 멈췄습니다. 반복 선거와 유효하지 않은 high watermark를 관측했고, 자원 영향의 단일 원인은 확정하지 않았습니다. 이후 NAS용 참조 실행은 baseline부터 quorum election10초/fetch20초/request20초로 설정했습니다. 이는 NAS 실험용 조정이며 운영 권장값이 아닙니다. client 제한시간과 quorum 조건이 모두 달라졌으므로 오류 제거를 timeout 하나의 효과로 단정하지 않습니다. 같은 운영 설정에서 오류0이 검증된 것으로 표현하지 않습니다.
+
+참조 실행은 UTC2026-10-04 02:49:23~02:57:41(한국 시각11:49:23~11:57:41)입니다. rolling 중2746건 ACK/소비와 commit2565회, 전체 commit3292회를 기록했습니다. 최대 commit 시간13.263초, 최대 send 시간6.919초, 표본 최대 lag124입니다. 측정 Admin timeout4회(초기 baseline3, rolling1)가 있었으며 앱 API 오류와 분리합니다. 소비 간격에는 동기 lag 조회와 계측 오버헤드가 포함되지만 commit 호출의 응답 지연도 실제로 관측했습니다. 최초 cold group의 첫 소비까지는 짧은 실행22.690초, 참조 실행25.117초였고 후속 간격과 구분합니다.
+
+두 완료 실행에서 plaintext/secure 독립 조회의 cluster ID와 전체 파티션 assignment 일치를 확인했습니다. 최종52파티션( offsets50+앱2) 모두 RF3/ISR3이며 기존 replica를 재할당하거나 데이터를 이관하지 않았습니다. secure shadow는 별도 topic/group에서 전송·소비·commit 성공, 잘못된 암호는 SaslAuthenticationException, 잘못된 hostname은 CertificateException, 익명 SSL-only 연결은 timeout으로 실패했습니다. 익명 연결 timeout은 ACL 거부 증거가 아닙니다. **이 공존 상태는 ACL 관리자 전용 통제가 미완료입니다.** 기존 무인증 경로와 새 인증 경로의 관리 권한은 아직 제한되지 않으므로 네트워크 접근을 제한하고 일반 앱 전체에 새 계정을 배포하는 완성 상태로 사용하지 마세요.
+
+rolling 기간에 client 재생성/앱 재시작은 없었습니다. 측정 시작 시 객체 생성과 끝의 drain/종료 후, 동일 app-group consumer를 별도로 재접속했습니다. 참조 실행의 committed/end3610에서 첫 offset3610으로 재개해 marker를 소비·commit했고, 독립 kafka-consumer-groups CLI가 committed/end3611·lag0을 확인했습니다. 종료 후 모든 테스트 소유 PID와 포트 폐쇄를 확인하고 원본 데이터/로그를 보존했습니다. 보류한 실행의 driver 종료코드는130이며 broker/stream은 소유 명령 확인 후 SIGTERM으로 정리했습니다.
+
+원본 기반 공개 근거: [짧은 제한시간](../evidence/C-short-timeout-summary.json), [변경 전 보류](../evidence/C-reference-baseline-halt.json), [참조 실행](../evidence/C-reference-summary.json). 단계별 종료코드/rolling 시각/파티션별 RF·ISR, 입력 profile 및 원본 SHA256을 포함합니다. 최종 소스 SHA와 각 실행 소스 SHA를 별도로 보존했습니다.
+
+오류·지연 단 한 번도 허용되지 않는 조건에서는 이 실험을 운영 변경 승인 근거로 사용하지 않습니다. 현행 클러스터를 유지하고 실제 앱의 retry/timeout/commit·SLA를 확인한 뒤 동일 조건 리허설을 먼저 수행해야 합니다. 후속 앱 전환·내부 인증·StandardAuthorizer·default deny·9092 제거를 포함한 전체 경로는 여전히 미검증입니다. 기존 A 실패와 B 성공 기록은 그대로 보존했습니다.

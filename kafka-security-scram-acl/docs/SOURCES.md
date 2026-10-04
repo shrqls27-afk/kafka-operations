@@ -15,3 +15,7 @@
 - [KAFKA-15513](https://issues.apache.org/jira/browse/KAFKA-15513): KRaft controller SCRAM bootstrap 제약을 검토하여 controller는 mTLS로 분리했습니다.
 
 - [KafkaConfig.scala](https://github.com/apache/kafka/blob/3.9.1/core/src/main/scala/kafka/server/KafkaConfig.scala): effectiveAdvertisedControllerListeners는 명시적 controller advertised endpoint 또는 listeners의 host를 사용합니다. voters/bootstrap의 DNS만 SAN과 일치시켜서는 충분하지 않습니다.
+
+- [Producer 설정](https://kafka.apache.org/39/configuration/producer-configs/), [Consumer 설정](https://kafka.apache.org/39/configuration/consumer-configs/): retry는 delivery timeout 내에서만 지속되며 bootstrap 목록·session/max poll 설정과 앱 오류 처리의 적합성을 별도로 확인해야 합니다.
+
+- [Broker 설정](https://kafka.apache.org/39/configuration/broker-configs/): controller quorum election/fetch/request 제한시간의 의미와 기본값. NAS 격리 실험용 변경은 운영 권장값이 아닙니다.

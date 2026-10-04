@@ -1,0 +1,38 @@
+{
+  "scenario": "C reference first attempt",
+  "completed": false,
+  "listener_changes_started": false,
+  "reason": "baseline metadata quorum repeated elections; health gate withheld rolling",
+  "observed_utc": "2026-10-04T02:47:37.688487+00:00",
+  "quorum_high_watermark": -1,
+  "quorum_leader_epoch": 109,
+  "quorum_max_offset_lag": 0,
+  "healthy": false,
+  "load_average": [
+    "4.92",
+    "5.22",
+    "4.20"
+  ],
+  "exact_resource_cause_proven": false,
+  "driver_exit_code": 130,
+  "all_owned_processes_exited": true,
+  "owned_process_exit_codes": [
+    143,
+    143,
+    143,
+    143
+  ],
+  "partial_event_counts": {
+    "producer_client_recreated": 1,
+    "send_attempt": 1700,
+    "consumer_client_recreated": 1,
+    "send_ok": 1700,
+    "monitor_error": 3,
+    "lag": 58,
+    "rebalance_assigned": 1,
+    "consume": 1700,
+    "commit_ok": 1584
+  },
+  "drain_completed": false,
+  "loss_verdict": "inconclusive; deliberate safety halt before listener change"
+}

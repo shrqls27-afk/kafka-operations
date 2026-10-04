@@ -1,0 +1,15 @@
+# 병합 참고용 delta; 이 파일로 기존 server.properties를 교체하지 마세요.
+# 기존 listener 이름/주소/포트, controller, inter-broker, node ID, 데이터 경로는 유지합니다.
+listeners=EXISTING_CLIENT://node1.example.invalid:9092,SECURE_CLIENT://node1.example.invalid:9094,EXISTING_CONTROLLER://node1.example.invalid:9093
+advertised.listeners=EXISTING_CLIENT://node1.example.invalid:9092,SECURE_CLIENT://node1.example.invalid:9094
+listener.security.protocol.map=EXISTING_CLIENT:PLAINTEXT,SECURE_CLIENT:SASL_SSL,EXISTING_CONTROLLER:PLAINTEXT
+listener.name.secure_client.sasl.enabled.mechanisms=SCRAM-SHA-512
+listener.name.secure_client.scram-sha-512.sasl.jaas.config=org.apache.kafka.common.security.scram.ScramLoginModule required username="listener-bootstrap" password="REPLACE_IN_PROTECTED_FILE";
+listener.name.secure_client.ssl.keystore.location=/protected/node1.p12
+listener.name.secure_client.ssl.keystore.type=PKCS12
+listener.name.secure_client.ssl.keystore.password=REPLACE_IN_PROTECTED_FILE
+listener.name.secure_client.ssl.key.password=REPLACE_IN_PROTECTED_FILE
+listener.name.secure_client.ssl.truststore.location=/protected/trust.p12
+listener.name.secure_client.ssl.truststore.type=PKCS12
+listener.name.secure_client.ssl.truststore.password=REPLACE_IN_PROTECTED_FILE
+# authorizer/super.users/allow.everyone.if.no.acl.found는 추가하지 않습니다.

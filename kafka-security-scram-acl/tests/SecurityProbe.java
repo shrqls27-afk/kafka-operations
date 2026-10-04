@@ -44,8 +44,8 @@ public class SecurityProbe {
   for(var x:J.readTree(file.toFile()))result.add(new AclBinding(new ResourcePattern(ResourceType.valueOf(x.get("type").asText()),x.get("name").asText(),PatternType.valueOf(x.path("pattern").asText("LITERAL"))),new AccessControlEntry(x.get("principal").asText(),x.path("host").asText("*"),AclOperation.valueOf(x.get("operation").asText()),AclPermissionType.ALLOW)));
   return result;
  }
- static KafkaProducer<String,String> producer(Properties base,String tx){var p=new Properties();p.putAll(base);p.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");p.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");p.put("acks","all");p.put("enable.idempotence","true");p.put("max.block.ms","12000");p.put("delivery.timeout.ms","20000");p.put("request.timeout.ms","8000");if(tx!=null){p.put("transactional.id",tx);p.put("max.block.ms","60000");}return new KafkaProducer<>(p);}
- static KafkaConsumer<String,String> consumer(Properties base,String group){var p=new Properties();p.putAll(base);p.put("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");p.put("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");p.put("enable.auto.commit","false");p.put("allow.auto.create.topics","false");p.put("auto.offset.reset","earliest");p.put("group.id",group);p.put("default.api.timeout.ms","15000");return new KafkaConsumer<>(p);}
+ static KafkaProducer<String,String> producer(Properties base,String tx){var p=new Properties();p.putAll(base);p.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");p.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");p.put("acks","all");p.put("enable.idempotence","true");p.put("max.block.ms",base.getProperty("max.block.ms","12000"));p.put("delivery.timeout.ms",base.getProperty("delivery.timeout.ms","20000"));p.put("request.timeout.ms",base.getProperty("request.timeout.ms","8000"));if(tx!=null){p.put("transactional.id",tx);p.put("max.block.ms","60000");}return new KafkaProducer<>(p);}
+ static KafkaConsumer<String,String> consumer(Properties base,String group){var p=new Properties();p.putAll(base);p.put("key.deserializer","org.apache.kafka.common.serialization.StringDeserializer");p.put("value.deserializer","org.apache.kafka.common.serialization.StringDeserializer");p.put("enable.auto.commit","false");p.put("allow.auto.create.topics","false");p.put("auto.offset.reset","earliest");p.put("group.id",group);p.put("default.api.timeout.ms",base.getProperty("default.api.timeout.ms","15000"));return new KafkaConsumer<>(p);}
  static void send(Properties p,String topic)throws Exception{try(var c=producer(p,null)){c.send(new ProducerRecord<>(topic,0,"probe","probe")).get(25,TimeUnit.SECONDS);}}
  static void consume(Properties p,String topic,String group)throws Exception{try(var c=consumer(p,group)){c.subscribe(List.of(topic));long end=System.nanoTime()+Duration.ofSeconds(45).toNanos();while(System.nanoTime()<end){var records=c.poll(Duration.ofMillis(500));if(!records.isEmpty()){c.commitSync();return;}}throw new TimeoutException();}}
  interface Action {void run()throws Exception;}
@@ -87,17 +87,39 @@ public class SecurityProbe {
   save(out,cases);long failed=cases.stream().filter(x->!(Boolean)((Map<?,?>)x).get("passed")).count();
   System.out.println("권한 검증 "+cases.size()+"개, 불일치 "+failed+"개");if(failed>0)System.exit(2);
  }
+ static void coexistProbe(Path d,Path out)throws Exception{
+  Properties secured=props(d.resolve("root.properties"));var result=new LinkedHashMap<String,Object>();
+  try(var p=producer(secured,null)){p.send(new ProducerRecord<>("other-data",0,"secure-shadow","secure-shadow")).get(25,TimeUnit.SECONDS);}
+  consume(secured,"other-data","secure-shadow-group");result.put("secure_send_consume_commit",true);
+  for(String f:List.of("wrong.properties","bad-host.properties","anonymous.properties")){
+   String type="UNEXPECTED_SUCCESS";try(Admin a=Admin.create(props(d.resolve(f)))){a.describeCluster().nodes().get(15,TimeUnit.SECONDS);}catch(Exception e){type=error(e);}
+   result.put(f.replace(".properties",""),type);
+   var expected=f.startsWith("wrong")?List.of("SaslAuthenticationException"):f.startsWith("bad-host")?List.of("SslAuthenticationException","SSLHandshakeException","CertificateException"):List.of("TimeoutException","DisconnectException","SaslAuthenticationException");
+   if(!expected.contains(type))throw new IllegalStateException("negative probe mismatch");
+  }
+  result.put("acl_enforcement",false);save(out,result);
+ }
+ static void resumeCheck(Properties base,Path out)throws Exception{
+  var tp=new TopicPartition("app-data",0);long before,end;
+  try(Admin a=Admin.create(base)){before=a.listConsumerGroupOffsets("app-group").partitionsToOffsetAndMetadata().get().get(tp).offset();end=a.listOffsets(Map.of(tp,OffsetSpec.latest())).all().get().get(tp).offset();}
+  if(before!=end)throw new IllegalStateException("undrained committed offset");
+  try(var p=producer(base,null)){p.send(new ProducerRecord<>("app-data",0,"resume-marker","resume-marker")).get(25,TimeUnit.SECONDS);}
+  long first=-1,after=-1;try(var c=consumer(base,"app-group")){c.subscribe(List.of("app-data"));long deadline=System.nanoTime()+Duration.ofSeconds(45).toNanos();while(System.nanoTime()<deadline&&first<0){for(var r:c.poll(Duration.ofMillis(500))){if(first<0)first=r.offset();if(!r.value().equals("resume-marker"))throw new IllegalStateException("unexpected replay");}if(first>=0){c.commitSync();after=c.position(tp);}}}
+  if(first!=before||after!=before+1)throw new IllegalStateException("resume offset mismatch");
+  save(out,Map.of("committed_before",before,"end_before",end,"first_offset_after_reconnect",first,"committed_after",after,"passed",true));
+ }
  static Path dir; static PrintWriter events; static long start=System.nanoTime();
  static synchronized void event(String name,Object... kv){var m=new LinkedHashMap<String,Object>();m.put("utc",java.time.Instant.now().toString());m.put("elapsed_ms",(System.nanoTime()-start)/1000000);m.put("event",name);try{m.put("phase",Files.readString(dir.resolve("phase")).trim());}catch(Exception e){m.put("phase","unknown");}for(int i=0;i<kv.length;i+=2)m.put(kv[i].toString(),kv[i+1]);try{events.println(J.writeValueAsString(m));events.flush();}catch(Exception e){throw new RuntimeException(e);}}
  static String clientPhase()throws Exception{return Files.readString(dir.resolve("clients")).trim();}
  static void stream(Path d)throws Exception{
   dir=d;events=new PrintWriter(Files.newBufferedWriter(d.resolve("events.jsonl"),StandardOpenOption.CREATE_NEW));
+  var profile=Files.exists(d.resolve("client-profile.json"))?J.readTree(d.resolve("client-profile.json").toFile()):J.createObjectNode();long commitTimeout=profile.path("commit_timeout_ms").asLong(10000),sendWait=profile.path("producer_delivery_timeout_ms").asLong(20000)+5000;
   Set<Integer> ack=ConcurrentHashMap.newKeySet(),seen=ConcurrentHashMap.newKeySet();var done=new AtomicBoolean(false);var dup=new AtomicInteger();var attempts=new AtomicInteger();
   var executor=Executors.newSingleThreadExecutor();var f=executor.submit(()->{
    String version="";KafkaProducer<String,String> p=null;
    try{while(!Files.exists(d.resolve("stop-send"))){String desired=clientPhase();if(!desired.equals(version)){if(p!=null)p.close();p=producer(props(d.resolve(desired+"-producer.properties")),null);version=desired;event("producer_client_recreated","transport",version);}
     int id=attempts.getAndIncrement();long ts=System.nanoTime();event("send_attempt","id",id);
-    try{p.send(new ProducerRecord<>("app-data",0,""+id,""+id)).get(25,TimeUnit.SECONDS);ack.add(id);event("send_ok","id",id,"duration_ms",(System.nanoTime()-ts)/1000000);}catch(Exception e){event("send_error","id",id,"type",error(e));}Thread.sleep(100);
+    try{p.send(new ProducerRecord<>("app-data",0,""+id,""+id)).get(sendWait,TimeUnit.MILLISECONDS);ack.add(id);event("send_ok","id",id,"duration_ms",(System.nanoTime()-ts)/1000000);}catch(Exception e){event("send_error","id",id,"type",error(e));}Thread.sleep(100);
    }}catch(Exception e){event("producer_thread_error","type",error(e));}finally{if(p!=null)p.close();done.set(true);event("send_finished");}
   });
   KafkaConsumer<String,String> c=null;String version="";long last=0,next=0,deadline=System.nanoTime()+Duration.ofMinutes(30).toNanos();
@@ -108,7 +130,7 @@ public class SecurityProbe {
     c.subscribe(List.of("app-data"),new ConsumerRebalanceListener(){public void onPartitionsRevoked(Collection<TopicPartition> p){event("rebalance_revoked");}public void onPartitionsAssigned(Collection<TopicPartition> p){event("rebalance_assigned");}});event("consumer_client_recreated","transport",version);
    }
    try{var rs=c.poll(Duration.ofMillis(200));for(var r:rs){int id=Integer.parseInt(r.value());if(!seen.add(id))dup.incrementAndGet();long now=System.nanoTime();event("consume","id",id,"interval_ms",last==0?0:(now-last)/1000000);last=now;}
-    if(!rs.isEmpty()){long ts=System.nanoTime();try{c.commitSync(Duration.ofSeconds(10));event("commit_ok","position",c.position(new TopicPartition("app-data",0)),"duration_ms",(System.nanoTime()-ts)/1000000);}catch(Exception e){event("commit_error","type",error(e));}}
+    if(!rs.isEmpty()){long ts=System.nanoTime();try{c.commitSync(Duration.ofMillis(commitTimeout));event("commit_ok","position",c.position(new TopicPartition("app-data",0)),"duration_ms",(System.nanoTime()-ts)/1000000);}catch(Exception e){event("commit_error","type",error(e));}}
    }catch(Exception e){event("consume_error","type",error(e));}
    if(System.nanoTime()>next){next=System.nanoTime()+Duration.ofSeconds(3).toNanos();try(Admin a=Admin.create(props(d.resolve("monitor.properties")))){
     var tp=new TopicPartition("app-data",0);var os=a.listConsumerGroupOffsets("app-group").partitionsToOffsetAndMetadata().get(5,TimeUnit.SECONDS);long end=a.listOffsets(Map.of(tp,OffsetSpec.latest())).all().get(5,TimeUnit.SECONDS).get(tp).offset();event("lag","value",os.containsKey(tp)?end-os.get(tp).offset():-1);
@@ -121,6 +143,7 @@ public class SecurityProbe {
  public static void main(String[] args)throws Exception{
   try{
    String mode=args[0];if(mode.equals("stream")){stream(Path.of(args[1]));return;}
+   if(mode.equals("coexist-probe")){coexistProbe(Path.of(args[1]),Path.of(args[2]));return;}
    if(mode.equals("matrix")){matrix(Path.of(args[1]),Path.of(args[2]));return;}
    try(Admin a=Admin.create(props(Path.of(args[1])))){
     switch(mode){
@@ -132,6 +155,7 @@ public class SecurityProbe {
      case "create":a.createTopics(List.of(new NewTopic("app-data",1,(short)3).configs(Map.of("min.insync.replicas","2")),new NewTopic("other-data",1,(short)3))).all().get();break;
      case "warm-consumer":send(props(Path.of(args[1])),"app-data");consume(props(Path.of(args[1])),"app-data","warm-group");break;
      case "warm-transaction":try(var tx=producer(props(Path.of(args[1])),"warm-bootstrap")){tx.initTransactions();}break;
+     case "resume-check":resumeCheck(props(Path.of(args[1])),Path.of(args[2]));break;
      case "send":send(props(Path.of(args[1])),"app-data");break;
      default:throw new IllegalArgumentException("unknown mode");
     }

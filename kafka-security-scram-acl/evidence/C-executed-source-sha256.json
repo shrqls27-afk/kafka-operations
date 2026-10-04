@@ -1,0 +1,10 @@
+{
+  "scenario": "C",
+  "sha256": {
+    "kafka-security.sh": "befdc92249cef766f3e8a0b96dba9c2427e9a3fcb1489664462826f35d18471f",
+    "scripts/lab.py": "0094e7d86779788aa360dca790d045a15b696851d3ff3b0ef4b05ab305837c43",
+    "tests/SecurityProbe.java": "52df1873561be3fa39503e6fee53816903f2d2ccfd60eb868285f81aef977bd5",
+    "scripts/security.py": "d0350c11c17d51a7598a8da72ec3e13cfbf6f58b32fdc48f7c4830cde7e07ba9",
+    "scripts/migration_gate.py": "2410147ee1790a144da629835ffbe426ab7b1410ea6ae3424a5e2d39aa304324"
+  }
+}

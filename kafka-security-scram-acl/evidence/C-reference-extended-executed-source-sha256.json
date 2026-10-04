@@ -1,0 +1,10 @@
+{
+  "scenario": "C reference with extended laboratory quorum timers",
+  "sha256": {
+    "kafka-security.sh": "befdc92249cef766f3e8a0b96dba9c2427e9a3fcb1489664462826f35d18471f",
+    "scripts/lab.py": "5d441acc54d0aaedf1d20004deda3789afcf9a0b1f5f7777e4ad8c51e9c35364",
+    "tests/SecurityProbe.java": "698e76b28b54d12c245ecb282b387722cd399726343340f75febb2c741f36542",
+    "scripts/security.py": "d0350c11c17d51a7598a8da72ec3e13cfbf6f58b32fdc48f7c4830cde7e07ba9",
+    "scripts/migration_gate.py": "2410147ee1790a144da629835ffbe426ab7b1410ea6ae3424a5e2d39aa304324"
+  }
+}

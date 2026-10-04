@@ -2,12 +2,13 @@
 
 Linux 직접 설치·3개 KRaft 노드를 대상으로 한 운영 절차와 격리 실험입니다. 기존 RF 변경 자료는 별도 폴더에 보존합니다.
 
-- 기존 PLAINTEXT 전환: [MIGRATE-PLAINTEXT](docs/MIGRATE-PLAINTEXT.md)
+- 기존9092 앱 유지 우선 경로: [KEEP-PLAINTEXT](docs/KEEP-PLAINTEXT.md)
+- 기존 PLAINTEXT 전체 전환 참고: [MIGRATE-PLAINTEXT](docs/MIGRATE-PLAINTEXT.md)
 - 신규 빈 클러스터: [NEW-CLUSTER](docs/NEW-CLUSTER.md)
 - 실제 검증 범위와 한계: [RESULTS](docs/RESULTS.md)
 - 공식 문서와 3.9.1 코드: [SOURCES](docs/SOURCES.md)
 
-**검증 상태:** B 신규 구축은 성공했습니다. A 전체 전환은 중단됐고 최종 보안 상태 복구만 검증했습니다. 수정된 전환 gate를 포함한 전체 A 경로는 미검증입니다. 상세 결과를 먼저 읽으세요.
+**검증 상태:** B 신규 구축은 성공했습니다. A 전체 전환은 중단됐고 최종 보안 상태 복구만 검증했습니다. 수정된 전환 gate를 포함한 전체 A 경로는 미검증입니다. C 공존 검증은 기존 PLAINTEXT 앱을 유지하며 보안 포트만 추가했습니다. 참조 시험에서 앱 API 오류0·누락0이었지만 처리 공백13.314초가 관측됐고 NAS용 quorum 조정 조건입니다. ACL 통제 완성이나 운영 영향0을 보장하지 않습니다. 상세 결과를 먼저 읽으세요.
 
 필수 반입물: Apache Kafka 3.9.1 배포본, JDK17(java/javac), Python3.8 이상, bash, 운영 CA가 발급한 SAN 포함 서버/내부 통신 인증서 및 PKCS12 truststore/keystore. 실험 재현에는 OpenSSL/keytool도 필요합니다. 인터넷 설치나 Docker는 사용하지 않습니다.
 

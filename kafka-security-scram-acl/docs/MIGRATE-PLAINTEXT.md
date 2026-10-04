@@ -1,5 +1,7 @@
 # 기존 PLAINTEXT에서 단계적 보안 전환
 
+**운영 앱을 유지하는 우선 경로는 [KEEP-PLAINTEXT](KEEP-PLAINTEXT.md)입니다.** 아래 전체 전환은 A에서 끝까지 성공하지 못한 설계 참고 절차입니다. 이를 운영에서 연속 자동 실행하지 마세요. 기존9092 앱이 남아 있으면 포트 제거·protocol 변경·client 강제 전환을 진행하지 않습니다.
+
 시작 조건: Kafka 3.9.1 KRaft 정적 quorum 3노드. 현행 listeners/advertised.listeners, controller.listener.names, controller.quorum.voters, inter.broker.listener.name, listener.security.protocol.map과 모든 client 종류/호스트/버전을 기록합니다. RF·minISR·전체 ISR·quorum을 확인합니다. __consumer_offsets가 RF1이면 [기존 RF1→3 자료](../../consumer-offsets-rf1-to-rf3/README.md)를 먼저 검토하고 완료해야 합니다. RF1 또는 ISR 부족 상태에서 rolling restart의 운영 지속을 보장할 수 없습니다.
 
 1. 설정·원래 ACL·계정 목록·인증서 유효기간·원래 listener 경로를 비공개로 보존합니다. 운영 CA의 SAN은 실제 advertised DNS/IP와 일치해야 하며 모든 client/broker/controller가 CA를 신뢰해야 합니다. firewall과 advertised 주소의 왕복 접근성을 확인합니다. hostname verification은 HTTPS로 유지합니다.

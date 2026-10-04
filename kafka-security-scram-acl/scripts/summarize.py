@@ -17,7 +17,7 @@ def summarize(d):
         if not fs:continue
         proof=json.loads(max(fs,key=lambda p:int(p.stem.rsplit('-',1)[-1])).read_text())
         result['quorum_checkpoints'].append({'stage':step['stage'],'utc':step['utc'],'leader':proof['quorum_leader'],'epoch':proof.get('quorum_leader_epoch'),'high_watermark':proof['quorum_high_watermark'],'max_offset_lag':proof.get('quorum_max_offset_lag')})
-    result['matrix']=json.loads((d/result.get('final_matrix_file','matrix.json')).read_text())
+    if result['scenario']!='C':result['matrix']=json.loads((d/result.get('final_matrix_file','matrix.json')).read_text())
     if result.get('matrix_first_pass_failed'):result['first_matrix']=json.loads((d/'matrix.json').read_text())
     result['recheck_commands']=[{'attempt':f.parent.name,'steps':json.loads(f.read_text())} for f in d.glob('validation-*/recheck-steps.json')]
     if (d/'matrix-after-restart.json').exists():result['matrix_after_restart']=json.loads((d/'matrix-after-restart.json').read_text())
@@ -25,7 +25,21 @@ def summarize(d):
     h=json.loads(final.read_text());ps=h['partitions'];result['final_health']={'broker_count':len(h['brokers']),'partition_count':len(ps),'all_rf3_isr3':all(len(p['replicas'])==3 and len(p['isr'])==3 for p in ps),'offsets_partition_count':sum(p['topic']=='__consumer_offsets' for p in ps),'healthy':h['healthy'],'quorum_high_watermark':h['quorum_high_watermark'],'quorum_leader_epoch':h.get('quorum_leader_epoch'),'quorum_max_offset_lag':h.get('quorum_max_offset_lag')}
     result['partition_verification']=[{'topic':x['topic'],'partition':x['partition'],'rf':len(x['replicas']),'isr':len(x['isr'])} for x in ps]
     result['final_health_sha256']=hashlib.sha256(final.read_bytes()).hexdigest()
-    audit=json.loads((d/'audit.json').read_text());result['final_acl_count']=len(audit['acls']);result['anonymous_acl_remaining']=any('ANONYMOUS' in x for x in audit['acls'])
+    if (d/'audit.json').exists():
+        audit=json.loads((d/'audit.json').read_text());result['final_acl_count']=len(audit['acls']);result['anonymous_acl_remaining']=any('ANONYMOUS' in x for x in audit['acls'])
+    if result['scenario']=='C':
+        result['secure_shadow_and_negative_probes']=json.loads((d/'coexist-probe.json').read_text())
+        def last_health(label):
+            fs=list(d.glob(label+'-*.json'))
+            return json.loads(max(fs,key=lambda p:int(p.stem.rsplit('-',1)[1])).read_text())
+        secure=last_health('secure-listener-health');plain=last_health('plaintext-still-healthy')
+        assignments=lambda h:{(p['topic'],p['partition']):p['replicas'] for p in h['partitions']}
+        result['same_cluster_and_partition_assignments_both_listeners']=secure['cluster_id']==plain['cluster_id'] and assignments(secure)==assignments(plain)
+        assert result['same_cluster_and_partition_assignments_both_listeners']
+        result['committed_offset_resume']=json.loads((d/'resume-check.json').read_text())
+        if (d/'lab-quorum-profile.json').exists():result['lab_quorum_profile']=json.loads((d/'lab-quorum-profile.json').read_text())
+        if (d/'client-profile.json').exists():result['client_profile']=json.loads((d/'client-profile.json').read_text())
+        if (d/'independent-offset-check.json').exists():result['independent_cli_offset_check']=json.loads((d/'independent-offset-check.json').read_text())
     shutdown=json.loads((d/'shutdown.json').read_text());result['all_owned_processes_exited']=all(x['exit_code'] is not None for x in shutdown)
     result['recheck_owned_processes_exited']=all(x['exit_code'] is not None for f in d.glob('validation-*/recheck-shutdown.json') for x in json.loads(f.read_text()))
     if (d/'stream-summary.json').exists():
@@ -42,13 +56,18 @@ def summarize(d):
         stream['transitions']=[x for x in es if x['event'] in ['producer_client_recreated','consumer_client_recreated','consumer_client_closed_for_transition','rebalance_revoked','rebalance_assigned','drain_complete']]
         stream['per_phase']={phase:dict(collections.Counter(x['event'] for x in es if x['phase']==phase)) for phase in sorted({x['phase'] for x in es})}
         result['stream']=stream
+        if result['scenario']=='C':
+            result['application_api_error_count']=sum(counts[k] for k in ['send_error','commit_error','commit_error_at_transition','consume_error','producer_thread_error'])
+            result['no_application_api_errors_observed']=result['application_api_error_count']==0
+            result['zero_application_impact_proven']=False
+            result['requires_operating_client_and_sla_validation']=True
     if (d/'post-dry-run-check.json').exists():result['post_dry_run_credential_check']=json.loads((d/'post-dry-run-check.json').read_text())
     if (d/'old-password-denied.log').exists():
         import re
         match=re.search(r'실패 종류: ([A-Za-z0-9]+);',(d/'old-password-denied.log').read_text())
         if match:result['password_rotation_old_error_type']=match.group(1)
     # 원본의 비밀/경로를 포함하지 않으며 해시로 참조한다.
-    result['raw_evidence_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in d.glob('*.json') if p.name in ['result.json','matrix.json','matrix-after-restart.json','stream-summary.json','steps.json','shutdown.json','audit.json']}
+    result['raw_evidence_sha256']={p.name:hashlib.sha256(p.read_bytes()).hexdigest() for p in d.glob('*.json') if p.name in ['result.json','matrix.json','matrix-after-restart.json','stream-summary.json','steps.json','shutdown.json','audit.json','coexist-probe.json','resume-check.json']}
     return result
 
 if __name__=='__main__':
