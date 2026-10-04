@@ -1,5 +1,7 @@
 # 실제 NAS 실험 결과
 
+[Kafka3.9.1 KRaft 기준 원본 재확인](../../docs/KAFKA-3.9.1-KRAFT-AUDIT.md): 버전·모드 확인과 기능 성공/실패 판정을 구분합니다.
+
 이 문서는 이전 helper 실험입니다. **운영용 단일 offsets-rf3.sh의 별도 실제 전체 실행 결과**는 [STANDALONE-VALIDATION](STANDALONE-VALIDATION.md)을 보세요.
 
 실행일: **2026-10-03 (Asia/Seoul)**. Apache Kafka 3.9.1, Temurin JDK 17.0.20.1, Synology Linux 직접 설치. Docker 사용 없음. 운영 서버에는 접근/적용하지 않았습니다.

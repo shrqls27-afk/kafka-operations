@@ -1,0 +1,1300 @@
+{
+  "audited_utc": "2026-10-04T04:21:11.432428+00:00",
+  "expected_kafka_version": "3.9.1",
+  "expected_mode": "KRaft static quorum",
+  "new_cluster_experiment_performed": false,
+  "runs": [
+    {
+      "topic": "consumer-offsets-rf1-to-rf3",
+      "run": "run-20261003-01",
+      "configs": [
+        {
+          "file": "node-101.properties",
+          "roles": "broker,controller",
+          "node_id": 101,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "66956193e9145d4a0cc6a68f2b8cbc854c035e61997d5b2fc5ee6b7a76181ddf"
+        },
+        {
+          "file": "node-102.properties",
+          "roles": "broker,controller",
+          "node_id": 102,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "d736d7be41ecf9f7d272172d2f1b2a65fbcf8fc3fa95d28dbb22ba6e1df74c17"
+        },
+        {
+          "file": "node-103.properties",
+          "roles": "broker,controller",
+          "node_id": 103,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "3a880572959b9a506311f0e9ed5112a73f19d9e15183c70f96db68a772ea0636"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-101.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "3999e0621ec1ef6ae20a90d0c1a2f7eb4ed0d9db035d633ffa41ebc87e89ab04"
+        },
+        {
+          "file": "broker-102.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "c5131437279ae38af81f71a9a3715b00b43fc41dba0a8bf003e53cbe842815cf"
+        },
+        {
+          "file": "broker-103.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "9e256fc2baa16f0d7e1300bcd890d01342b59099344c35f035d9745c747d80c6"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "consumer-offsets-rf1-to-rf3",
+      "run": "run-20261003-02",
+      "configs": [
+        {
+          "file": "node-101.properties",
+          "roles": "broker,controller",
+          "node_id": 101,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "e81d0361d3c19bb3d13b729eec64d260828571f7149a424bd7f2caae4708d291"
+        },
+        {
+          "file": "node-102.properties",
+          "roles": "broker,controller",
+          "node_id": 102,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "9d434a87665dd6b841c320759ab7022acb18227a4587ccbb19288396fb8e98b8"
+        },
+        {
+          "file": "node-103.properties",
+          "roles": "broker,controller",
+          "node_id": 103,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "18cfbb4892fdbabc9236b28554efd0eef41ede801869d130b814665dda026e0f"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-101.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "e3b06edb033e8f4712fdb6853c9061280ddd38d37f7eb507b3040995fe2aac1f"
+        },
+        {
+          "file": "broker-102.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "57f948578df4e214d5d2dea17691d8837d52e32e3a2181cf13a1783e4ae48543"
+        },
+        {
+          "file": "broker-103.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "f1fc75ddc74b04e7306fbf935e7bdc59985c29c955da7b01a2ade64fe40e2895"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "consumer-offsets-rf1-to-rf3",
+      "run": "standalone-20261003-01",
+      "configs": [
+        {
+          "file": "node-201.properties",
+          "roles": "broker,controller",
+          "node_id": 201,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "cf827a11b2b25b669181ad0de0dcd79bc2a8ba9207d071d84c240ada10dc0869"
+        },
+        {
+          "file": "node-202.properties",
+          "roles": "broker,controller",
+          "node_id": 202,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "458b41055aa921eef9c3c81b2051301e843ff3df7dd60048ec7a7dfc72039862"
+        },
+        {
+          "file": "node-203.properties",
+          "roles": "broker,controller",
+          "node_id": 203,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "afc56cf226343c011f33653cea4cc55b197ebdb77b1da1b94cb4e4059e246696"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-201.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "7765662b5a87eae5adae6a48fafd0d2bcc73cd865931735d3fb75422e0044437"
+        },
+        {
+          "file": "broker-202.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "1570d08cd47d03141ff416a681d411724fccab1299ac878e9d8350ef56285c6f"
+        },
+        {
+          "file": "broker-203.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "37a06cb58a53a1cff24b137a25e552141f45e10c76bf67981fa6e1ede441f85e"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "A-20261003-01",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "7cea3b75fdd7209f5a0ede4a06be7549172d1aa878397d4ed043017e358d995b"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "8d327093c4841648f7cf3ee1d278400344d66bc6fa7547b11cb695719051e986"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "e3959c48df962970eaa74f79ae7a6b5f1cb79427402db78bdfa5cba2cd1d61a0"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "015fca634b216a86af1c4930c1b2a7aa4ef51a82c33470e7c33ef53fead5927a"
+        },
+        {
+          "file": "broker-301-4.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "2b9848e0bcb6beec4a3478865e355de4f7ec501f26b54554d3d2fb78569a52f5"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "c3731d7fd6b2d6c6addd4e5177bea0406fb005bfc5ba60ed1da3a7012eb10781"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "57bb47d2ba2b3dce5ece25e43b9f0c97d78b12faea1893d183feac90c801f07c"
+        },
+        {
+          "file": "broker-303-6.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "90406c80a21779697dc8b196e528dc9d7da937cfe508831af2eb000ba55e1da8"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "A-20261004-02",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "60eb20090d6a826766f57909ca83da12b43178bdf8e4d61dac864b9720846b30"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "dcce623752a7f12a1ea003ddff458fd7985349a00c4b60082b247550fe21dec0"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "dbe7b7d109b9815e5fba19d7f0a3939c4c2c6d43406238a138b8fbd93822395b"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "96ff9e98a1fc06ef62254a0de0d4cf4318856759e83bae55dd65a6e10a9ed84a"
+        },
+        {
+          "file": "broker-301-10.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "7dbf6d918a04f2af75dfad749373d074df83cf593a61e75145f394f6cb0e20dc"
+        },
+        {
+          "file": "broker-301-13.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "f6666d6b32444da548337b8d9fb1a8b8922d3b4f92cf5edf55a4bc7f7a13afcd"
+        },
+        {
+          "file": "broker-301-16.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "3fd7e7235f22fa7fdf61006510fa8802442290195cefa89fa1d57f91d7d70be1"
+        },
+        {
+          "file": "broker-301-4.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "bf9b2d2519908768df9a02d7816a9ff1569385a3c244726cc29e9ecbccd306d5"
+        },
+        {
+          "file": "broker-301-7.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "28eabe3e044a9feee2f868f8003a2c9890c22212da71ecf72d2cb7cfb757cc1b"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "f3b52d5dc357c314adcf05257d8e94153d8eedc6881c320a832f16bf27e3dc1d"
+        },
+        {
+          "file": "broker-302-11.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "f26dddcb7efb71e2b7d28c949e929595168003f24a341b94beb43b892e2c6239"
+        },
+        {
+          "file": "broker-302-14.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "4ded1ef4ba425cea4a54af3b3a1b2da124331bc22082df64c6537201f07461cf"
+        },
+        {
+          "file": "broker-302-17.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "cf741b098bcfdce8f86732fcf7b02fad655694365d6d65c7f0354373bfbe6dbb"
+        },
+        {
+          "file": "broker-302-5.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "cbf2caf4288c16dabda1bbaa343548d83cb9a37d84dec1098d893bbc891e3e4a"
+        },
+        {
+          "file": "broker-302-8.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "436e842f3765268f4984ffcc3917f0b1921b12206048c4a0d1691054e9c5d279"
+        },
+        {
+          "file": "broker-303-12.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "0f5c9468d2a24eb6eb38ee498c77e858e947baea45026b964f3c408ba804ea00"
+        },
+        {
+          "file": "broker-303-15.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "c8ae7eae39bf1ff62b9daf3517c7e8a165bbbd0334f22a7d56e4388d228b911a"
+        },
+        {
+          "file": "broker-303-18.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "2026585b99cb951b4c78a97fe8054b04e156baee8182c9612e76397c84c42bc8"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "7b1710e24877f9d23324b576377dd2207b255bdaa81b23410f7d9104cd797b3b"
+        },
+        {
+          "file": "broker-303-6.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "738959a1eba810cf396f71824be8e826a0249495b216797cd795f7a90d66dc0d"
+        },
+        {
+          "file": "broker-303-9.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "9153544843b6d7c904ed78bd506e0d232c76cfa6fdc9450ccd0730c5fc2724a6"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "A-20261004-03",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "7d71a81a3e383c54ffd398fdb05952f2ebd47d30ca253fed463583c3fabda67d"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "b1ebc78d9c972cb96715b4d69f1397494f28dc222d850644767c3502b659f749"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "e581d805d4b04960b59dd65b9493bf58b025de813dbcb459685bb6ecaa0d259e"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "cf0e6687a1c57051373be1e1b985aba5d23a3b63463b00090b9ca19f58c55efc"
+        },
+        {
+          "file": "broker-301-10.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "94cc245e0205d29c24cf4af5f52d906c1548a2c7d99b9549be435bb7d30fe5fd"
+        },
+        {
+          "file": "broker-301-13.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "42e65030956b3fa81f1d6ecad8433c7aaa2a9b905d606068b0f7f3c7ebaccd24"
+        },
+        {
+          "file": "broker-301-16.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "ed4bdb4a247c79d375eef1757438ff5d5cc09a1067eb2fd8f0f4828d333f4afb"
+        },
+        {
+          "file": "broker-301-4.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "8399d42ea67b3485fb651b1ac89e892356efe254d9b88b59abc20ab26a0b371e"
+        },
+        {
+          "file": "broker-301-7.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "7f04c72dcb1778bbeeca904099379c9d32051c8270239b4fe29a245d0cb1b39c"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "07288ba0dcdd74f992abebbe2fd7534972f9d0df709e15a32d503bf1bc30f721"
+        },
+        {
+          "file": "broker-302-11.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "30e0b6533ab63159380bb7caae1c622f827a85c5cc19eeb15bc8e33042e1e0ed"
+        },
+        {
+          "file": "broker-302-14.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "5ea05bd423aa82462f78eed7560499cc0c33aee077bbc66ddd0a1d691dcc8a33"
+        },
+        {
+          "file": "broker-302-5.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "e13260b4f9dc6157958e85f9ebf82bd7baef2a94956434880d570d0bd73b24f7"
+        },
+        {
+          "file": "broker-302-8.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "de5429b3b8782dd3b8e39db7a5bb0dbc58633a00506b4967b8f9d7125ae3110b"
+        },
+        {
+          "file": "broker-303-12.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "ffa5cc16acf222e0eda653480bd3b2e090862cb93cf4e06745fc024b085001da"
+        },
+        {
+          "file": "broker-303-15.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "d396a2a7861401ae9941080f635858259e8ebfa898eb298f86e64baf3dbf7eb4"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "b1ab2797a07a49507c82ca0c14ddb8b9a81c86ab2d9c9a53313c43befaa7a3de"
+        },
+        {
+          "file": "broker-303-6.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "d7022ccb8b562e6ec5f2efeaba6323d6b7ba73f1a05d2b48d0c8213230fe4433"
+        },
+        {
+          "file": "broker-303-9.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "0b60bcfa76e5bcf273035146347910b3f506236c86a3ebab243b4066c0467e9a"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "B-20261004-01",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "2b0837403fe57c270b702bb91afd1c0126903d3b0230d7d593939e4f9e9c741d"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "165ed62833b3073b4087cc93edc6382800c2252c5f824d91ebc46a9360497544"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "60b7eef040efcd7349b0222c7019dc9f0a6c4e0c1eace6c99887b357c9fbb493"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "0412d79b2e7a05b12ab588fa18ddbda49e4aaefdc146956aa9554bdb4f9638e6"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "49141a5941e9b429865d707d1b9c1c940b51d4000eeb077da5f90efe494673c3"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "896ff4211323f322190132fd839720049b3b042cc01a6e605e1d00b25fef271c"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "B-20261004-02",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "a4a4833be38ccf71b5aa9103cc9f17ca1e82757590d6298cbfdae4bb31418e42"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "04393f8a96d90433bac43c16b17988c29519a84480eab68761b4e4be70da8d47"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "5efa4cd11d3bbe8fb6337b923d84fdaea0beb065934a7191aa503a5677230430"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "2676a993a9f2d2a67cfa3e1923842bbbdb250cdae08023d7b8ee14b76aaa7d05"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "e09e280d63c779da1b0d1ef3200eab11e842e46b5f015c4ecd2df90d29e7289e"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "8cbdc8c60229e04558d0900238fc37a74167c93112906a69c87ae228d0f6dbfc"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "B-20261004-03",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "048db528b3b9792928b7f588fb3d35c4491a34e816c002c269e1b7a489368ee8"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "6a9c32d0973228e5828e05ddb5c4dc6a27cd3e5e4a00b391b39bedaa60cfd574"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "52931d882a91594fcd52e979495e68c908bc03e259e48a5bf0f0a74f5f47f583"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "7d5cee712cabb6109d31d62cc7fa84a406c85557ac818243c205b411ffd85023"
+        },
+        {
+          "file": "broker-301-3.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "8027c59a69dddfeea9bc471d1bdf661d3926ba0fae0b08030dc50296e574365b"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "5c6c205fa8121d3f1bbcd147c5d2eb8a7e74b0a1d69bf37fad4b63114e582add"
+        },
+        {
+          "file": "broker-302-4.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "1069a42d65ea2a3d025bca2ad93e4e919a4203c0b02b23c0ffdd3a60361e787c"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "ee1a0a249934b7ee400203d49e782e847008608bb2892f6257dacbe0430eddcb"
+        },
+        {
+          "file": "broker-303-5.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "5f456460c9d22ffa01b01b534d8a19f60d29c9d1d0986da77bca0894fc4a134b"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "C-20261004-01",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "06166f900bcc6046f46a20e8670da4c52cd6153692d90d641d335529455e8288"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "b6294407b8d01054b18261687c8a0078ddb6d831ee74623f86a5a645f7446d2d"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "09c507bfa42c29ba50324f97904ddc1bffaf912aa32445b96b6443e2bc121a71"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "35066bcdf1432ef8e47927e57670f743a1e5c051356b88bf57624c1478f8234e"
+        },
+        {
+          "file": "broker-301-4.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "41ddef511e4de2d6fcb5937bf427f5e652bc8afe369e023479444d74f9003665"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "75eb1cec4906bf6007c0ff10784b0d9c8e0cac12605193c0ca0a65e07cf2e142"
+        },
+        {
+          "file": "broker-302-5.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "e5538d3fa0d0eaa928feee1de5c3f448180aa58dcddfbd1557a46a73052f867a"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "578e1748a883aeef3d2fb6cdf6689f3eae5570fca495d89acb8656080dd05003"
+        },
+        {
+          "file": "broker-303-6.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "b8f4a8c43a4b77cb69aa32aa59c86c64bfaa36f4d314b4243e75423de4fbb1fc"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "C-20261004-02",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "46e98eaba72e01463ac6d7b87636b8a1eed6f0da502745d28c47f48047dbbf1e"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "1651fc149175e44240b8507fa256d030fac4d7c8e74025f8f61d8a4025919915"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "d036435bfda29a3315921f65abf0b6e32f2d6112fd4f7ad24d411277e2e37181"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "87d65d9dc03e53c30f3cbcc62aeb0225fa3d5642e34b16d2d3541854c90c7b7e"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "2cc65975707253a7623a718098588de417aa8e8d0e26d02929e9dd23047a8496"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "fa8cb87f8ca043ef14339f260018ac365e5b2533f65f880164958ad1bbc8f7ad"
+        }
+      ],
+      "matches_version_and_mode": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "C-20261004-03",
+      "configs": [
+        {
+          "file": "node-301.properties",
+          "roles": "broker,controller",
+          "node_id": 301,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "ec042418e06eb78db79728ab7da4b433f77d51b5c9a3e685200a6be672c3d644"
+        },
+        {
+          "file": "node-302.properties",
+          "roles": "broker,controller",
+          "node_id": 302,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "b5a36c32ea98eb571545f6e329e99623ebc87ce72f24b3c8918ddf43cb0c0e3a"
+        },
+        {
+          "file": "node-303.properties",
+          "roles": "broker,controller",
+          "node_id": 303,
+          "static_voter_count": 3,
+          "zookeeper_connect_present": false,
+          "sha256": "77422468dc8e7de999d8393788762a858207c226cae14488ebb5c60044b2e558"
+        }
+      ],
+      "broker_logs": [
+        {
+          "file": "broker-301-0.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "8aa36e6741891a21ba43daa89474f4488db680a169be717e943d43b59405919b"
+        },
+        {
+          "file": "broker-301-4.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "ee613ab4bdc97fbacfe4895e8d8b0ba0ba3db1ac35cec009f9c313b05e692f5e"
+        },
+        {
+          "file": "broker-302-1.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "bd89f6b86ed271dd79d0ba7c575acda41844c51851d57f1a0af4c5f331de949c"
+        },
+        {
+          "file": "broker-302-5.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "3165febc7b846c5a63ac37e2a7fe20deaf935fcf1dfe7904ccf367ccf6f707d8"
+        },
+        {
+          "file": "broker-303-2.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "f9ec8cfe4f49244df684d4ad155a25c1fe81adc811d16cb0e65ad3c9f7c48104"
+        },
+        {
+          "file": "broker-303-6.log",
+          "versions": [
+            "3.9.1"
+          ],
+          "kafka_commit_ids": [
+            "f745dfdcee2b9851"
+          ],
+          "startup_roles_broker_controller": true,
+          "sha256": "f67a066c79ccd6004bd4c1a6a7afa0c0992b1d94b156f0469376ee7d1283c0c5"
+        }
+      ],
+      "matches_version_and_mode": true
+    }
+  ],
+  "run_count": 12,
+  "broker_startup_logs_checked": 75,
+  "all_runs_match_version_and_mode": true,
+  "raw_evidence_integrity": [
+    {
+      "topic": "consumer-offsets-rf1-to-rf3",
+      "run": "run-20261003-01",
+      "files_checked": 9,
+      "mismatches": []
+    },
+    {
+      "topic": "consumer-offsets-rf1-to-rf3",
+      "run": "run-20261003-02",
+      "files_checked": 9,
+      "mismatches": []
+    },
+    {
+      "topic": "consumer-offsets-rf1-to-rf3",
+      "run": "standalone-20261003-01",
+      "files_checked": 12,
+      "mismatches": []
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "A-20261004-03",
+      "files_checked": 4,
+      "mismatches": []
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "B-20261004-03",
+      "files_checked": 6,
+      "mismatches": []
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "C-20261004-01",
+      "files_checked": 6,
+      "mismatches": []
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "run": "C-20261004-03",
+      "files_checked": 6,
+      "mismatches": []
+    }
+  ],
+  "offsets_launcher": {
+    "current_sha256": "d25d3633b0d02390fc9a16ece7cf49596cf7ccfdab1ad565976bca9dce79de5c",
+    "payload_equals_current_sources": true,
+    "payload_equals_actual_tested_file": true
+  },
+  "passed": true,
+  "installed_cli": {
+    "exit_code": 0,
+    "version_3_9_1_confirmed": true
+  },
+  "unit_tests": [
+    {
+      "topic": "consumer-offsets-rf1-to-rf3",
+      "exit_code": 0,
+      "test_count": 15,
+      "resource_warning_observed": true
+    },
+    {
+      "topic": "kafka-security-scram-acl",
+      "exit_code": 0,
+      "test_count": 13,
+      "resource_warning_observed": false
+    }
+  ]
+}
