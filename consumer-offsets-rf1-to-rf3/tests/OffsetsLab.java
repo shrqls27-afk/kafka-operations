@@ -50,6 +50,25 @@ public class OffsetsLab {
     }
     m.put("configs",configs); return m;
   }
+  static Map<String,Object> health(Admin a, boolean allTopics) throws Exception {
+    var nodes=a.describeCluster().nodes().get(10,TimeUnit.SECONDS);
+    var q=a.describeMetadataQuorum().quorumInfo().get(10,TimeUnit.SECONDS);
+    if(nodes.size()!=3 || new HashSet<>(ids(nodes)).size()!=3 || q.leaderId()<0 || q.highWatermark()<0 || q.voters().size()!=3)
+      throw new IllegalStateException("broker/quorum 미준비");
+    if(q.voters().stream().anyMatch(v->v.logEndOffset()<q.highWatermark()))
+      throw new IllegalStateException("quorum voter high watermark 미도달");
+    Set<String> names = allTopics ? a.listTopics(new ListTopicsOptions().listInternal(true)).names().get(10,TimeUnit.SECONDS) : Set.of(TOPIC);
+    int count=0;
+    if(!names.isEmpty()) for(var t:a.describeTopics(names).allTopicNames().get(10,TimeUnit.SECONDS).values())
+      for(var p:t.partitions()) {
+        if(p.leader()==null || p.leader().id()<0 || !ids(p.isr()).contains(p.leader().id()) ||
+           p.replicas().isEmpty() || !new HashSet<>(ids(p.replicas())).equals(new HashSet<>(ids(p.isr()))))
+          throw new IllegalStateException("partition leader/ISR 미준비");
+        count++;
+      }
+    return Map.of("cluster_id",a.describeCluster().clusterId().get(10,TimeUnit.SECONDS),
+      "brokers",ids(nodes),"leader",q.leaderId(),"high_watermark",q.highWatermark(),"healthy_partitions",count);
+  }
   static void plan(Admin a, Path out) throws Exception {
     if(!a.listPartitionReassignments().reassignments().get().isEmpty()) throw new IllegalStateException("다른 재할당 진행 중");
     var snap=snapshot(a);
@@ -79,43 +98,90 @@ public class OffsetsLab {
       public void onPartitionsAssigned(Collection<TopicPartition> p){event("rebalance_assigned","partitions",p.toString());}
     });return c;
   }
+  static Map<String,Object> latencyStats(List<Long> values) {
+    Collections.sort(values);
+    Map<String,Object> out=new LinkedHashMap<>();out.put("count",values.size());
+    out.put("p95",values.isEmpty()?null:values.get(Math.max(0,(int)Math.ceil(values.size()*0.95)-1)));
+    out.put("max",values.isEmpty()?null:values.get(values.size()-1));return out;
+  }
+  static Map<String,Object> measurements() throws Exception {
+    Map<String,Map<String,Integer>> counts=new TreeMap<>();
+    Map<String,Map<String,List<Long>>> durations=new TreeMap<>();
+    Map<String,Integer> errors=new TreeMap<>();
+    List<Long> inflight=new ArrayList<>();
+    List<com.fasterxml.jackson.databind.JsonNode> rows=new ArrayList<>();
+    for(String line:Files.readAllLines(dir.resolve("events.jsonl"))) {
+      var row=JSON.readTree(line);rows.add(row);String phase=row.get("phase").asText(),type=row.get("event").asText();
+      counts.computeIfAbsent(phase,k->new TreeMap<>()).merge(type,1,Integer::sum);
+      if(type.endsWith("_error"))errors.merge(type,1,Integer::sum);
+      String metric=type.equals("consume")?"consume_latency_ms":type.equals("send_ok")?"send_duration_ms":type.equals("commit_ok")?"commit_duration_ms":null;
+      String field=type.equals("consume")?"latency_ms":"duration_ms";
+      if(metric!=null && row.has(field) && row.get(field).asLong()>=0)
+        durations.computeIfAbsent(phase,k->new TreeMap<>()).computeIfAbsent(metric,k->new ArrayList<>()).add(row.get(field).asLong());
+      if(type.equals("offsets_snapshot")&&!row.get("snapshot").get("reassignments").asText().equals("{}"))inflight.add(row.get("elapsed_ms").asLong());
+    }
+    Map<String,Object> phases=new TreeMap<>();
+    for(String phase:counts.keySet()) {
+      Map<String,Object> values=new LinkedHashMap<>();values.put("events",counts.get(phase));
+      for(var metric:durations.getOrDefault(phase,Map.of()).entrySet())values.put(metric.getKey(),latencyStats(metric.getValue()));
+      phases.put(phase,values);
+    }
+    Map<String,Integer> progress=new TreeMap<>();
+    if(!inflight.isEmpty())for(var row:rows)if(row.get("elapsed_ms").asLong()>=inflight.get(0)&&row.get("elapsed_ms").asLong()<=inflight.get(inflight.size()-1))
+      progress.merge(row.get("event").asText(),1,Integer::sum);
+    Map<String,Object> out=new LinkedHashMap<>();out.put("phases",phases);out.put("measurement_errors",errors);out.put("measurement_error_free",errors.isEmpty());
+    out.put("inflight_observation_count",inflight.size());out.put("inflight_observed_events",progress);
+    out.put("inflight_client_progress_confirmed",inflight.size()>=2 && progress.getOrDefault("send_ok",0)>0 && progress.getOrDefault("consume",0)>0 && progress.getOrDefault("commit_ok",0)>0);
+    return out;
+  }
   static void workload() throws Exception {
     Files.createDirectories(dir);events=new PrintWriter(Files.newBufferedWriter(dir.resolve("events.jsonl"),StandardOpenOption.CREATE_NEW));
     Set<Integer> ack=ConcurrentHashMap.newKeySet(), seen=ConcurrentHashMap.newKeySet();
-    AtomicBoolean done=new AtomicBoolean(false);AtomicInteger duplicate=new AtomicInteger(),pe=new AtomicInteger(),ce=new AtomicInteger();
+    AtomicBoolean done=new AtomicBoolean(false);AtomicInteger duplicate=new AtomicInteger(),pe=new AtomicInteger(),ce=new AtomicInteger(),consumeErrors=new AtomicInteger();
+    Map<Integer,Long> sentAt=new ConcurrentHashMap<>();
     Properties pp=props();pp.put("key.serializer","org.apache.kafka.common.serialization.StringSerializer");pp.put("value.serializer","org.apache.kafka.common.serialization.StringSerializer");pp.put("acks","all");pp.put("enable.idempotence","true");
     KafkaProducer<String,String> producer=new KafkaProducer<>(pp);
     ExecutorService pool=Executors.newSingleThreadExecutor();
     Future<?> sending=pool.submit(()->{
       int id=0;
       try { while(!Files.exists(dir.resolve("stop-send")) && id<20000) {
-        int x=id++;long ts=System.nanoTime();event("send_attempt","id",x);
+        int x=id++;long ts=System.nanoTime();sentAt.put(x,ts);event("send_attempt","id",x);
         try { var md=producer.send(new ProducerRecord<>(TOPIC,0,""+x,""+x)).get(30,TimeUnit.SECONDS);ack.add(x);event("send_ok","id",x,"offset",md.offset(),"duration_ms",(System.nanoTime()-ts)/1000000); }
         catch(Exception e){pe.incrementAndGet();event("send_error","id",x,"error",e.toString());}
         Thread.sleep(50);
       }}catch(Exception e){event("producer_thread_error","error",e.toString());}finally{done.set(true);event("send_finished");}
     });
+    ScheduledExecutorService samples=Executors.newSingleThreadScheduledExecutor();
+    Admin sampleAdmin=Admin.create(base);
+    AtomicBoolean stoppingSamples=new AtomicBoolean(false);
+    AtomicReference<Double> retries=new AtomicReference<>(0.0);
+    samples.scheduleWithFixedDelay(()->{
+      if(!Files.exists(dir.resolve("warmup-ready")))return;
+      try {
+        var tp=new TopicPartition(TOPIC,0);
+        var os=sampleAdmin.listConsumerGroupOffsets(GROUP).partitionsToOffsetAndMetadata().get(5,TimeUnit.SECONDS);
+        var ends=sampleAdmin.listOffsets(Map.of(tp,OffsetSpec.latest())).all().get(5,TimeUnit.SECONDS);
+        event("lag","end",ends.get(tp).offset(),"committed",os.containsKey(tp)?os.get(tp).offset():-1,"lag",os.containsKey(tp)?ends.get(tp).offset()-os.get(tp).offset():-1);
+        event("offsets_snapshot","snapshot",snapshot(sampleAdmin));
+        producer.metrics().forEach((name, metric)->{
+          if(name.name().equals("record-retry-total") && name.group().equals("producer-metrics")) {
+            double value=((Number)metric.metricValue()).doubleValue();retries.set(value);event("producer_retries","total",value);
+          }
+        });
+      }catch(Exception e){event(stoppingSamples.get()?"sample_cancelled":"sample_error","error",e.toString());}
+    },0,250,TimeUnit.MILLISECONDS);
     long deadline=System.nanoTime()+Duration.ofMinutes(12).toNanos(), last=0, nextSample=0;
     try(Admin admin=Admin.create(base);KafkaConsumer<String,String> c=consumer("initial")) {
       while(System.nanoTime()<deadline) {
         try {
           var records=c.poll(Duration.ofMillis(200));
-          for(var r:records){int id=Integer.parseInt(r.value());if(!seen.add(id))duplicate.incrementAndGet();long now=System.nanoTime();event("consume","id",id,"offset",r.offset(),"interval_ms",last==0?0:(now-last)/1000000);last=now;}
-          if(!records.isEmpty())try{long ts=System.nanoTime();c.commitSync(Duration.ofSeconds(10));event("commit_ok","position",c.position(new TopicPartition(TOPIC,0)),"duration_ms",(System.nanoTime()-ts)/1000000);}catch(Exception e){ce.incrementAndGet();event("commit_error","error",e.toString());}
-        }catch(Exception e){event("consume_error","error",e.toString());}
-        if(System.nanoTime()>nextSample) {
-          nextSample=System.nanoTime()+Duration.ofSeconds(2).toNanos();
-          try {
-            var tp=new TopicPartition(TOPIC,0);var os=admin.listConsumerGroupOffsets(GROUP).partitionsToOffsetAndMetadata().get(5,TimeUnit.SECONDS);
-            var ends=admin.listOffsets(Map.of(tp,OffsetSpec.latest())).all().get(5,TimeUnit.SECONDS);
-            event("lag","end",ends.get(tp).offset(),"committed",os.containsKey(tp)?os.get(tp).offset():-1,"lag",os.containsKey(tp)?ends.get(tp).offset()-os.get(tp).offset():-1);
-            event("offsets_snapshot","snapshot",snapshot(admin));
-          }catch(Exception e){event("sample_error","error",e.toString());}
-        }
+          for(var r:records){int id=Integer.parseInt(r.value());if(!seen.add(id))duplicate.incrementAndGet();long now=System.nanoTime();event("consume","id",id,"offset",r.offset(),"interval_ms",last==0?0:(now-last)/1000000,"latency_ms",sentAt.containsKey(id)?(now-sentAt.get(id))/1000000:-1);last=now;}
+          if(!records.isEmpty())try{long ts=System.nanoTime();c.commitSync(Duration.ofSeconds(10));event("commit_ok","position",c.position(new TopicPartition(TOPIC,0)),"duration_ms",(System.nanoTime()-ts)/1000000);if(!Files.exists(dir.resolve("warmup-ready")))Files.writeString(dir.resolve("warmup-ready"),"first commit completed");}catch(Exception e){ce.incrementAndGet();event("commit_error","error",e.toString());}
+        }catch(Exception e){consumeErrors.incrementAndGet();event("consume_error","error",e.toString());}
         if(done.get()&&seen.containsAll(ack)) {c.commitSync();event("drain_complete","acked",ack.size(),"seen",seen.size());break;}
       }
       if(!done.get()||!seen.containsAll(ack))throw new IllegalStateException("drain timeout");
-    } finally {Files.writeString(dir.resolve("stop-send"),"stop");sending.get(40,TimeUnit.SECONDS);pool.shutdown();}
+    } finally {Files.writeString(dir.resolve("stop-send"),"stop");sending.get(40,TimeUnit.SECONDS);pool.shutdown();stoppingSamples.set(true);samples.shutdownNow();sampleAdmin.close(Duration.ofSeconds(5));if(!samples.awaitTermination(10,TimeUnit.SECONDS))throw new IllegalStateException("sample worker 미종료");}
     var tp=new TopicPartition(TOPIC,0);
     try(Admin a=Admin.create(base)) {
       long committed=a.listConsumerGroupOffsets(GROUP).partitionsToOffsetAndMetadata().get().get(tp).offset();
@@ -132,9 +198,12 @@ public class OffsetsLab {
       }
       event("reconnect_result","markers",markers.size(),"old_replay",replay);
       Set<Integer> missing=new TreeSet<>(ack);missing.removeAll(seen);Set<Integer> unacked=new TreeSet<>(seen);unacked.removeAll(ack);
-      Map<String,Object> summary=new LinkedHashMap<>();summary.put("acked",ack.size());summary.put("consumed_unique",seen.size());summary.put("duplicates",duplicate.get());summary.put("missing_after_drain",missing);summary.put("consumed_without_ack",unacked);summary.put("send_errors",pe.get());summary.put("commit_errors",ce.get());summary.put("resume_markers",markers.size());summary.put("old_replay",replay);summary.put("resume_committed",committed);
+      Map<String,Object> summary=new LinkedHashMap<>();summary.put("acked",ack.size());summary.put("consumed_unique",seen.size());summary.put("duplicates",duplicate.get());summary.put("missing_after_drain",missing);summary.put("consumed_without_ack",unacked);summary.put("send_errors",pe.get());summary.put("commit_errors",ce.get());summary.put("consume_errors",consumeErrors.get());producer.metrics().forEach((name, metric)->{
+        if(name.name().equals("record-retry-total") && name.group().equals("producer-metrics"))retries.set(((Number)metric.metricValue()).doubleValue());
+      });summary.put("producer_retries",retries.get());summary.put("ack_ids",new TreeSet<>(ack));summary.put("consumed_ids",new TreeSet<>(seen));summary.put("resume_markers",markers.size());summary.put("old_replay",replay);summary.put("resume_committed",committed);
+      summary.putAll(measurements());
       save(dir.resolve("workload-summary.json"),summary);
-      if(!missing.isEmpty()||markers.size()!=20||replay!=0)throw new IllegalStateException("검증 실패");
+      if(!missing.isEmpty()||!unacked.isEmpty()||duplicate.get()!=0||pe.get()!=0||ce.get()!=0||consumeErrors.get()!=0||markers.size()!=20||replay!=0)throw new IllegalStateException("검증 실패");
     } finally{producer.close();events.close();}
   }
   public static void main(String[] args) throws Exception {
@@ -144,7 +213,15 @@ public class OffsetsLab {
     dir=Path.of(args[3]);
     if(args[0].equals("workload")){workload();return;}
     try(Admin a=Admin.create(base)){
-      if(args[0].equals("plan"))plan(a,dir);
+      if(args[0].equals("health"))save(dir,health(a,true));
+      else if(args[0].equals("ready"))save(dir,health(a,false));
+      else if(args[0].equals("quorum-ready")){
+        var q=a.describeMetadataQuorum().quorumInfo().get(10,TimeUnit.SECONDS);
+        var ns=a.describeCluster().nodes().get(10,TimeUnit.SECONDS);
+        if(ns.size()!=3||new HashSet<>(ids(ns)).size()!=3||q.leaderId()<0||q.highWatermark()<0||q.voters().size()!=3)throw new IllegalStateException("quorum/broker 미준비");
+        save(dir,Map.of("brokers",ids(ns),"leader",q.leaderId(),"high_watermark",q.highWatermark()));
+      }
+      else if(args[0].equals("plan"))plan(a,dir);
       else if(args[0].equals("snapshot"))save(dir,snapshot(a));
       else if(args[0].equals("check")){
         var s=snapshot(a);var ps=(List<Map<String,Object>>)s.get("partitions");

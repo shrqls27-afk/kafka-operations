@@ -1,0 +1,32 @@
+{
+  "run_date": "2026-10-06",
+  "script_sha256": "d25d3633b0d02390fc9a16ece7cf49596cf7ccfdab1ad565976bca9dce79de5c",
+  "result": "failed_before_rf_change",
+  "failure_stage": "create-data-topic",
+  "cause_observed": "broker controller-registration timeout and topic creation timeout",
+  "producer_consumer_measurement_started": false,
+  "rf_change_submitted": false,
+  "test_ports_closed": true,
+  "permanent_cluster_readonly_query": "initial loopback attempt was outside configured listener; actual configured listener query also timed out",
+  "permanent_service_pids_unchanged": false,
+  "permanent_service_stop_restart_performed_by_test": false,
+  "test_process_exit_codes": [
+    143,
+    1,
+    1
+  ],
+  "permanent_broker_tcp_checks_after_cleanup": [
+    {
+      "node": "node-1",
+      "broker_tcp_reachable": false
+    },
+    {
+      "node": "node-2",
+      "broker_tcp_reachable": false
+    },
+    {
+      "node": "node-3",
+      "broker_tcp_reachable": false
+    }
+  ]
+}

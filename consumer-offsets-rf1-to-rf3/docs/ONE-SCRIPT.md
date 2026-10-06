@@ -1,3 +1,5 @@
+> 2026-10-06 최종본은 NAS·WSL에서 producer/consumer를 유지한 실제 RF 변경을 검증했습니다. 오류·누락·중복0, 지연 증가는 관측됐습니다. [현재 파일의 결과와 한계](LIVE-VALIDATION-20261006.md)를 확인하세요.
+
 # 운영 환경에서는 .sh 하나로 실행
 
 GitHub에서 **[offsets-rf3.sh](../offsets-rf3.sh)**의 Raw 파일을 다운로드해 운영 서버로 반입합니다.
@@ -22,7 +24,7 @@ bash offsets-rf3.sh
 **자동 수행:** 도구 버전 확인 → broker/quorum/불건전 파티션 조회 → 원본/목표 JSON 생성 → dry-run →
 계획 해시 검증 → 재할당 → 30초 간격 RF/ISR 조회 → 완료 검증 → 확인 후 throttle 해제·원복 비교.
 
-JDK 17(`javac` 포함), Python 3.8+, Kafka 3.9.1이 필요합니다. `JAVA_HOME` 또는 PATH의 javac로 JDK를 찾습니다.
+JDK 17(`javac` 포함), Python 3.8+, Kafka 3.9.1, Bash와 util-linux의 `flock`이 필요합니다. `JAVA_HOME` 또는 PATH의 javac로 JDK를 찾습니다.
 이 전제는 .sh 파일만으로 대체할 수 없습니다. 필요한 관리 권한은 기존 인증 파일을 사용합니다.
 기존 producer/consumer/broker를 중지·재시작하지 않습니다. AI 호출도 하지 않습니다.
 
@@ -65,6 +67,6 @@ python3 -m unittest discover -s tests -v
 ```
 
 실행 흐름 모의 테스트와 별도로 **단일 .sh 전체 실행, 변경 직전 NO, 정상 완료 후 --resume을 NAS 격리 클러스터에서 실제 검증**했습니다.
-대상 파일 SHA256, 이번 실행의 지표와 미검증 범위는 [단일 파일 실제 검증](STANDALONE-VALIDATION.md)에 있습니다.
+현재 파일 SHA256·지표·미검증 범위는 [최종 실제 검증](LIVE-VALIDATION-20261006.md)에 있습니다. [이전 단일 파일 검증](STANDALONE-VALIDATION.md)은 당시 파일의 역사적 기록입니다.
 진행 중 단절/재개와 TLS/SASL은 이번 실제 실험에서 검증하지 않았습니다. 불명확한 요청 결과의 재실행 방지·해시 변경 차단은 모의 테스트 범위입니다.
 기존 재할당 helper의 기록은 [RESULTS](RESULTS.md)에 따로 보존했습니다. 어떤 NAS 실험도 운영 환경 운영 적용 결과나 무중단 보장은 아닙니다.

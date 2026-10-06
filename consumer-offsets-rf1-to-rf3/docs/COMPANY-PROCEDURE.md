@@ -1,3 +1,7 @@
+> 현재 배포본의 SHA256과 NAS·WSL 검증 결과는 [2026-10-06 최종 검증](LIVE-VALIDATION-20261006.md)을 확인하세요. 실행 전에 최신 검증 범위와 지연 측정값을 확인하세요.
+
+> 2026-10-06 안전수정본의 실제 RF 변경 시험은 아직 미수행입니다. [현재 검증 범위](SAFETY-REVISION-20261006.md)를 확인하세요.
+
 # 운영 환경 작업 절차: __consumer_offsets RF 1 → 3
 
 **간편 실행:** `~/kafka/current` 설치 환경은 [단일 .sh 실행 안내](ONE-SCRIPT.md)를 사용하세요. 아래는 세부 수동 절차입니다.
@@ -13,7 +17,7 @@
 
 - 명령은 Kafka 관리자 권한이 있는 **서버 1대의 Bash 터미널**에서만 실행합니다. 3대에서 같은 재할당을 반복 실행하지 않습니다.
 - 운영 환경 bootstrap 주소, 실제 broker ID 3개, Kafka/JDK 경로, 필요 시 기존 TLS/SASL client.properties를 준비합니다.
-- JDK 17 전체(`javac` 포함), Python 3.8 이상, Kafka 3.9.1 배포본이 필요합니다. Python 추가 패키지나 인터넷 접속은 필요 없습니다.
+- JDK 17 전체(`javac` 포함), Python 3.8 이상, Linux util-linux `flock`, Kafka 3.9.1 배포본이 필요합니다. Python 추가 패키지나 인터넷 접속은 필요 없습니다.
 - GitHub 저장소 전체를 ZIP으로 내려받아 운영 환경 반입 절차에 따라 복사합니다. `scripts/`와 `tests/`도 함께 옮깁니다. helper가 Kafka 배포본의 Java 라이브러리로 컴파일합니다.
 - **운영 서버에서는 `scripts/lab.py`를 실행하지 않습니다.** 운영 offsets 토픽 삭제/재생성, 파티션 수 변경, offset reset, 강제 leader election, broker 재시작을 이 작업에 포함하지 않습니다.
 - 작업 담당자·변경 시간·관측 시간과 중단 기준(허용 lag, commit 지연/오류, disk/network 부하)을 사전에 정합니다. 이 값은 운영 환경의 평소 지표와 SLA로 정합니다.
@@ -149,10 +153,10 @@ python3 scripts/reassign.py check --bootstrap "$BOOTSTRAP" --command-config "$AU
 ```
 
 모든 파티션 RF=3·ISR=3이고 진행 중 재할당이 없어야 합니다. 다음 명령은 목표 assignment까지 재검증한 뒤 throttle을 해제합니다.
-**다른 담당자가 새로운 throttle 작업을 시작하지 않았는지 먼저 확인합니다.** 도구는 동시 작업 간 설정 소유권을 보장하지 않습니다.
+**다른 담당자가 새로운 throttle 작업을 시작하지 않았는지 먼저 확인합니다.** 도구는 예상 throttle과 실제 값/source를 비교하고 불일치 시 해제를 보류합니다. replica 목록은 순서와 무관하게 비교하며 중복/와일드카드를 거부합니다. 검사와 해제 사이의 TOCTOU 경쟁이 있어 설정 소유권을 보장하지 않습니다. 해제까지 관리자 동시 작업을 금지해야 합니다. `--throttle`은 execute 때 승인한 동일값을 지정하며 생략 시 1048576입니다. 이전 버전 계획에 expected-throttle.json이 없으면 자동 해제를 보류합니다.
 
 ```bash
-python3 scripts/reassign.py verify --bootstrap "$BOOTSTRAP" --command-config "$AUTH_CONFIG" --directory "$PLAN_DIR" --apply | tee "$WORK_DIR/verify-clear.log"
+python3 scripts/reassign.py verify --bootstrap "$BOOTSTRAP" --command-config "$AUTH_CONFIG" --directory "$PLAN_DIR" --throttle "$THROTTLE" --apply | tee "$WORK_DIR/verify-clear.log"
 python3 scripts/reassign.py snapshot --bootstrap "$BOOTSTRAP" --command-config "$AUTH_CONFIG" --directory "$WORK_DIR/after.json"
 "$KAFKA_HOME/bin/kafka-topics.sh" --bootstrap-server "$BOOTSTRAP" "${AUTH_ARGS[@]}" --topic __consumer_offsets --describe | tee "$WORK_DIR/offsets-after.txt"
 "$KAFKA_HOME/bin/kafka-reassign-partitions.sh" --bootstrap-server "$BOOTSTRAP" "${AUTH_ARGS[@]}" --list | tee "$WORK_DIR/reassignments-after.txt"

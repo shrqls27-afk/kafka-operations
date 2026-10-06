@@ -1,0 +1,9 @@
+{
+  "same_cluster_id": true,
+  "before_brokers": 3,
+  "after_brokers": 3,
+  "before_healthy_partitions": 53,
+  "after_healthy_partitions": 53,
+  "after_quorum_leader_valid": true,
+  "after_high_watermark_valid": true
+}

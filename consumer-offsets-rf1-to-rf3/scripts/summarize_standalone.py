@@ -27,9 +27,20 @@ def main():
     assert attempts==ack==set(consumed) and len(ack)==len(consumed)
     summary=json.loads((src/'workload-summary.json').read_text())
     summary.update(result)
+    summary['client_preservation']=json.loads((src/'client-preservation.json').read_text())
     summary['first_event_utc']=events[0]['time'];summary['last_event_utc']=events[-1]['time']
     summary['elapsed_ms']=events[-1]['elapsed_ms']
     summary['event_errors']=dict(collections.Counter(e['event'] for e in events if 'error' in e['event']))
+    inflight=[e for e in events if e['event']=='offsets_snapshot' and e['snapshot']['reassignments'] != '{}']
+    observed=[e for e in events if inflight and inflight[0]['elapsed_ms'] <= e['elapsed_ms'] <= inflight[-1]['elapsed_ms']]
+    summary['inflight_observation_count']=len(inflight)
+    summary['inflight_observed_first_ms']=inflight[0]['elapsed_ms'] if inflight else None
+    summary['inflight_observed_last_ms']=inflight[-1]['elapsed_ms'] if inflight else None
+    summary['inflight_observed_events']=dict(collections.Counter(e['event'] for e in observed))
+    summary['inflight_client_progress_confirmed']=len(inflight)>=2 and all(any(e['event']==kind for e in observed) for kind in ('send_ok','consume','commit_ok'))
+    summary['measurement_errors']=dict(collections.Counter(e['event'] for e in events if e['event'].endswith('_error')))
+    summary['measurement_error_free']=not summary['measurement_errors']
+    summary['phase_boundaries']=json.loads((src/'phase-boundaries.json').read_text())
     summary['phases']={}
     for phase in sorted({e['phase'] for e in events}):
         es=[e for e in events if e['phase']==phase]
@@ -38,6 +49,7 @@ def main():
             'events':dict(collections.Counter(e['event'] for e in es)),
             'send_duration_ms':stats([e['duration_ms'] for e in es if e['event']=='send_ok']),
             'commit_duration_ms':stats([e['duration_ms'] for e in es if e['event']=='commit_ok']),
+            'consume_latency_ms':stats([e['latency_ms'] for e in es if e['event']=='consume' and e.get('latency_ms',-1)>=0]),
             'consume_interval_ms':stats([e['interval_ms'] for e in es if e['event']=='consume']),
             'lag':stats([e['lag'] for e in es if e['event']=='lag' and e['lag']>=0])}
     summary['stages']=json.loads((src/'stages.json').read_text())

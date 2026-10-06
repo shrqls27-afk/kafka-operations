@@ -1,0 +1,21 @@
+{
+  "scope": "unit-and-compilation-only",
+  "live_cluster_test_performed": false,
+  "unit_tests": 36,
+  "deployment_sha256": "2149f04e471f2a0d6c6cc2db0960442898291fea551cfc2f72e0afbfb9992a91",
+  "source_sha256": {
+    "offsets-rf3.sh": "2149f04e471f2a0d6c6cc2db0960442898291fea551cfc2f72e0afbfb9992a91",
+    "scripts/build_company_launcher.py": "6b384aa8641f34b3f34eafb52b197a59c4abe0fa662dbbbd5c919498e406846b",
+    "scripts/company.py": "407cd7aea544421d6f6860e4ed3bdb3847826c13a054e61fc331d2ba123439dc",
+    "scripts/lab.py": "d42d5b625b675249c187edb9befdca86adae08c44310a49dc84496bfb6f2782d",
+    "scripts/reassign.py": "4b3e72cd61dba49c75ac0dc79a8a5996fd21be0adc0c6012bdab4f93bc9dd2ec",
+    "scripts/summarize.py": "314d950811d5be17a7a80cf533e658a1cc79b40a655074d6f1c647a48f5d1f45",
+    "scripts/summarize_standalone.py": "1b4c9b76572f8517dafda991986a4efc34a3cc4ebb798af7ed61a8d125b3a5ed",
+    "scripts/verify_standalone.py": "7f6ee173a2e066568127f0bf985452eb415898e56112f4627a6501fd8c4490aa",
+    "scripts/java.sh": "29c0a579f30a13847911b787940affdf80fd59f2b4d115766fec1daad27d17fc",
+    "tests/OffsetsLab.java": "da6001c72ff190efe5fbb90b60c8aacbe63e3175e30cd202c7c8450c3dad9cdf",
+    "tests/test_company.py": "46c76c26ae7ed3a7fed6bf3ebe0f6237186b73652a2295af58cfec2104d88032",
+    "tests/test_plan.py": "2e34067a9d84d14c21ce30a7f88a0d17c73ab6e38e74ac7f3a7c789c56653add",
+    "tests/test_safety_regressions.py": "f8d621dccac96010649d4fd615b1c42a9353d0ec53ff1150190df91fc8f1a014"
+  }
+}

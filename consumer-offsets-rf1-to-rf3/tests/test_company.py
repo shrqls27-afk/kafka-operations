@@ -11,6 +11,7 @@ from unittest.mock import patch
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT/'scripts'))
 import company
+original_gate = company.stable_quorum_gate
 
 
 class Workflow(unittest.TestCase):
@@ -18,7 +19,7 @@ class Workflow(unittest.TestCase):
         base=ROOT/'runtime/test-company'
         base.mkdir(parents=True, exist_ok=True)
         self.home=Path(tempfile.mkdtemp(dir=base))
-        self.before={'cluster_id':'company-test','brokers':[11,22,33], 'reassignments':'{}', 'configs':{},
+        self.before={'cluster_id':'company-test','brokers':[11,22,33], 'reassignments':'{}', 'configs':{'ConfigResource(type=TOPIC, name=__consumer_offsets)':{}, **{'ConfigResource(type=BROKER, name=%d)'%b:{} for b in [11,22,33]}},
                      'partitions':[{'partition':0,'replicas':[22],'isr':[22],'leader':22}]}
         self.target={'version':1,'partitions':[{'topic':'__consumer_offsets','partition':0,'replicas':[22,11,33]}]}
         self.applies=0
@@ -37,11 +38,15 @@ class Workflow(unittest.TestCase):
                 if self.fail_execute:return subprocess.CompletedProcess(cmd,1,'timeout')
                 self.current['partitions'][0].update(replicas=[22,11,33],isr=[22,11,33])
             elif action=='snapshot':directory.write_text(json.dumps(self.current))
-        return subprocess.CompletedProcess(cmd,0,'')
+        output=''
+        if 'kafka-metadata-quorum.sh' in str(cmd):
+            output=('ClusterId: company-test\nLeaderId: 1\nLeaderEpoch: 4\nHighWatermark: 5\nCurrentVoters: [1, 2, 3]\n' if '--status' in cmd else 'NodeId LogEndOffset Lag Status\n1 5 0 Leader\n2 5 0 Follower\n3 5 0 Follower\n')
+        return subprocess.CompletedProcess(cmd,0,output)
 
     def invoke(self, answers, resume=None):
         args=['company.py']+(['--resume',str(resume)] if resume else [])
         with patch.object(company.Path,'home',return_value=self.home), \
+             patch.object(company,'stable_quorum_gate',side_effect=lambda fetch, **kw: original_gate(fetch, sleep=lambda _:None, **kw)), \
              patch.object(company,'prerequisites',return_value=self.home/'kafka/current'), \
              patch.object(company,'ask',side_effect=answers), \
              patch.object(company.subprocess,'run',side_effect=self.run_command), \

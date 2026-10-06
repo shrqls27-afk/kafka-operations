@@ -23,7 +23,8 @@ def main():
           'events':dict(collections.Counter(e['event'] for e in es)),
           'send_duration_ms':stats([e['duration_ms'] for e in es if e['event']=='send_ok']),
           'commit_duration_ms':stats([e['duration_ms'] for e in es if e['event']=='commit_ok']),
-          'consume_interval_ms':stats([e['interval_ms'] for e in es if e['event']=='consume']),
+          'consume_latency_ms':stats([e['latency_ms'] for e in es if e['event']=='consume' and e.get('latency_ms',-1)>=0]),
+            'consume_interval_ms':stats([e['interval_ms'] for e in es if e['event']=='consume']),
           'lag':stats([e['lag'] for e in es if e['event']=='lag' and e['lag']>=0])}
     summary['errors']={k:v for k,v in collections.Counter(e['event'] for e in events if 'error' in e['event']).items()}
     summary['resume_first']=[{k:e[k] for k in ('offset','expected','elapsed_ms')} for e in events if e['event']=='resume_first']
