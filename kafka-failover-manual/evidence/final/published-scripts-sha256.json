@@ -1,0 +1,10 @@
+{
+  "scripts/analyze.py": "c50a40d73cabe7b6fad641f268faedb144d7d160b1ffd44e80df89d12d7b1250",
+  "scripts/feed.py": "6e2b9f6c1c89d394d51b252d81a0a54a25771f38d7724c309e3df3b2be2cd3d6",
+  "scripts/gates.py": "e541b61f3ea75f065e516ce2c77e0ba0aca7e36fe4b4236e8fea621c22711c06",
+  "scripts/live_lab.py": "f31f8152d51f98f7f7711a485d178d07787a916ce925aaf864276f82ea669113",
+  "scripts/observe.py": "c6267a462ac3417e7c2d1e6f005309e56b095f88990350ac513e55e00e5ea13a",
+  "scripts/test_analysis.py": "3ba46393a54e0df78b264ac29c67bc8134b237fe0a27cafc15253a4e8d84232c",
+  "scripts/test_gates.py": "0fbacf444d970494886f9b397df0231bd956ef7e0bd08b57cec8ea459e9be38f",
+  "scripts/verify_release.py": "7932012ad48fa4c8da46044d53a44f2aa9f14d6656cdead55e38cabd2cddbbe0"
+}

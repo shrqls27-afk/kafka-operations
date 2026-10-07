@@ -1,0 +1,10 @@
+{
+  "feed_exit0": true,
+  "feed_sequential_ids": true,
+  "feed_record_count": 3,
+  "feed_stop_file_eof": true,
+  "observer_exit0": true,
+  "observer_tail_and_drain": true,
+  "observer_records": 3,
+  "scope": "OS helpers only; no Kafka process started; fixture files retained privately"
+}

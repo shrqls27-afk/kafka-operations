@@ -1,0 +1,19 @@
+{
+  "time_utc": "2026-10-07T01:20:25.802149+00:00",
+  "same_permanent_pid_and_cmdline": {
+    "codex": true,
+    "telegram": true,
+    "ui": true,
+    "broker1": true,
+    "broker2": true,
+    "broker3": true
+  },
+  "healthy_partitions": 53,
+  "full_isr": true,
+  "offsets_partitions": 50,
+  "offsets_rf3_isr3": true,
+  "broker3": true,
+  "stable_quorum3_lag0": true,
+  "test_ports_closed": true,
+  "cluster_id_matches_completed_run": true
+}

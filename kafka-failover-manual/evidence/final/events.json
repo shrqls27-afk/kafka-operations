@@ -1,0 +1,302 @@
+[
+  {
+    "node": 1,
+    "node_id": 101,
+    "pid": 18677,
+    "stop_signal": "SIGTERM",
+    "stop_at": "2026-10-06T13:30:40.402195+00:00",
+    "controller_before": 103,
+    "leaders_before": {
+      "0": 101,
+      "1": 102,
+      "2": 103
+    },
+    "exit_at": "2026-10-06T13:30:47.596622+00:00",
+    "exit_code": 143,
+    "down_start": "2026-10-06T13:31:21.533186+00:00",
+    "down_end": "2026-10-06T13:33:16.739920+00:00",
+    "controller_down": 103,
+    "leaders_down": {
+      "0": 102,
+      "1": 102,
+      "2": 103
+    },
+    "commit_before": 1672,
+    "commit_down": 3226,
+    "commits_before": [
+      {
+        "partition": 2,
+        "current": 557,
+        "end": 558,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 558,
+        "end": 559,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 557,
+        "end": 558,
+        "lag": 1
+      }
+    ],
+    "commits_down_start": [
+      {
+        "partition": 2,
+        "current": 693,
+        "end": 695,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 694,
+        "end": 695,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 693,
+        "end": 695,
+        "lag": 2
+      }
+    ],
+    "commits_down_end": [
+      {
+        "partition": 2,
+        "current": 1075,
+        "end": 1077,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 1076,
+        "end": 1078,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1075,
+        "end": 1077,
+        "lag": 2
+      }
+    ],
+    "consumed_down_start": {
+      "2": 696,
+      "0": 696,
+      "1": 697
+    },
+    "consumed_down_end": {
+      "2": 1079,
+      "0": 1079,
+      "1": 1079
+    },
+    "start_at": "2026-10-06T13:33:16.748104+00:00",
+    "new_pid": 16300,
+    "recovered_at": "2026-10-06T13:34:11.504441+00:00",
+    "controller_recovered": 103,
+    "recovered_full_isr": true
+  },
+  {
+    "node": 2,
+    "node_id": 102,
+    "pid": 18678,
+    "stop_signal": "SIGTERM",
+    "stop_at": "2026-10-06T13:35:41.190436+00:00",
+    "controller_before": 103,
+    "leaders_before": {
+      "0": 101,
+      "1": 102,
+      "2": 103
+    },
+    "exit_at": "2026-10-06T13:35:47.128938+00:00",
+    "exit_code": 143,
+    "down_start": "2026-10-06T13:36:20.545316+00:00",
+    "down_end": "2026-10-06T13:37:57.135572+00:00",
+    "controller_down": 103,
+    "leaders_down": {
+      "0": 101,
+      "1": 103,
+      "2": 103
+    },
+    "commit_before": 4660,
+    "commit_down": 6015,
+    "commits_before": [
+      {
+        "partition": 2,
+        "current": 1553,
+        "end": 1556,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 1554,
+        "end": 1556,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1553,
+        "end": 1556,
+        "lag": 3
+      }
+    ],
+    "commits_down_start": [
+      {
+        "partition": 2,
+        "current": 1686,
+        "end": 1687,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 1687,
+        "end": 1687,
+        "lag": 0
+      },
+      {
+        "partition": 0,
+        "current": 1686,
+        "end": 1687,
+        "lag": 1
+      }
+    ],
+    "commits_down_end": [
+      {
+        "partition": 2,
+        "current": 2005,
+        "end": 2008,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 2005,
+        "end": 2008,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 2005,
+        "end": 2007,
+        "lag": 2
+      }
+    ],
+    "consumed_down_start": {
+      "2": 1688,
+      "0": 1688,
+      "1": 1689
+    },
+    "consumed_down_end": {
+      "2": 2009,
+      "0": 2008,
+      "1": 2009
+    },
+    "start_at": "2026-10-06T13:37:57.151026+00:00",
+    "new_pid": 7468,
+    "recovered_at": "2026-10-06T13:38:51.204290+00:00",
+    "controller_recovered": 103,
+    "recovered_full_isr": true
+  },
+  {
+    "node": 3,
+    "node_id": 103,
+    "pid": 18680,
+    "stop_signal": "SIGTERM",
+    "stop_at": "2026-10-06T13:41:34.263321+00:00",
+    "controller_before": 103,
+    "leaders_before": {
+      "0": 101,
+      "1": 102,
+      "2": 103
+    },
+    "exit_at": "2026-10-06T13:41:42.154554+00:00",
+    "exit_code": 143,
+    "down_start": "2026-10-06T13:42:16.073732+00:00",
+    "down_end": "2026-10-06T13:44:29.194770+00:00",
+    "controller_down": 101,
+    "leaders_down": {
+      "0": 101,
+      "1": 102,
+      "2": 101
+    },
+    "commit_before": 8175,
+    "commit_down": 9915,
+    "commits_before": [
+      {
+        "partition": 2,
+        "current": 2725,
+        "end": 2726,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 2725,
+        "end": 2727,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 2725,
+        "end": 2726,
+        "lag": 1
+      }
+    ],
+    "commits_down_start": [
+      {
+        "partition": 2,
+        "current": 2864,
+        "end": 2865,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 2864,
+        "end": 2866,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 2864,
+        "end": 2865,
+        "lag": 1
+      }
+    ],
+    "commits_down_end": [
+      {
+        "partition": 2,
+        "current": 3305,
+        "end": 3307,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 3305,
+        "end": 3307,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 3305,
+        "end": 3306,
+        "lag": 1
+      }
+    ],
+    "consumed_down_start": {
+      "2": 2867,
+      "0": 2866,
+      "1": 2867
+    },
+    "consumed_down_end": {
+      "2": 3308,
+      "0": 3307,
+      "1": 3308
+    },
+    "start_at": "2026-10-06T13:44:29.218160+00:00",
+    "new_pid": 8847,
+    "recovered_at": "2026-10-06T13:46:36.821634+00:00",
+    "controller_recovered": 101,
+    "recovered_full_isr": true
+  }
+]

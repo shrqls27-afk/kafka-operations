@@ -1,0 +1,10 @@
+{
+  "before-resources.json": "77c1ec28495ecaa70436d7ce862599e29742dcbb310a0ae80511427142939f71",
+  "executed-script.json": "bf941af86a31db44d2863a6e8e7224fbfcefa1f110fafad213e6b22e66432cc6",
+  "permanent-before-quorum.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "permanent-before-quorum.out": "85f89baca05da8fb380d55fae34bf3fbf49307904de922cdfac2853362ec1ac0",
+  "permanent-before-replication.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "permanent-before-replication.out": "cb9eaa5607b9c6e96de70294e375fe7ff2ecfdfcca1c2ccdd8eec565b7e048eb",
+  "permanent-before-topics.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "permanent-before-topics.out": "f9dbfc7527e70681400eb08360cdd860fefa8a3eb9dcd77f33b034c213208ed0"
+}

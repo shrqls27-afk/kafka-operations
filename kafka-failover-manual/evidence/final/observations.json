@@ -1,0 +1,72 @@
+{
+  "first_input_utc": "2026-10-06T13:27:51.601000+00:00",
+  "last_input_utc": "2026-10-06T13:47:10.791000+00:00",
+  "baseline_gate_utc": "2026-10-06T13:28:33.090230+00:00",
+  "phases": {
+    "warmup_before_baseline_gate": {
+      "count": 413,
+      "p95_ms": 10378,
+      "max_ms": 12387
+    },
+    "steady_baseline_until_node1_stop": {
+      "count": 1268,
+      "p95_ms": 17,
+      "max_ms": 37
+    },
+    "after_node3_recovered": {
+      "count": 338,
+      "p95_ms": 43,
+      "max_ms": 1477
+    }
+  },
+  "consumer_log_events": {
+    "coordinator_discovered": 21,
+    "coordinator_unavailable": 20,
+    "join_requested": 11,
+    "joined": 1,
+    "assigned": 1
+  },
+  "broker_logs": {
+    "node1-restart-0.out": {
+      "error_level_lines": 0,
+      "warning_level_lines": 184,
+      "not_controller_mentions": 1
+    },
+    "node1.out": {
+      "error_level_lines": 0,
+      "warning_level_lines": 10,
+      "not_controller_mentions": 0
+    },
+    "node2-restart-1.out": {
+      "error_level_lines": 1,
+      "warning_level_lines": 24,
+      "not_controller_mentions": 0
+    },
+    "node2.out": {
+      "error_level_lines": 0,
+      "warning_level_lines": 3,
+      "not_controller_mentions": 0
+    },
+    "node3-restart-2.out": {
+      "error_level_lines": 0,
+      "warning_level_lines": 7,
+      "not_controller_mentions": 0
+    },
+    "node3.out": {
+      "error_level_lines": 0,
+      "warning_level_lines": 301,
+      "not_controller_mentions": 0
+    }
+  },
+  "cleanup": {
+    "start_utc": "2026-10-06T13:47:35.227129+00:00",
+    "raft_timeout_error_utc": "2026-10-06T13:47:43.660+00:00",
+    "node": 2,
+    "raft_timeout_ms": 5000,
+    "error_level_lines": 1,
+    "phase": "after measurement; entire isolated lab cleanup",
+    "sigterm_only": true,
+    "all_owned_processes_exited": true,
+    "test_ports_closed": true
+  }
+}

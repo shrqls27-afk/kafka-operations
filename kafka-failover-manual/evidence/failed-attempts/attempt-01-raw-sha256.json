@@ -1,0 +1,9 @@
+{
+  "before-resources.json": "99c495cfd4bf24dc1df4131495c108f99170000a22560eb422a735f9245d4682",
+  "permanent-before-quorum.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "permanent-before-quorum.out": "83e929555abce3a0b081257e2ea74bc4c2c3752ab1b6c7d0525257b30c113146",
+  "permanent-before-replication.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "permanent-before-replication.out": "635336a81bbd3d3032faec01047537893002c308f170af99951133d7ee412b1d",
+  "permanent-before-topics.err": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+  "permanent-before-topics.out": "f9dbfc7527e70681400eb08360cdd860fefa8a3eb9dcd77f33b034c213208ed0"
+}

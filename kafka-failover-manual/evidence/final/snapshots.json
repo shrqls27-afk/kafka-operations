@@ -1,0 +1,7412 @@
+[
+  {
+    "label": "baseline-0",
+    "time": "2026-10-06T13:28:14.122617+00:00",
+    "topics": [
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t81          \t0  \t1791293289406     \t1791293289406        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t81          \t0  \t1791293289262     \t1791293289262        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t81          \t0  \t1791293289259     \t1791293289259        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 72,
+        "end": 73,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 73,
+        "end": 73,
+        "lag": 0
+      },
+      {
+        "partition": 0,
+        "current": 72,
+        "end": 73,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 75,
+      "0": 74,
+      "1": 75
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "baseline-1",
+    "time": "2026-10-06T13:28:33.090230+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t119         \t0  \t1791293308624     \t1791293308624        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t119         \t0  \t1791293308358     \t1791293308358        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t119         \t0  \t1791293308359     \t1791293308359        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 136,
+        "end": 136,
+        "lag": 0
+      },
+      {
+        "partition": 1,
+        "current": 136,
+        "end": 137,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 135,
+        "end": 136,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 138,
+      "0": 137,
+      "1": 138
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-before-2",
+    "time": "2026-10-06T13:28:48.676475+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t151         \t0  \t1791293324255     \t1791293324255        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t150         \t1  \t1791293324180     \t1791293323875        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t150         \t1  \t1791293324180     \t1791293323874        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 185,
+        "end": 188,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 186,
+        "end": 188,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 185,
+        "end": 188,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 189,
+      "0": 189,
+      "1": 190
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-before-3",
+    "time": "2026-10-06T13:29:06.939510+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t187         \t0  \t1791293342617     \t1791293342617        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t187         \t0  \t1791293342268     \t1791293342268        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t187         \t0  \t1791293342237     \t1791293342237        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 245,
+        "end": 249,
+        "lag": 4
+      },
+      {
+        "partition": 1,
+        "current": 246,
+        "end": 249,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 245,
+        "end": 248,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 250,
+      "0": 250,
+      "1": 250
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-before-4",
+    "time": "2026-10-06T13:29:25.201151+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t224         \t0  \t1791293360879     \t1791293360879        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t223         \t1  \t1791293360693     \t1791293360436        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t223         \t1  \t1791293360692     \t1791293360436        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 308,
+        "end": 309,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 309,
+        "end": 310,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 308,
+        "end": 309,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 311,
+      "0": 310,
+      "1": 311
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-before-5",
+    "time": "2026-10-06T13:29:43.579315+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t260         \t0  \t1791293379169     \t1791293379169        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t260         \t0  \t1791293378814     \t1791293378814        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t260         \t0  \t1791293378811     \t1791293378811        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 368,
+        "end": 370,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 368,
+        "end": 371,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 368,
+        "end": 370,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 372,
+      "0": 371,
+      "1": 372
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-before-6",
+    "time": "2026-10-06T13:30:02.034142+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t297         \t0  \t1791293397645     \t1791293397645        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t297         \t0  \t1791293397522     \t1791293397522        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t297         \t0  \t1791293397522     \t1791293397522        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 428,
+        "end": 431,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 428,
+        "end": 432,
+        "lag": 4
+      },
+      {
+        "partition": 0,
+        "current": 427,
+        "end": 431,
+        "lag": 4
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 433,
+      "0": 432,
+      "1": 433
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-0-7",
+    "time": "2026-10-06T13:30:21.544978+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t336         \t0  \t1791293417009     \t1791293417009        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t336         \t0  \t1791293416802     \t1791293416802        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t336         \t0  \t1791293416803     \t1791293416803        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 494,
+        "end": 496,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 495,
+        "end": 496,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 494,
+        "end": 496,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 497,
+      "0": 497,
+      "1": 498
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-0-8",
+    "time": "2026-10-06T13:30:40.294806+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t373         \t0  \t1791293435654     \t1791293435654        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t373         \t0  \t1791293435589     \t1791293435589        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t373         \t0  \t1791293435588     \t1791293435588        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 557,
+        "end": 558,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 558,
+        "end": 559,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 557,
+        "end": 558,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 560,
+      "0": 559,
+      "1": 560
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-down-9",
+    "time": "2026-10-06T13:31:03.316902+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t428         \t0  \t1791293458981     \t1791293458981        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t404         \t24 \t1791293447229     \t1791293446901        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t428         \t0  \t1791293458790     \t1791293458790        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 634,
+        "end": 635,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 634,
+        "end": 635,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 633,
+        "end": 634,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 636,
+      "0": 636,
+      "1": 636
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-down-10",
+    "time": "2026-10-06T13:31:21.533186+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t464         \t0  \t1791293477175     \t1791293477175        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t404         \t60 \t1791293447229     \t1791293446901        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t464         \t0  \t1791293476812     \t1791293476812        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 693,
+        "end": 695,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 694,
+        "end": 695,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 693,
+        "end": 695,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 696,
+      "0": 696,
+      "1": 697
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-down-end-11",
+    "time": "2026-10-06T13:32:21.990325+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t585         \t0  \t1791293537639     \t1791293537639        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t404         \t181\t1791293447229     \t1791293446901        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t585         \t0  \t1791293537311     \t1791293537311        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 893,
+        "end": 896,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 893,
+        "end": 896,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 892,
+        "end": 896,
+        "lag": 4
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 897,
+      "0": 897,
+      "1": 898
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-down-end-12",
+    "time": "2026-10-06T13:32:40.276568+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t622         \t0  \t1791293555921     \t1791293555921        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t404         \t218\t1791293447229     \t1791293446901        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t621         \t1  \t1791293555758     \t1791293555633        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 956,
+        "end": 957,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 956,
+        "end": 957,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 956,
+        "end": 956,
+        "lag": 0
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 958,
+      "0": 958,
+      "1": 958
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-down-end-13",
+    "time": "2026-10-06T13:32:58.544228+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t658         \t0  \t1791293574130     \t1791293574130        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t404         \t254\t1791293447229     \t1791293446901        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t658         \t0  \t1791293573923     \t1791293573923        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1016,
+        "end": 1017,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 1016,
+        "end": 1017,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 1015,
+        "end": 1017,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1018,
+      "0": 1018,
+      "1": 1019
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-down-end-14",
+    "time": "2026-10-06T13:33:16.739920+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t695         \t0  \t1791293592340     \t1791293592340        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t404         \t291\t1791293447229     \t1791293446901        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t695         \t0  \t1791293592332     \t1791293592332        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1075,
+        "end": 1077,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 1076,
+        "end": 1078,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1075,
+        "end": 1077,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1079,
+      "0": 1079,
+      "1": 1079
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-recovered-15",
+    "time": "2026-10-06T13:33:34.735148+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t739         \t0  \t1791293610065     \t1791293610065        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t738         \t1  \t1791293609775     \t1791293609543        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t738         \t1  \t1791293609775     \t1791293609544        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1135,
+        "end": 1137,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 1135,
+        "end": 1138,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 1135,
+        "end": 1137,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1139,
+      "0": 1138,
+      "1": 1139
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-recovered-16",
+    "time": "2026-10-06T13:33:53.164490+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t776         \t0  \t1791293628742     \t1791293628742        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t776         \t0  \t1791293628435     \t1791293628435        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t776         \t0  \t1791293628434     \t1791293628434        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1195,
+        "end": 1198,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 1195,
+        "end": 1199,
+        "lag": 4
+      },
+      {
+        "partition": 0,
+        "current": 1195,
+        "end": 1198,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1200,
+      "0": 1199,
+      "1": 1200
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node1-recovered-17",
+    "time": "2026-10-06T13:34:11.504441+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t813         \t0  \t1791293647202     \t1791293647202        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t813         \t0  \t1791293646872     \t1791293646872        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t813         \t0  \t1791293646872     \t1791293646872        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1258,
+        "end": 1259,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 1258,
+        "end": 1260,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1258,
+        "end": 1259,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1261,
+      "0": 1260,
+      "1": 1261
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-before-18",
+    "time": "2026-10-06T13:34:26.423039+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t843         \t0  \t1791293662034     \t1791293662034        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t843         \t0  \t1791293661868     \t1791293661868        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t843         \t0  \t1791293661868     \t1791293661868        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1308,
+        "end": 1309,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 1308,
+        "end": 1309,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 1307,
+        "end": 1308,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1310,
+      "0": 1310,
+      "1": 1310
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-before-19",
+    "time": "2026-10-06T13:34:44.488984+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 102,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t879         \t0  \t1791293680143     \t1791293680143        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t879         \t0  \t1791293679869     \t1791293679869        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t879         \t0  \t1791293679867     \t1791293679867        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1367,
+        "end": 1369,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 1368,
+        "end": 1369,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 1367,
+        "end": 1368,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1370,
+      "0": 1370,
+      "1": 1370
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-1-20",
+    "time": "2026-10-06T13:35:04.575012+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t921         \t0  \t1791293700066     \t1791293700066        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t920         \t1  \t1791293699804     \t1791293699565        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t920         \t1  \t1791293699804     \t1791293699566        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1434,
+        "end": 1435,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 1434,
+        "end": 1436,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1433,
+        "end": 1435,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1437,
+      "0": 1436,
+      "1": 1437
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-1-21",
+    "time": "2026-10-06T13:35:22.725241+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t957         \t0  \t1791293718291     \t1791293718291        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t957         \t0  \t1791293717891     \t1791293717891        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t957         \t0  \t1791293717890     \t1791293717890        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1494,
+        "end": 1495,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 1494,
+        "end": 1496,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1493,
+        "end": 1495,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1497,
+      "0": 1496,
+      "1": 1497
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-1-22",
+    "time": "2026-10-06T13:35:41.106028+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          102,
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          102,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t994         \t0  \t1791293736626     \t1791293736626        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t994         \t0  \t1791293736535     \t1791293736535        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t994         \t0  \t1791293736534     \t1791293736534        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1553,
+        "end": 1556,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 1554,
+        "end": 1556,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1553,
+        "end": 1556,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1558,
+      "0": 1557,
+      "1": 1558
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-down-23",
+    "time": "2026-10-06T13:36:02.428243+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1045        \t0  \t1791293757991     \t1791293757991        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1045        \t0  \t1791293757925     \t1791293757925        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1022        \t23 \t1791293746828     \t1791293746489        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1627,
+        "end": 1627,
+        "lag": 0
+      },
+      {
+        "partition": 1,
+        "current": 1627,
+        "end": 1628,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 1626,
+        "end": 1627,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1628,
+      "0": 1628,
+      "1": 1629
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-down-24",
+    "time": "2026-10-06T13:36:20.545316+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1081        \t0  \t1791293776163     \t1791293776163        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1081        \t0  \t1791293775912     \t1791293775912        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1022        \t59 \t1791293746828     \t1791293746489        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1686,
+        "end": 1687,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 1687,
+        "end": 1687,
+        "lag": 0
+      },
+      {
+        "partition": 0,
+        "current": 1686,
+        "end": 1687,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1688,
+      "0": 1688,
+      "1": 1689
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-down-end-25",
+    "time": "2026-10-06T13:37:20.955477+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1202        \t0  \t1791293836554     \t1791293836554        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1201        \t1  \t1791293836354     \t1791293835922        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1022        \t180\t1791293746828     \t1791293746489        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1885,
+        "end": 1888,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 1886,
+        "end": 1888,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1885,
+        "end": 1887,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1889,
+      "0": 1889,
+      "1": 1889
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-down-end-26",
+    "time": "2026-10-06T13:37:39.014376+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1238        \t0  \t1791293854616     \t1791293854616        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1238        \t0  \t1791293854422     \t1791293854422        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1022        \t216\t1791293746828     \t1791293746489        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 1945,
+        "end": 1947,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 1946,
+        "end": 1948,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 1945,
+        "end": 1947,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 1949,
+      "0": 1948,
+      "1": 1949
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-down-end-27",
+    "time": "2026-10-06T13:37:57.135572+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1274        \t0  \t1791293872767     \t1791293872767        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1274        \t0  \t1791293872422     \t1791293872422        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1022        \t252\t1791293746828     \t1791293746489        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2005,
+        "end": 2008,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 2005,
+        "end": 2008,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 2005,
+        "end": 2007,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2009,
+      "0": 2008,
+      "1": 2009
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-recovered-28",
+    "time": "2026-10-06T13:38:14.838377+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1318        \t0  \t1791293890244     \t1791293890244        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1318        \t0  \t1791293889946     \t1791293889946        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1318        \t0  \t1791293889948     \t1791293889948        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2065,
+        "end": 2066,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 2065,
+        "end": 2066,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 2064,
+        "end": 2066,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2067,
+      "0": 2067,
+      "1": 2068
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-recovered-29",
+    "time": "2026-10-06T13:38:33.023731+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1355        \t0  \t1791293908568     \t1791293908568        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1355        \t0  \t1791293908546     \t1791293908546        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1355        \t0  \t1791293908546     \t1791293908546        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2124,
+        "end": 2126,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 2125,
+        "end": 2127,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 2124,
+        "end": 2126,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2128,
+      "0": 2127,
+      "1": 2128
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node2-recovered-30",
+    "time": "2026-10-06T13:38:51.204290+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1391        \t0  \t1791293926801     \t1791293926801        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1391        \t0  \t1791293926630     \t1791293926630        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1391        \t0  \t1791293926630     \t1791293926630        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2184,
+        "end": 2187,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 2184,
+        "end": 2187,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 2184,
+        "end": 2186,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2188,
+      "0": 2188,
+      "1": 2188
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-before-31",
+    "time": "2026-10-06T13:39:06.438324+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1422        \t0  \t1791293942047     \t1791293942047        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1422        \t0  \t1791293942021     \t1791293942021        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1422        \t0  \t1791293942022     \t1791293942022        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2234,
+        "end": 2237,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 2234,
+        "end": 2237,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 2233,
+        "end": 2237,
+        "lag": 4
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2238,
+      "0": 2238,
+      "1": 2239
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-before-32",
+    "time": "2026-10-06T13:39:24.608970+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 103,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1458        \t0  \t1791293960240     \t1791293960240        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1458        \t0  \t1791293959998     \t1791293959998        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1458        \t0  \t1791293960000     \t1791293960000        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2297,
+        "end": 2297,
+        "lag": 0
+      },
+      {
+        "partition": 1,
+        "current": 2297,
+        "end": 2298,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 2296,
+        "end": 2297,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2299,
+      "0": 2298,
+      "1": 2299
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-2-33",
+    "time": "2026-10-06T13:39:44.541890+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1500        \t0  \t1791293980009     \t1791293980009        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1499        \t1  \t1791293979947     \t1791293979515        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1499        \t1  \t1791293979947     \t1791293979515        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2360,
+        "end": 2363,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 2361,
+        "end": 2364,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 2360,
+        "end": 2363,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2365,
+      "0": 2364,
+      "1": 2365
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-2-34",
+    "time": "2026-10-06T13:40:02.930218+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1536        \t0  \t1791293998441     \t1791293998441        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1536        \t0  \t1791293998405     \t1791293998405        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1536        \t0  \t1791293998406     \t1791293998406        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2423,
+        "end": 2424,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 2424,
+        "end": 2425,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 2423,
+        "end": 2424,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2426,
+      "0": 2425,
+      "1": 2426
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-2-35",
+    "time": "2026-10-06T13:40:21.118838+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1573        \t0  \t1791294016665     \t1791294016665        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1572        \t1  \t1791294016461     \t1791294016056        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1572        \t1  \t1791294016461     \t1791294016056        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2483,
+        "end": 2485,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 2483,
+        "end": 2485,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 2483,
+        "end": 2484,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2486,
+      "0": 2486,
+      "1": 2486
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-2-36",
+    "time": "2026-10-06T13:40:39.522106+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1610        \t0  \t1791294035031     \t1791294035031        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1609        \t1  \t1791294034968     \t1791294034532        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1609        \t1  \t1791294034968     \t1791294034533        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2543,
+        "end": 2546,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 2543,
+        "end": 2546,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 2542,
+        "end": 2545,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2547,
+      "0": 2547,
+      "1": 2547
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-2-37",
+    "time": "2026-10-06T13:40:57.609641+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1646        \t0  \t1791294053075     \t1791294053075        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1645        \t1  \t1791294052973     \t1791294052666        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1645        \t1  \t1791294052974     \t1791294052668        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2602,
+        "end": 2606,
+        "lag": 4
+      },
+      {
+        "partition": 1,
+        "current": 2603,
+        "end": 2606,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 2602,
+        "end": 2605,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2607,
+      "0": 2607,
+      "1": 2607
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-2-38",
+    "time": "2026-10-06T13:41:15.857462+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1682        \t0  \t1791294071323     \t1791294071323        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1682        \t0  \t1791294071055     \t1791294071055        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1682        \t0  \t1791294071055     \t1791294071055        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2665,
+        "end": 2666,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 2666,
+        "end": 2666,
+        "lag": 0
+      },
+      {
+        "partition": 0,
+        "current": 2665,
+        "end": 2666,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2667,
+      "0": 2667,
+      "1": 2668
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "preferred-stable-2-39",
+    "time": "2026-10-06T13:41:33.982821+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          103,
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 103,
+    "epoch": 1,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t1718        \t0  \t1791294089487     \t1791294089487        \tLeader  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1718        \t0  \t1791294089199     \t1791294089199        \tFollower\t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1718        \t0  \t1791294089199     \t1791294089199        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2725,
+        "end": 2726,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 2725,
+        "end": 2727,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 2725,
+        "end": 2726,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2727,
+      "0": 2727,
+      "1": 2728
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-down-40",
+    "time": "2026-10-06T13:41:57.811495+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag \tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1768        \t0   \t1791294113178     \t1791294113178        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1768        \t0   \t1791294112834     \t1791294112834        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t-1          \t1769\t-1                \t-1                   \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2801,
+        "end": 2804,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 2801,
+        "end": 2805,
+        "lag": 4
+      },
+      {
+        "partition": 0,
+        "current": 2801,
+        "end": 2804,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2806,
+      "0": 2806,
+      "1": 2807
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-down-41",
+    "time": "2026-10-06T13:42:16.073732+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag \tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1805        \t0   \t1791294131605     \t1791294131605        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1805        \t0   \t1791294131401     \t1791294131401        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t-1          \t1806\t-1                \t-1                   \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 2864,
+        "end": 2865,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 2864,
+        "end": 2866,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 2864,
+        "end": 2865,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 2867,
+      "0": 2866,
+      "1": 2867
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-down-end-42",
+    "time": "2026-10-06T13:43:16.523242+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag \tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1926        \t0   \t1791294192020     \t1791294192020        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1925        \t1   \t1791294191781     \t1791294191543        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t-1          \t1927\t-1                \t-1                   \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3063,
+        "end": 3066,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 3064,
+        "end": 3066,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 3063,
+        "end": 3066,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3067,
+      "0": 3067,
+      "1": 3068
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-down-end-43",
+    "time": "2026-10-06T13:43:34.690301+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag \tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1962        \t0   \t1791294210230     \t1791294210230        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1962        \t0   \t1791294210054     \t1791294210054        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t-1          \t1963\t-1                \t-1                   \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3123,
+        "end": 3126,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 3123,
+        "end": 3126,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 3122,
+        "end": 3126,
+        "lag": 4
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3127,
+      "0": 3127,
+      "1": 3128
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-down-end-44",
+    "time": "2026-10-06T13:43:52.825289+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag \tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t1999        \t0   \t1791294228362     \t1791294228362        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t1998        \t1   \t1791294228293     \t1791294227876        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t-1          \t2000\t-1                \t-1                   \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3186,
+        "end": 3186,
+        "lag": 0
+      },
+      {
+        "partition": 1,
+        "current": 3186,
+        "end": 3186,
+        "lag": 0
+      },
+      {
+        "partition": 0,
+        "current": 3185,
+        "end": 3186,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3187,
+      "0": 3187,
+      "1": 3188
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-down-end-45",
+    "time": "2026-10-06T13:44:11.167240+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag \tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2035        \t0   \t1791294246631     \t1791294246631        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2035        \t0   \t1791294246432     \t1791294246432        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t-1          \t2036\t-1                \t-1                   \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3245,
+        "end": 3247,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 3246,
+        "end": 3247,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 3245,
+        "end": 3247,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3248,
+      "0": 3248,
+      "1": 3248
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-down-end-46",
+    "time": "2026-10-06T13:44:29.194770+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag \tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2071        \t0   \t1791294264736     \t1791294264736        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2071        \t0   \t1791294264365     \t1791294264365        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t-1          \t2072\t-1                \t-1                   \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3305,
+        "end": 3307,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 3305,
+        "end": 3307,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 3305,
+        "end": 3306,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3308,
+      "0": 3307,
+      "1": 3308
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-recovered-47",
+    "time": "2026-10-06T13:44:47.265333+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2116        \t0  \t1791294282620     \t1791294282620        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2116        \t0  \t1791294282619     \t1791294282619        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2116        \t0  \t1791294282620     \t1791294282620        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3364,
+        "end": 3366,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 3365,
+        "end": 3367,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 3364,
+        "end": 3366,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3368,
+      "0": 3367,
+      "1": 3368
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-recovered-48",
+    "time": "2026-10-06T13:45:05.803528+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2153        \t0  \t1791294301278     \t1791294301278        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2153        \t0  \t1791294301011     \t1791294301011        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2153        \t0  \t1791294301014     \t1791294301014        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3424,
+        "end": 3428,
+        "lag": 4
+      },
+      {
+        "partition": 1,
+        "current": 3424,
+        "end": 3428,
+        "lag": 4
+      },
+      {
+        "partition": 0,
+        "current": 3424,
+        "end": 3427,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3429,
+      "0": 3428,
+      "1": 3429
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-recovered-49",
+    "time": "2026-10-06T13:45:24.039676+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2190        \t0  \t1791294319422     \t1791294319422        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2189        \t1  \t1791294319323     \t1791294319076        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2189        \t1  \t1791294319322     \t1791294319066        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3487,
+        "end": 3488,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 3487,
+        "end": 3488,
+        "lag": 1
+      },
+      {
+        "partition": 0,
+        "current": 3487,
+        "end": 3488,
+        "lag": 1
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3489,
+      "0": 3489,
+      "1": 3490
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-recovered-50",
+    "time": "2026-10-06T13:45:42.303297+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2226        \t0  \t1791294337724     \t1791294337724        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2226        \t0  \t1791294337387     \t1791294337387        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2226        \t0  \t1791294337411     \t1791294337411        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3547,
+        "end": 3548,
+        "lag": 1
+      },
+      {
+        "partition": 1,
+        "current": 3547,
+        "end": 3549,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 3546,
+        "end": 3548,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3550,
+      "0": 3549,
+      "1": 3550
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-recovered-51",
+    "time": "2026-10-06T13:46:00.612091+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2263        \t0  \t1791294355959     \t1791294355959        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2262        \t1  \t1791294355834     \t1791294355409        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2262        \t1  \t1791294355834     \t1791294355410        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3606,
+        "end": 3609,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 3607,
+        "end": 3609,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 3606,
+        "end": 3609,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3610,
+      "0": 3610,
+      "1": 3611
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-recovered-52",
+    "time": "2026-10-06T13:46:18.713380+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2299        \t0  \t1791294374238     \t1791294374238        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2299        \t0  \t1791294373887     \t1791294373887        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2299        \t0  \t1791294373910     \t1791294373910        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3666,
+        "end": 3669,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 3666,
+        "end": 3669,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 3666,
+        "end": 3669,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3670,
+      "0": 3670,
+      "1": 3671
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "node3-recovered-53",
+    "time": "2026-10-06T13:46:36.821634+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2335        \t0  \t1791294392305     \t1791294392305        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2335        \t0  \t1791294391952     \t1791294391952        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2335        \t0  \t1791294391953     \t1791294391953        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3726,
+        "end": 3729,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 3726,
+        "end": 3729,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 3725,
+        "end": 3729,
+        "lag": 4
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3730,
+      "0": 3730,
+      "1": 3731
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "controller-extra-before-54",
+    "time": "2026-10-06T13:46:52.423216+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 101,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2368        \t0  \t1791294407855     \t1791294407855        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2368        \t0  \t1791294407433     \t1791294407433        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2368        \t0  \t1791294407436     \t1791294407436        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3779,
+        "end": 3781,
+        "lag": 2
+      },
+      {
+        "partition": 1,
+        "current": 3779,
+        "end": 3781,
+        "lag": 2
+      },
+      {
+        "partition": 0,
+        "current": 3778,
+        "end": 3780,
+        "lag": 2
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3782,
+      "0": 3782,
+      "1": 3782
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "controller-extra-before-55",
+    "time": "2026-10-06T13:47:10.755320+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2405        \t0  \t1791294426115     \t1791294426115        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2405        \t0  \t1791294425955     \t1791294425955        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2405        \t0  \t1791294425956     \t1791294425956        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3838,
+        "end": 3841,
+        "lag": 3
+      },
+      {
+        "partition": 1,
+        "current": 3839,
+        "end": 3842,
+        "lag": 3
+      },
+      {
+        "partition": 0,
+        "current": 3838,
+        "end": 3841,
+        "lag": 3
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3843,
+      "0": 3842,
+      "1": 3843
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      "0c99f2b85d0bb7462676243ba9e2ada3857f6165dd8eb48408691094a71058ee",
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": true
+  },
+  {
+    "label": "final-drain",
+    "time": "2026-10-06T13:47:34.431572+00:00",
+    "topics": [
+      {
+        "topic": "__consumer_offsets",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "__consumer_offsets",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 0,
+        "leader": 101,
+        "replicas": [
+          101,
+          102,
+          103
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 1,
+        "leader": 102,
+        "replicas": [
+          102,
+          103,
+          101
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      },
+      {
+        "topic": "failover-20261006T132619Z",
+        "partition": 2,
+        "leader": 103,
+        "replicas": [
+          103,
+          101,
+          102
+        ],
+        "isr": [
+          101,
+          102,
+          103
+        ]
+      }
+    ],
+    "controller": 101,
+    "epoch": 2,
+    "replication": "NodeId\tDirectoryId           \tLogEndOffset\tLag\tLastFetchTimestamp\tLastCaughtUpTimestamp\tStatus  \t\n101   \tAAAAAAAAAAAAAAAAAAAAAA\t2452        \t0  \t1791294449825     \t1791294449825        \tLeader  \t\n102   \tAAAAAAAAAAAAAAAAAAAAAA\t2452        \t0  \t1791294449433     \t1791294449433        \tFollower\t\n103   \tAAAAAAAAAAAAAAAAAAAAAA\t2452        \t0  \t1791294449434     \t1791294449434        \tFollower\t\n",
+    "commits": [
+      {
+        "partition": 2,
+        "current": 3844,
+        "end": 3844,
+        "lag": 0
+      },
+      {
+        "partition": 1,
+        "current": 3844,
+        "end": 3844,
+        "lag": 0
+      },
+      {
+        "partition": 0,
+        "current": 3844,
+        "end": 3844,
+        "lag": 0
+      }
+    ],
+    "consumed_by_partition": {
+      "2": 3844,
+      "0": 3844,
+      "1": 3844
+    },
+    "client_pids": [
+      21499,
+      21497
+    ],
+    "client_command_sha256": [
+      null,
+      "8a459e7f4ee2e1c5afdd76e7e9d2e6572c43ae5046ca1fa76b359214d84b44ef"
+    ],
+    "clients_alive": false
+  }
+]

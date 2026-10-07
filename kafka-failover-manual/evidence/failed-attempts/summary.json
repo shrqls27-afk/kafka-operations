@@ -1,0 +1,59 @@
+[
+  {
+    "attempt": 1,
+    "stage": "permanent preflight; no isolated JVM started",
+    "classification": "measurement code defect: LogEndOffset read as Lag",
+    "observed_lags": {
+      "2": 0,
+      "1": 0,
+      "3": 0
+    },
+    "failover_result": "not tested"
+  },
+  {
+    "attempt": 2,
+    "stage": "permanent preflight; no isolated JVM started",
+    "classification": "preflight transient lag; bounded retry not yet applied",
+    "observed_lags": {
+      "2": 0,
+      "1": 1,
+      "3": 1
+    },
+    "failover_result": "not tested"
+  },
+  {
+    "attempt": 3,
+    "stage": "node1-down-end",
+    "classification": "single end observation lag1; did not complete recovery/next nodes",
+    "observed_lags": {
+      "102": 0,
+      "101": 329,
+      "103": 1
+    },
+    "observed_isr2_partitions": 6,
+    "clients_alive": true,
+    "successful_down_observations": 4,
+    "failover_result": "incomplete; data handling continued but end stability gate failed",
+    "cleanup": {
+      "sigterm_timeout_node": 2,
+      "sigkill_owned_pid_only": true,
+      "excluded_from_failover_measurement": true,
+      "port_closure_confirmed_before_attempt04": true,
+      "original_preservation_record_kept": true
+    }
+  },
+  {
+    "attempt": 4,
+    "stage": "isolated startup; clients not started",
+    "classification": "node3 bind failure on broker port; port lay inside OS ephemeral range; source-port collision possible but not proven",
+    "failover_result": "not tested",
+    "orchestration_interrupted_for_cleanup": true,
+    "cleanup": {
+      "all_owned_processes_exited": true,
+      "sigterm_only": true,
+      "test_ports_closed": true,
+      "permanent_pid_cmdline_unchanged": true,
+      "permanent_healthy_partitions": 53
+    }
+  }
+]

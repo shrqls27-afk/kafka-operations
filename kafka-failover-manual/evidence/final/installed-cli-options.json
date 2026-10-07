@@ -1,0 +1,176 @@
+{
+  "broker-api-versions": {
+    "sha256": "d1982d8cf4defdedf1f917b1d09dba9a52def90bace0ad459ef5c72daf58e747",
+    "option_lines": [
+      "------                                 -----------",
+      "--bootstrap-server <String: server(s)  REQUIRED: The server to connect to.",
+      "--command-config <String: command      A property file containing configs to",
+      "--help                                 Print usage information.",
+      "--version                              Display Kafka version."
+    ],
+    "note": "installed 3.9.1 help"
+  },
+  "console-consumer": {
+    "sha256": "5317c66416403cb0ecb604199aa9351c581c3be8e8d0d51b11ee9ec8fac5b8d4",
+    "option_lines": [
+      "------                                   -----------",
+      "--bootstrap-server <String: server to    REQUIRED: The server(s) to connect to.",
+      "--consumer-property <String:             A mechanism to pass user-defined",
+      "--consumer.config <String: config file>  Consumer config properties file. Note",
+      "--enable-systest-events                  Log lifecycle events of the consumer",
+      "--formatter <String: class>              The name of a class to use for",
+      "--formatter-config <String: config       Config properties file to initialize",
+      "--from-beginning                         If the consumer does not already have",
+      "--group <String: consumer group id>      The consumer group id of the consumer.",
+      "--help                                   Print usage information.",
+      "--include <String: Java regex (String)>  Regular expression specifying list of",
+      "--isolation-level <String>               Set to read_committed in order to",
+      "--key-deserializer <String:",
+      "--max-messages <Integer: num_messages>   The maximum number of messages to",
+      "--offset <String: consume offset>        The offset to consume from (a non-",
+      "--partition <Integer: partition>         The partition to consume from.",
+      "--property <String: prop>                The properties to initialize the",
+      "--skip-message-on-error                  If there is an error when processing a",
+      "--timeout-ms <Long: timeout_ms>          If specified, exit if no message is",
+      "--topic <String: topic>                  The topic to consume on.",
+      "--value-deserializer <String:",
+      "--version                                Display Kafka version.",
+      "--whitelist <String: Java regex          DEPRECATED, use --include instead;"
+    ],
+    "note": "installed 3.9.1 help"
+  },
+  "console-producer": {
+    "sha256": "388b9183332c621d911f8392d4cfe18314eb1f00bfeacd4ac8f357dc373a2e9f",
+    "option_lines": [
+      "------                                   -----------",
+      "--batch-size <Integer: size>             Number of messages to send in a single",
+      "--bootstrap-server <String: server to    REQUIRED unless --broker-list",
+      "--broker-list <String: broker-list>      DEPRECATED, use --bootstrap-server",
+      "--compression-codec [String:             The compression codec: either 'none',",
+      "--help                                   Print usage information.",
+      "--line-reader <String: reader_class>     The class name of the class to use for",
+      "--max-block-ms <Long: max block on       The max time that the producer will",
+      "--max-memory-bytes <Long: total memory   The total memory used by the producer",
+      "--max-partition-memory-bytes <Integer:   The buffer size allocated for a",
+      "--message-send-max-retries <Integer>     Brokers can fail receiving the message",
+      "--metadata-expiry-ms <Long: metadata     The period of time in milliseconds",
+      "--producer-property <String:             A mechanism to pass user-defined",
+      "--producer.config <String: config file>  Producer config properties file. Note",
+      "--property <String: prop>                A mechanism to pass user-defined",
+      "--reader-config <String: config file>    Config properties file for the message",
+      "--request-required-acks <String:         The required `acks` of the producer",
+      "--request-timeout-ms <Integer: request   The ack timeout of the producer",
+      "--retry-backoff-ms <Long>                Before each retry, the producer",
+      "--socket-buffer-size <Integer: size>     The size of the tcp RECV size. This is",
+      "--sync                                   If set message send requests to the",
+      "--timeout <Long: timeout_ms>             If set and the producer is running in",
+      "--topic <String: topic>                  REQUIRED: The topic id to produce",
+      "--version                                Display Kafka version."
+    ],
+    "note": "installed 3.9.1 help"
+  },
+  "consumer-groups": {
+    "sha256": "1e67f4b71c603de07bf8d7a6c4555e951ef0a02d4f5545af55058b078cd38e55",
+    "option_lines": [
+      "------                                  -----------",
+      "--all-groups                            Apply to all consumer groups.",
+      "--all-topics                            Consider all topics assigned to a",
+      "--bootstrap-server <String: server to   REQUIRED: The server(s) to connect to.",
+      "--by-duration <String: duration>        Reset offsets to offset by duration",
+      "--command-config <String: command       Property file containing configs to be",
+      "--delete                                Pass in groups to delete topic",
+      "--delete-offsets                        Delete offsets of consumer group.",
+      "--describe                              Describe consumer group and list",
+      "--dry-run                               Only show results without executing",
+      "--execute                               Execute operation. Supported",
+      "--export                                Export operation execution to a CSV",
+      "--from-file <String: path to CSV file>  Reset offsets to values defined in CSV",
+      "--group <String: consumer group>        The consumer group we wish to act on.",
+      "--help                                  Print usage information.",
+      "--list                                  List all consumer groups.",
+      "--members                               Describe members of the group. This",
+      "--offsets                               Describe the group and list all topic",
+      "--reset-offsets                         Reset offsets of consumer group.",
+      "--shift-by <Long: number-of-offsets>    Reset offsets shifting current offset",
+      "--state [String]                        When specified with '--describe',",
+      "--timeout <Long: timeout (ms)>          The timeout that can be set for some",
+      "--to-current                            Reset offsets to current offset.",
+      "--to-datetime <String: datetime>        Reset offsets to offset from datetime.",
+      "--to-earliest                           Reset offsets to earliest offset.",
+      "--to-latest                             Reset offsets to latest offset.",
+      "--to-offset <Long: offset>              Reset offsets to a specific offset.",
+      "--topic <String: topic>                 The topic whose consumer group",
+      "--type [String]                         When specified with '--list', it",
+      "--verbose                               Provide additional information, if",
+      "--version                               Display Kafka version."
+    ],
+    "note": "installed 3.9.1 help"
+  },
+  "metadata-quorum": {
+    "sha256": "0abf5812b3cd492ac8d1b70bcff9e9c252b065e1096cc0b63cf814d439a55d26",
+    "option_lines": [],
+    "note": "installed 3.9.1 help"
+  },
+  "server-start": {
+    "sha256": "2529830c094e3cefa744c3fe5d338bac4363525b359a090abaa5e0e4465c5118",
+    "option_lines": [
+      "------               -----------",
+      "--override <String>  Optional property that should override values set in",
+      "--version            Print version information and exit."
+    ],
+    "note": "server-start has no help flag; invocation verified by 3.9.1 bin source and actual start"
+  },
+  "storage": {
+    "sha256": "6d0314c292275ebccd7aaee03321d79aa596e86763a814f818978631421acd83",
+    "option_lines": [],
+    "note": "installed 3.9.1 help"
+  },
+  "topics": {
+    "sha256": "7dc3b82a0b42b0e95c2f5c0995686570f967c23c738313076b244d951e48b104",
+    "option_lines": [
+      "------                                   -----------",
+      "--alter                                  Alter the number of partitions and",
+      "--at-min-isr-partitions                  if set when describing topics, only",
+      "--bootstrap-server <String: server to    REQUIRED: The Kafka server to connect",
+      "--command-config <String: command        Property file containing configs to be",
+      "--config <String: name=value>            A topic configuration override for the",
+      "--create                                 Create a new topic.",
+      "--delete                                 Delete a topic",
+      "--delete-config <String: name>           A topic configuration override to be",
+      "--describe                               List details for the given topics.",
+      "--exclude-internal                       exclude internal topics when running",
+      "--help                                   Print usage information.",
+      "--if-exists                              if set when altering or deleting or",
+      "--if-not-exists                          if set when creating topics, the",
+      "--list                                   List all available topics.",
+      "--partition-size-limit-per-response      the maximum partition size to be",
+      "--partitions <Integer: # of partitions>  The number of partitions for the topic",
+      "--replica-assignment <String:            A list of manual partition-to-broker",
+      "--replication-factor <Integer:           The replication factor for each",
+      "--topic <String: topic>                  The topic to create, alter, describe",
+      "--topic-id <String: topic-id>            The topic-id to describe.This is used",
+      "--topics-with-overrides                  if set when describing topics, only",
+      "--unavailable-partitions                 if set when describing topics, only",
+      "--under-min-isr-partitions               if set when describing topics, only",
+      "--under-replicated-partitions            if set when describing topics, only",
+      "--version                                Display Kafka version."
+    ],
+    "note": "installed 3.9.1 help"
+  },
+  "leader-election": {
+    "sha256": "7249e35d2cf05e4c54714f17d19689574bb2dd73624c041b445449d894e00730",
+    "option_lines": [
+      "------                                  -----------",
+      "--admin.config <String: config file>    Configuration properties files to pass",
+      "--all-topic-partitions                  Perform election on all of the",
+      "--bootstrap-server <String: host:port>  A hostname and port for the broker to",
+      "--election-type <[PREFERRED,UNCLEAN]:   Type of election to attempt. Possible",
+      "--help                                  Print usage information.",
+      "--partition <Integer: partition id>     Partition id for which to perform an",
+      "--path-to-json-file <String: Path to    The JSON file with the list  of",
+      "--topic <String: topic name>            Name of topic for which to perform an",
+      "--version                               Display Kafka version."
+    ],
+    "note": "installed 3.9.1 help rechecked 2026-10-07; auth --admin.config"
+  }
+}

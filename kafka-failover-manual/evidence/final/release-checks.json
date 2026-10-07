@@ -1,0 +1,11 @@
+{
+  "regression_tests": 22,
+  "regression_passed": true,
+  "bash_blocks": 26,
+  "python_heredocs": 3,
+  "public_text_files": 32,
+  "syntax_and_privacy_scan_passed": true,
+  "links_and_evidence_invariants_passed": true,
+  "reviewed_scope": "kafka-failover-manual only; raw runtime excluded",
+  "analysis_date": "2026-10-07"
+}

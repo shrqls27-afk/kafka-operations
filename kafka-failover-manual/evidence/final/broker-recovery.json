@@ -1,0 +1,32 @@
+{
+  "node1-restart-0.out": [
+    {
+      "time_kst": "2026-10-06 22:33:26,553",
+      "event": "registered"
+    },
+    {
+      "time_kst": "2026-10-06 22:33:28,229",
+      "event": "unfenced/running"
+    }
+  ],
+  "node2-restart-1.out": [
+    {
+      "time_kst": "2026-10-06 22:38:06,179",
+      "event": "registered"
+    },
+    {
+      "time_kst": "2026-10-06 22:38:07,059",
+      "event": "unfenced/running"
+    }
+  ],
+  "node3-restart-2.out": [
+    {
+      "time_kst": "2026-10-06 22:44:38,274",
+      "event": "registered"
+    },
+    {
+      "time_kst": "2026-10-06 22:44:40,030",
+      "event": "unfenced/running"
+    }
+  ]
+}
