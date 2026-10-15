@@ -196,3 +196,167 @@ UI는 설정된 Kafka 연결 계정으로 broker에 요청한다. UI RBAC가 Kaf
 - [일반 OAuth 사용자·역할 매핑 구현과 principal 제약](https://github.com/provectus/kafka-ui/blob/v0.7.2/kafka-ui-api/src/main/java/com/provectus/kafka/ui/service/rbac/extractor/OauthAuthorityExtractor.java)
 - [토픽 권한 이름](https://github.com/provectus/kafka-ui/blob/v0.7.2/kafka-ui-api/src/main/java/com/provectus/kafka/ui/model/rbac/permission/TopicAction.java)
 - [공식 RBAC 설정 설명](https://github.com/provectus/kafka-ui-docs/blob/main/configuration/rbac-role-based-access-control/README.md): 가변 문서이므로 위 버전 소스를 우선한다.
+
+
+## 복사·붙여넣기 실행 순서
+
+아래는 Linux **Bash** 기준이다. 먼저 내부 IdP 관리자가 일반 OAuth2 authorization-code client와 userinfo endpoint를 준비해야 한다. IdP가 없는 상태에서 명령만 실행해 인증 서버가 생성되지는 않는다. 앞 절의 v0.7.2/OIDC 제약도 먼저 확인한다.
+
+이 절에서는 기존 UI를 건드리지 않고 **별도 포트의 검증용 UI**로 먼저 확인한다. Kafka 클러스터 설정은 기존 파일에서 그대로 복사하지 않고 필요한 bootstrap 주소만 입력하므로, SASL/TLS Kafka 연결 환경에서는 별도 클라이언트 설정 추가가 필요하다. 아래 기본 예제는 PLAINTEXT Kafka 연결용이다.
+
+### Step 1. 실행 계정과 준비물 확인
+
+다음 명령은 Bash에서 같은 터미널 세션으로 이어서 실행한다. Python 3, JDK, 기존 v0.7.2 JAR가 필요하다.
+
+```bash
+bash
+set -euo pipefail
+UI_BASE="$HOME/kafka-stack"
+UI_JAVA="$UI_BASE/java/bin/java"
+UI_JAR="$UI_BASE/kafka-ui/kafka-ui-api-v0.7.2.jar"
+test -x "$UI_JAVA"
+test -r "$UI_JAR"
+command -v python3
+"$UI_JAVA" -version
+umask 077
+RBAC_RUN="$(mktemp -d "$HOME/kafka-ui-rbac-check.XXXXXXXX")"
+export RBAC_RUN
+printf '비공개 검증 경로: %s\n' "$RBAC_RUN"
+```
+
+### Step 2. IdP와 테스트 대상 값 입력
+
+콜백은 검증용 UI에 도달할 수 있는 HTTPS reverse proxy 주소여야 한다. proxy의 upstream은 아래 `127.0.0.1:18081`로 별도 준비한다. 기존 UI proxy를 임의로 바꾸지 않는다. IdP에 등록한 콜백과 한 글자까지 일치해야 한다.
+
+```bash
+read -r -p 'Kafka bootstrap 주소(host:port,host:port): ' UI_BOOTSTRAP
+read -r -p '표시할 cluster 이름: ' UI_CLUSTER
+read -r -p 'IdP client ID: ' UI_CLIENT_ID
+read -r -p '검증용 HTTPS 콜백 URL(.../login/oauth2/code/internal): ' UI_CALLBACK
+read -r -p 'IdP authorization URL: ' UI_AUTHORIZE
+read -r -p 'IdP token URL: ' UI_TOKEN
+read -r -p 'IdP userinfo URL: ' UI_USERINFO
+read -r -p 'IdP scope(openid 제외, 공백 구분; 예: profile): ' UI_SCOPE
+read -r -p '조회 계정의 고유 sub: ' UI_VIEWER_SUB
+read -r -p '설정 관리 계정의 고유 sub: ' UI_ADMIN_SUB
+read -r -s -p 'IdP client secret(표시 안 됨): ' UI_OAUTH_CLIENT_SECRET
+printf '\n'
+export UI_BOOTSTRAP UI_CLUSTER UI_CLIENT_ID UI_CALLBACK UI_AUTHORIZE UI_TOKEN
+export UI_USERINFO UI_SCOPE UI_VIEWER_SUB UI_ADMIN_SUB UI_OAUTH_CLIENT_SECRET
+```
+
+### Step 3. 검증 전용 설정 파일 생성
+
+JSON은 YAML의 부분집합이므로 Spring 설정 로더가 읽을 수 있는 JSON 구조를 `.yml`에 작성한다. 추가 YAML 패키지는 필요 없다. 사용자 입력을 문자열로 안전하게 직렬화하며 secret 자체는 파일에 쓰지 않고 환경변수 참조만 넣는다.
+
+```bash
+python3 - <<'PYCODE'
+import json, os, socket
+from pathlib import Path
+
+def required(key):
+    value = os.environ[key].strip()
+    if not value:
+        raise SystemExit('빈 값 금지: ' + key)
+    return value
+
+keys = ['UI_BOOTSTRAP','UI_CLUSTER','UI_CLIENT_ID','UI_CALLBACK',
+        'UI_AUTHORIZE','UI_TOKEN','UI_USERINFO','UI_SCOPE',
+        'UI_VIEWER_SUB','UI_ADMIN_SUB']
+v = {key: required(key) for key in keys}
+if not os.environ.get('UI_OAUTH_CLIENT_SECRET'):
+    raise SystemExit('빈 client secret 금지')
+for key in ['UI_CALLBACK','UI_AUTHORIZE','UI_TOKEN','UI_USERINFO']:
+    if not v[key].startswith('https://'):
+        raise SystemExit('HTTPS 필요: ' + key)
+if not v['UI_CALLBACK'].endswith('/login/oauth2/code/internal'):
+    raise SystemExit('콜백 경로 확인 필요')
+if 'openid' in v['UI_SCOPE'].split():
+    raise SystemExit('이 예제는 일반 OAuth2 전용: openid scope 금지')
+if v['UI_VIEWER_SUB'] == v['UI_ADMIN_SUB']:
+    raise SystemExit('조회자와 관리자는 서로 다른 sub 필요')
+with socket.socket() as sock:
+    sock.bind(('127.0.0.1', 18081))
+roles = []
+for role, subject, actions in [
+    ('topic-viewer', v['UI_VIEWER_SUB'], ['view']),
+    ('topic-config-admin', v['UI_ADMIN_SUB'], ['view','edit'])
+]:
+    roles.append({
+        'name': role, 'clusters': [v['UI_CLUSTER']],
+        'subjects': [{'provider':'oauth','type':'user','value':subject}],
+        'permissions': [
+            {'resource':'clusterconfig','actions':['view']},
+            {'resource':'topic','value':'.*','actions':actions},
+            {'resource':'consumer','value':'.*','actions':['view']}
+        ]
+    })
+config = {
+    'server': {'address':'127.0.0.1','port':18081},
+    'auth': {'type':'OAUTH2','oauth2':{'client':{'internal':{
+        'provider':'oauth','clientId':v['UI_CLIENT_ID'],
+        'clientSecret':'${UI_OAUTH_CLIENT_SECRET}',
+        'clientName':'Internal Login',
+        'authorizationGrantType':'authorization_code',
+        'redirectUri':v['UI_CALLBACK'],
+        'scope':v['UI_SCOPE'].split(),
+        'authorizationUri':v['UI_AUTHORIZE'],
+        'tokenUri':v['UI_TOKEN'], 'userInfoUri':v['UI_USERINFO'],
+        'userNameAttribute':'sub',
+        'customParams':{'type':'oauth','roles-field':'roles'}
+    }}}},
+    'kafka':{'clusters':[{'name':v['UI_CLUSTER'],
+                          'bootstrapServers':v['UI_BOOTSTRAP']}]},
+    'dynamic':{'config':{'enabled':False}},
+    'rbac':{'roles':roles}
+}
+path = Path(os.environ['RBAC_RUN'])/'ui-rbac.yml'
+path.write_text(json.dumps(config, ensure_ascii=False, indent=2)+'\n')
+path.chmod(0o600)
+print('설정 생성 완료(비밀 값 출력 없음)')
+PYCODE
+```
+
+기본 토픽 패턴 `.*`는 해당 클러스터의 모든 토픽을 뜻한다. 대상 제한이 필요하면 **실행 전에** 비공개 설정 파일의 `topic.value`와 `consumer.value`를 검토한 정규식으로 바꾼다. `clusterconfig`에는 edit 권한이 없으므로 broker Properties 수정은 허용하지 않는다.
+
+### Step 4. 별도 UI를 전경 실행
+
+NAS 메모리 여유를 먼저 확인한다. 여유가 부족하면 추가 UI를 실행하지 않는다. 아래 프로세스는 전경 실행되므로 종료할 때 해당 터미널에서 Ctrl+C를 사용한다. 기존 stack 관리 명령은 실행하지 않는다.
+
+```bash
+free -m
+"$UI_JAVA" -Xms128m -Xmx512m \
+  "-Dspring.config.additional-location=file:$RBAC_RUN/ui-rbac.yml" \
+  -jar "$UI_JAR" > "$RBAC_RUN/ui.log" 2>&1
+```
+
+로그는 비공개 검증 경로에 보존한다. 다른 터미널에서 같은 경로를 지정해 필요한 오류만 로컬로 확인한다. secret·token·사용자 정보가 포함될 수 있으므로 원본 로그는 업로드하지 않는다. CA 오류가 발생하면 JVM truststore에 승인된 CA를 배포하고, hostname verification을 끄지 않는다.
+
+### Step 5. 계정별 허용/거부 확인
+
+1. 검증용 HTTPS 주소를 새 비공개 브라우저 창에서 연다.
+2. 조회 계정으로 토픽 Properties 조회 성공과 변경 거부를 확인한다.
+3. 설정 관리 계정으로 **전용 테스트 토픽만** Properties 변경 후 원복한다. 생성·삭제·ACL 변경은 거부되어야 한다.
+4. 역할 없는 계정은 토픽/그룹 관리 API 접근이 거부되어야 한다.
+5. 브라우저 개발자 도구의 Network에서 실제 변경 요청의 거부도 확인한다. 버튼만 숨겨진 것은 합격 기준이 아니다.
+6. UI 밖의 Kafka CLI 직접 접속 통제는 별도 Kafka ACL 시험으로 확인한다.
+
+이 단계가 실패하면 운영 UI에 적용하지 않는다. 이 문서 작성 시점에는 실제 IdP 연동 시험을 수행하지 않았다.
+
+### Step 6. 운영 반영 계획 및 복구
+
+검증 성공 후 운영 HTTPS 주소의 별도 콜백을 IdP에 등록하고, 운영용 client/secret·설정 파일을 준비한다. 검증 포트 `18081`과 검증 callback을 그대로 운영 UI에 복사하지 않는다. UI 실행 계정과 관리자가 아래 항목을 검토한다.
+
+- 기존 UI 설정을 비공개 경로에 백업했는가?
+- 실제 운영 callback, bind 주소, 포트, Kafka 인증/TLS 연결 설정을 보존했는가?
+- UI 시작 서비스에서 secret 환경변수와 CA truststore를 전달하는가?
+- 감시 프로세스와 충돌 없이 **UI만** 재시작하는 승인된 방법이 있는가?
+- 조회자/관리자/역할 없는 사용자 시험 및 UI 로그인 불가 시 원복 담당자가 정해졌는가?
+
+현재 통합 stack 스크립트는 Kafka까지 관리하므로 여기서 일괄 재시작 명령을 제공하지 않는다. 운영 반영은 해당 UI 프로세스 관리자에 맞춰 수행한다. 복구는 백업한 원본 UI 설정 및 시작 환경을 복원한 뒤 UI만 재시작한다. Kafka broker나 producer/consumer 재시작은 이 작업에 포함하지 않는다.
+
+검증용 전경 UI를 Ctrl+C로 종료한 뒤 같은 터미널에서 secret을 해제한다. 데이터와 로그는 삭제하지 않고 비공개 보존한다.
+
+```bash
+unset UI_OAUTH_CLIENT_SECRET
+```
