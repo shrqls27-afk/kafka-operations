@@ -1,0 +1,9 @@
+Kafka UI readonly.1 local modification, 2026.
+Based on Provectus UI for Apache Kafka v0.7.2.
+Original project: https://github.com/provectus/kafka-ui
+License: Apache License 2.0 (see LICENSE).
+
+Local changes: HTTP read-only enforcement filter and frontend permission hooks.
+This distribution is a local modified build, not an official upstream release.
+Original JAR dependencies and their bundled copyright/license notices are retained.
+Source changes and build instructions accompany this distribution.

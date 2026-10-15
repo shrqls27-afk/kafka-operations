@@ -88,3 +88,8 @@ Keycloak 배포본/JDK 준비 → 서버 시작 → realm/client 생성 → 사�
 현재 NAS의 `LOGIN_FORM`은 계정 1개만 지원한다. 여러 사용자는 Keycloak에서 만들고 UI YAML의 `rbac.roles`에 고유 사용자 ID를 연결한다. OAuth2 client secret은 숨김 입력 또는 비공개 서비스 환경에서 전달한다.
 
 **정정:** 이전 가이드에서 `openid` scope를 일괄 금지한 설명은 잘못되었다. Spring `DefaultOidcUser`는 `DefaultOAuth2User`를 상속하므로 해당 캐스팅만으로 OIDC 불가를 판단할 수 없다. 새 Keycloak 가이드는 `scope: [openid, profile]`을 사용한다. 이전 일반 OAuth2 예제 대신 새 가이드를 따른다. 실제 Keycloak 로그인·RBAC 연동은 아직 미검증이다.
+
+
+## 단일 계정으로 전체 읽기 전용 사용
+
+공식 v0.7.2의 클러스터별 `readOnly: true`만으로 broker Configs 변경까지 안전하게 차단된다고 가정하지 않는다. 로컬 수정 빌드의 새 `ui.read-only: true` 옵션과 서버 API 차단은 [읽기 전용 보완 빌드 가이드](../kafka-ui-readonly/README.md)를 참고한다. 새 옵션은 수정 JAR에서만 동작하며 현재 NAS UI에 자동 적용된 것은 아니다.

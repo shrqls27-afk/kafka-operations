@@ -1,0 +1,53 @@
+{
+  "verified_at": "2026-10-15T06:34:35.952239+00:00",
+  "release": "kafka-ui-v0.7.2-readonly.1",
+  "upstream": "Provectus Kafka UI v0.7.2",
+  "artifact": "kafka-ui-api-v0.7.2-readonly.1.jar",
+  "sha256": "74f931bb422ee5b4646a3d507685c71c99a00c7f11a9b452c4fcd3e6f29bf9ed",
+  "environment": {
+    "platform": "Linux x86_64",
+    "java": "17.0.20.1",
+    "node": "18.18.2",
+    "pnpm": "8.6.12",
+    "openapi_generator": "6.6.0"
+  },
+  "backend_guard_checks": 257,
+  "contract_routes": 77,
+  "contract_write_routes": 40,
+  "frontend_jest": {
+    "suites_passed": 3,
+    "tests_passed": 11,
+    "real_broker_edit_component_disabled": true
+  },
+  "http_smoke": {
+    "kafka_connected": false,
+    "existing_services_changed": false,
+    "anonymous_login_required": true,
+    "wrong_password_rejected": true,
+    "authenticated_read_status": 200,
+    "readonly_policy_status": 200,
+    "write_requests_forbidden": 6,
+    "frontend_index_status": 200,
+    "owned_test_ui_stopped": true,
+    "test_port_closed": true
+  },
+  "existing_service_identity_checks": {
+    "count": 6,
+    "pids_and_command_hashes_unchanged": true
+  },
+  "official_backend_libraries_preserved": 203,
+  "build_exit_code": 0,
+  "warnings": [
+    "Upstream JMX SSL access warning on Java17; JMX SSL not exercised",
+    "Node patch version differs from upstream engine declaration (18.18.2 vs 18.17.1)",
+    "Upstream Vite chunk-size/font-placeholder warnings; build completed"
+  ],
+  "not_verified": [
+    "Real browser end-to-end rendering",
+    "Live Kafka broker mutation or traffic",
+    "TLS/SASL/LDAP/OAuth integration",
+    "Connect/Schema Registry/KSQL service integration",
+    "Replacement of existing UI"
+  ],
+  "scope": "API guard verified without connecting to Kafka; no current UI deployment"
+}
